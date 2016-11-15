@@ -1,0 +1,61 @@
+@font-face{font-family:'icomoon';src:url('../Fonts/icomoon.eot');src:url('../Fonts/icomoon.eot#iefix') format('embedded-opentype'),
+url('../Fonts/icomoon.ttf') format('truetype'),
+url('../Fonts/icomoon.woff') format('woff'),
+url('../Fonts/icomoon.svg#icomoon') format('svg');font-weight:normal;font-style:normal;}
+[class^="icon-"], [class*=" icon-"]{font-family:'icomoon' !important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+/* Icons Section Styles
+--------------------------------------------- */
+.icon-xxl{font-size:64px !important}
+.icon-xl{font-size:52px !important}
+.icon-lg{font-size:36px !important}
+.icon-md{font-size:24px !important}
+.icon-sm{font-size:18px !important}
+.icon-xs{font-size:14px !important}
+.icon-mini{font-size:12px !important}
+.icon-xmini{font-size:10px !important}
+
+/*=========== */
+
+.icon-search-small:before{content:"\e900";}
+.icon-toll-free-small:before{content:"\e901";}
+.icon-arrow-next-medium:before{content:"\e902";}
+.icon-arrow-prev-medium:before{content:"\e903";}
+.icon-call-medium:before{content:"\e904";}
+.icon-cross-medium:before{content:"\e905";}
+.icon-decor-glyph:before{content:"\e906";}
+.icon-decor-glyph-medium:before{content:"\e907";}
+.icon-like-bg-medium:before{content:"\e908";}
+.icon-like-bg-medium2:before{content:"\e909";}
+.icon-mail-medium:before{content:"\e90a";}
+.icon-mobile-medium:before{content:"\e90b";}
+.icon-rate-us-medium:before{content:"\e90c";}
+.icon-rating-medium:before{content:"\e90d";}
+.icon-search-medium:before{content:"\e90e";}
+.icon-share-bg-medium:before{content:"\e90f";}
+.icon-share-bg-medium2:before{content:"\e910";}
+.icon-share-medium:before{content:"\e911";}
+.icon-start-planning-medium:before{content:"\e912";}
+.icon-visit-website-medium:before{content:"\e913";}
+.icon-beauty-large .path1:before{content:"\e914";color:rgb(179, 136, 85);}
+.icon-beauty-large .path2:before{content:"\e915";margin-left:-1em;color:rgb(255, 255, 255);}
+.icon-beauty-large .path3:before{content:"\e916";margin-left:-1em;color:rgb(255, 255, 255);}
+.icon-beauty-large .path4:before{content:"\e917";margin-left:-1em;color:rgb(255, 255, 255);}
+.icon-culinary-large .path1:before{content:"\e918";color:rgb(255, 255, 255);}
+.icon-culinary-large .path2:before{content:"\e919";margin-left:-1em;color:rgb(179, 136, 85);}
+.icon-shaadi-large .path1:before{content:"\e91a";color:rgb(179, 136, 85);}
+.icon-shaadi-large .path2:before{content:"\e91b";margin-left:-1em;color:rgb(255, 255, 255);}
+.icon-airport-shuttle-xlarge:before{content:"\e91c";}
+.icon-banquet-halls-xlarge:before{content:"\e91d";}
+.icon-bar-xlarge:before{content:"\e91e";}
+.icon-call-service-xlarge:before{content:"\e91f";}
+.icon-contact-xlarge:before{content:"\e920";}
+.icon-decorators-xlarge:before{content:"\e921";}
+.icon-guest-rooms-xlarge:before{content:"\e922";}
+.icon-hand-shake-xlarge:before{content:"\e923";}
+.icon-hr-room-service-xlarge:before{content:"\e924";}
+.icon-laundry-xlarge:before{content:"\e925";}
+.icon-one-roof-xlarge:before{content:"\e926";}
+.icon-pool-xlarge:before{content:"\e927";}
+.icon-spa-xlarge:before{content:"\e928";}
+.icon-total-capacity-xlarge:before{content:"\e929";}

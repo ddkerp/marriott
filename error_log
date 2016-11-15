@@ -1,0 +1,4 @@
+[08-Sep-2016 05:11:25 America/Denver] PHP Warning:  require_once(components/_head.php): failed to open stream: No such file or directory in /home2/marriou2/public_html/404.php on line 1
+[08-Sep-2016 05:11:25 America/Denver] PHP Fatal error:  require_once(): Failed opening required 'components/_head.php' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home2/marriou2/public_html/404.php on line 1
+[08-Sep-2016 05:39:42 America/Denver] PHP Warning:  require_once(components/_head.php): failed to open stream: No such file or directory in /home2/marriou2/public_html/404.php on line 1
+[08-Sep-2016 05:39:42 America/Denver] PHP Fatal error:  require_once(): Failed opening required 'components/_head.php' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home2/marriou2/public_html/404.php on line 1
