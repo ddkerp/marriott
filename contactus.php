@@ -1,3 +1,12 @@
+<?php
+require_once("includes.php");
+$db = Database::getDatabase();
+$rows = $db->getRows("SELECT * FROM venue");
+$venue_sel_opt="";
+foreach($rows as $row){
+	$venue_sel_opt = $venue_sel_opt."<option value='".$row['id']."'>".$row['name']."</option>\n";
+}		
+?>
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name='description' content='Marriott - the one-stop solution for dream destination weddings. Weddings at Marriott mean exotic wedding venues and tastefully decorated wedding halls. Top wedding destinations in India with best in class banquet halls for your marriage.'><meta name='keywords' content='Destination Wedding, Wedding Destinations, Marriage Halls, Wedding Venues, Banquet Halls, Wedding Hall, Best Wedding Destinations in India, Top Wedding Destinations, Dream Wedding Destinations'><title>Best Weddings in India | Dream Wedding Destination Venues, Marriage Halls at Marriott, India</title><link href="Images/favicon.png" rel="shortcut icon"><link href="CSS/style.css" rel="stylesheet" type="text/css" /><script src="Scripts/modernizr.custom.js"></script><script>(function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),m = s.getElementsByTagName(o)[0];a.async = 1; a.src = g;m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');ga('create', 'UA-53601335-1', 'auto');ga('send', 'pageview');</script>
 </head>
 
@@ -43,43 +52,14 @@
        <p class="text-center revealOnScroll slow delay-500" data-animation="fadeInUpShort"> <i class="icon-decor-glyph-medium liac icon-lg"></i></p>
      </div>
     <div class="clearfix"></div>
-    <form  name="contactus" id="registrationForm">
+    <form  name="contactus" id="registrationForm" method="POST" action="thankyou.php">
        <div class="row margin-B10 revealOnScroll slow delay-750" data-animation="fadeInUpShort">
         <div class="col-sm-9">
            <div class="row  margin-B10">
             <div class="col-sm-6 col-xs-12">
                <select class="input-xlarge" id="venue" name="venue">
                 <option value="">Venue</option>
-                <option value="JW Marriott Pune">JW Marriott Pune</option>
-                <option value="Kochi Marriott Hotel">Kochi Marriott Hotel</option>
-                <option value="Courtyard Ahmedabad">Courtyard Ahmedabad</option>
-                <option value="JW Marriott Mumbai Sahar">JW Marriott Mumbai Sahar</option>
-                <option value="Renaissance Mumbai Convention Centre Hotel">Renaissance Mumbai Convention Centre Hotel</option>
-                <option value="Goa Marriott Resort &amp; Spa">Goa Marriott Resort &amp; Spa</option>
-                <option value="Courtyard Marriott Bhopal">Courtyard Marriott Bhopal</option>
-                <option value="Courtyard Agra">Courtyard Agra</option>
-                <option value="JW Marriott Mumbai Juhu">JW Marriott Mumbai Juhu</option>
-                <option value="Courtyard Chennai">Courtyard Chennai</option>
-                <option value="Marriott Suites Pune">Marriott Suites Pune</option>
-                <option value="Jaipur Marriott Hotel">Jaipur Marriott Hotel</option>
-                <option value="JW Marriott New Delhi Aerocity">JW Marriott New Delhi Aerocity</option>
-                <option value="JW Marriott Chandigarh">JW Marriott Chandigarh</option>
-                <option value="Courtyard Raipur">Courtyard Raipur</option>
-                <option value="Courtyard Bilaspur">Courtyard Bilaspur</option>
-                <option value="Courtyard Hinjewadi">Courtyard Hinjewadi</option>
-                <option value="JW Marriott Mussoorie Walnut Grove Resort &amp; Spa">JW Marriott Mussoorie Walnut Grove Resort &amp; Spa</option>
-                <option value="Bengaluru Marriott Hotel Whitefield">Bengaluru Marriott Hotel Whitefield</option>
-                <option value="Courtyard Gurgaon">Courtyard Gurgaon</option>
-                <option value="Fairfield by Marriott Bengaluru Rajajinagar">Fairfield by Marriott Bengaluru Rajajinagar</option>
-                <option value="Courtyard Kochi Airport">Courtyard Kochi Airport</option>
-                <option value="Courtyard Mumbai International Airport">Courtyard Mumbai International Airport</option>
-                <option value="Courtyard Bengaluru Outer Ring Road">Courtyard Bengaluru Outer Ring Road</option>
-                <option value="Fairfield Bengaluru Outer Ring Road">Fairfield Bengaluru Outer Ring Road</option>
-                <option value="JW Marriott Bengaluru">JW Marriott Bengaluru</option>
-                <option value="Courtyard Pune Chakan">Courtyard Pune Chakan</option>
-                <option value="Hyderabad Marriott Hotel & Convention Centre">Hyderabad Marriott Hotel & Convention Centre</option>
-                <option value="Courtyard Hyderabad">Courtyard Hyderabad</option>
-                <option value="Renaissance Lucknow">Renaissance Lucknow</option>
+                <?php echo $venue_sel_opt;?>
               </select>
              </div>
             <div class="col-sm-6 col-xs-12">
@@ -271,7 +251,7 @@ $(document).ready(function() {
             }
         }
     }).on('success.form.fv', function(e) {
-		 e.preventDefault();		  
+		 //e.preventDefault();		  
 		  var mob = $("#tel").val() + '' +  $("#phone").val();		 	
 		 	var formData = {
 			'first_name' 			: $('input[name=f_name]').val(),
@@ -289,12 +269,12 @@ $(document).ready(function() {
 		})	// using the done promise callback
 			.done(function(data) {
 				console.log(data); 
-				 window.location = "thankyou.html";
+				 $('#registrationForm').submit();
 			})
 			// using the fail promise callback
 			.fail(function(data) {
 				console.log(data);
-				 window.location = "thankyou.html";
+				 window.location = "thankyou.php";
 			});
 	});	
 	 jQuery('#resetButton').on('click', function(e) {

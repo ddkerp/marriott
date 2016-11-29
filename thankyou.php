@@ -1,3 +1,43 @@
+<?php
+require_once("includes.php");
+//printr($_REQUEST);exit;
+$cu_params = array();
+$cu_params['venue_id'] = ISSET($_REQUEST['venue'])?$_REQUEST['venue']:null;
+$cu_params['f_name'] = ISSET($_REQUEST['f_name'])?$_REQUEST['f_name']:null;
+$cu_params['isd_code'] = ISSET($_REQUEST['tel'])?$_REQUEST['tel']:null;
+$cu_params['mobile'] = ISSET($_REQUEST['phone'])?$_REQUEST['phone']:null;
+$cu_params['email'] = ISSET($_REQUEST['email'])?$_REQUEST['email']:null;
+$cu_params['comment'] = ISSET($_REQUEST['textmsg'])?$_REQUEST['textmsg']:null;
+$cu_params['privacy_flag'] = ISSET($_REQUEST['checkbox-2'])?true:false;
+$cu_params['newsletter_flag'] = ISSET($_REQUEST['checkbox-3'])?true:false;
+$db = Database::getDatabase();
+$cu_mandatory = array("venue_id","f_name","isd_code","mobile","email","comment");
+$err_mandatory = array();
+$sql_name = array();
+$sql_value = array();
+//printr($cu_params);
+foreach ($cu_params as $key=>$value){
+	if(in_array($key,$cu_mandatory) && (is_null($value) || $value=="")){
+		$err_mandatory[] = $key;
+	}
+	$sql_name[] = $key;
+	$sql_value[] = ":".$key.":";
+	$sql_params[$key] = $value;
+}
+
+$sql_name = implode(",",$sql_name);
+$sql_value = implode(",",$sql_value);
+if(count($err_mandatory)>0){
+	foreach($err_mandatory as $label){
+		echo $label." is a mandatory field";
+	}exit;
+}
+//printr($err_mandatory);exit;
+//echo "INSERT INTO contactus ($sql_name) VALUES ($sql_value)";exit;
+
+$row = $db->query("INSERT INTO contactus (venue_id,f_name,isd_code,mobile,email,comment,privacy_flag,newsletter_flag) VALUES (:venue_id:,:f_name:,:isd_code:,:mobile:,:email:,:comment:,:privacy_flag:,:newsletter_flag:)", $sql_params);
+
+?>
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name='description' content='Marriott - the one-stop solution for dream destination weddings. Weddings at Marriott mean exotic wedding venues and tastefully decorated wedding halls. Top wedding destinations in India with best in class banquet halls for your marriage.'><meta name='keywords' content='Destination Wedding, Wedding Destinations, Marriage Halls, Wedding Venues, Banquet Halls, Wedding Hall, Best Wedding Destinations in India, Top Wedding Destinations, Dream Wedding Destinations'><title>Best Weddings in India | Dream Wedding Destination Venues, Marriage Halls at Marriott, India</title><link href="Images/favicon.png" rel="shortcut icon"><link href="CSS/style.css" rel="stylesheet" type="text/css" /><script src="Scripts/modernizr.custom.js"></script><script>(function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),m = s.getElementsByTagName(o)[0];a.async = 1; a.src = g;m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');ga('create', 'UA-53601335-1', 'auto');ga('send', 'pageview');</script>
 </head>
 
