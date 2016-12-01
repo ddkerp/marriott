@@ -5,8 +5,8 @@ $id = ISSET($_REQUEST["id"])?$_REQUEST["id"]:null;
 if($id == null || !is_numeric($id)){
 	echo "invalid request";exit;
 }
-$row = $db->getRow("SELECT * FROM venue WHERE id = " . $db->quote($id));
-printr($row);exit;
+$row = $db->getRow("SELECT * FROM venue WHERE status=1 AND id = " . $db->quote($id));
+//printr($row);exit;
 
 ?>
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name='description' content='Marriott - the one-stop solution for dream destination weddings. Weddings at Marriott mean exotic wedding venues and tastefully decorated wedding halls. Top wedding destinations in India with best in class banquet halls for your marriage.'><meta name='keywords' content='Destination Wedding, Wedding Destinations, Marriage Halls, Wedding Venues, Banquet Halls, Wedding Hall, Best Wedding Destinations in India, Top Wedding Destinations, Dream Wedding Destinations'><title>Best Weddings in India | Dream Wedding Destination Venues, Marriage Halls at Marriott, India</title><link href="Images/favicon.png" rel="shortcut icon"><link href="CSS/style.css" rel="stylesheet" type="text/css" /><script src="Scripts/modernizr.custom.js"></script><script>(function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),m = s.getElementsByTagName(o)[0];a.async = 1; a.src = g;m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');ga('create', 'UA-53601335-1', 'auto');ga('send', 'pageview');</script>
@@ -22,7 +22,7 @@ printr($row);exit;
         
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active"> <img src="Images/Courtyard_Ahmedabad/Banner/Events-Alishan.jpg" alt="Courtyard Ahmedabad">
+          <div class="item active"> <img src="Images/Courtyard_Ahmedabad/Banner/Events-Alishan.jpg" alt="<?php echo $row['name'];?>">
             <div class="carousel-caption">
               <div class="pull-right col-sm-6 col-sm-12 text-right"> <a href="Javascript:;"><i class="icon-rating-medium icon-md"></i><span class="">4.5</span></a><a href="Javascript:;"> <i class="icon-share-medium icon-md bgliac"></i></a><a href="Javascript:;"> <i class="icon-start-planning-medium icon-md bgliac"></i></a><a href="http://www.marriott.com/hotels/travel/amdcy-courtyard-ahmedabad/" target="_blank"> <i class="icon-visit-website-medium icon-md bgliac"></i> </a></div>
             </div>
@@ -55,26 +55,26 @@ printr($row);exit;
   <div class="container">
     <div class="row margin-T50">
       <div class="col-md-7 col-xs-12">
-        <h3 class="text-center margin-B30">Courtyard Ahmedabad</h3>
-        <p class="text-center line-height-md">Short of paradise itself, Courtyard by Marriott Ahmedabad is a beautifully designed property to craft a traditional wedding. The property hosts banquet spaces which spread both inside and outside leaving guests no shot of choices for a well curated event. The property boats of 164 contemporary suites and rooms offering a range of thoughtful amenities. Award winning restaurants spoil guests for the choice of cuisine ranging from Local to International, along with specially prepared Jain menus. </p>
+        <h3 class="text-center margin-B30"><?php echo $row['name'];?></h3>
+        <p class="text-center line-height-md"><?php echo $row['description'];?></p>
         <div class="clearfix"></div>
         <div class="row margin-T30 margin-B30 hotel_details">
           <div class="col-sm-4 col-xs-6 borderright1px">
             <div class="text-center">
               <p><i class="icon-total-capacity-xlarge icon-xl gainsboro"></i></p>
-              <p class="facts">Largest Hall Capacity<br /><span> 600</span></p>
+              <p class="facts">Largest Hall Capacity<br /><span> <?php echo $row['largest_hall_capacity'];?></span></p>
             </div>
           </div>
           <div class="col-sm-4 col-xs-6 borderright1px">
             <div class="text-center">
               <p><i class="icon-banquet-halls-xlarge icon-xl gainsboro"></i></p>
-              <p class="facts">Banquet Halls<br /><span>9 </span></p>
+              <p class="facts">Banquet Halls<br /><span><?php echo $row['banquet_halls'];?> </span></p>
             </div>
           </div>
           <div class="col-sm-4 col-xs-12">
             <div class="text-center">
               <p><i class="icon-guest-rooms-xlarge icon-xl gainsboro"></i></p>
-              <p class="facts"> Rooms<br /><span>164</span></p>
+              <p class="facts"> Rooms<br /><span><?php echo $row['rooms'];?></span></p>
             </div>
           </div>
         </div>
@@ -279,13 +279,13 @@ Settle in the comfort of our ergonomically designed rooms and suites with a rang
       <div class="col-sm-5 col-xs-12 contact pull-right">
         <div class="text-center margin-T100 margin-B150 bgGrey2 col-md-6">
           <div class="row contactborder">
-            <h4>Courtyard <br />
-              <span>Ahmedabad</span></h4>
-            <p class="padding-T10">Ramdev Nagar Cross Road, <br>
-              Satellite Road,<br />
-              Ahmedabad - 380015, <br>
-              India </p>
-            <p class="padding-T10"><span><i class="icon-toll-free-small liac icon-md"></i></span> +91-7966185000</p>
+            <h4><?php echo $row['name'];?> <br />
+              <span><?php echo $row['city'];?></span></h4>
+            <p class="padding-T10"><?php echo $row['address'];?> heritage road of the <br>
+              Road,<br />
+              <?php echo $row['city'];?> - <?php echo $row['pincode'];?>, <br>
+              <?php echo $row['country'];?> </p>
+            <p class="padding-T10"><span><i class="icon-toll-free-small liac icon-md"></i></span> +91-<?php echo $row['phone'];?></p>
           </div>
         </div>
       </div>
