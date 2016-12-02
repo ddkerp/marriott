@@ -7,7 +7,6 @@ if($id == null || !is_numeric($id)){
 }
 $row = $db->getRow("SELECT * FROM venue WHERE status=1 AND id = " . $db->quote($id));
 //printr($row);exit;
-
 ?>
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name='description' content='Marriott - the one-stop solution for dream destination weddings. Weddings at Marriott mean exotic wedding venues and tastefully decorated wedding halls. Top wedding destinations in India with best in class banquet halls for your marriage.'><meta name='keywords' content='Destination Wedding, Wedding Destinations, Marriage Halls, Wedding Venues, Banquet Halls, Wedding Hall, Best Wedding Destinations in India, Top Wedding Destinations, Dream Wedding Destinations'><title>Best Weddings in India | Dream Wedding Destination Venues, Marriage Halls at Marriott, India</title><link href="Images/favicon.png" rel="shortcut icon"><link href="CSS/style.css" rel="stylesheet" type="text/css" /><script src="Scripts/modernizr.custom.js"></script><script>(function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),m = s.getElementsByTagName(o)[0];a.async = 1; a.src = g;m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');ga('create', 'UA-53601335-1', 'auto');ga('send', 'pageview');</script>
 </head>
@@ -164,8 +163,8 @@ $row = $db->getRow("SELECT * FROM venue WHERE status=1 AND id = " . $db->quote($
             <ul class="amazingcarousel-list">
               <li class="amazingcarousel-item">
                 <div class="amazingcarousel-item-container">
-                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg" title="FaÃ§ade
-Located at the heart of Ahmedabad City Centre, only 30 minutes from Ahmedabad airport and Railway Station"  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg"  alt="FaÃ§ade
+                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg" title="Façade
+Located at the heart of Ahmedabad City Centre, only 30 minutes from Ahmedabad airport and Railway Station"  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg"  alt="Façade
 Located at the heart of Ahmedabad City Centre, only 30 minutes from Ahmedabad airport and Railway Station" /></a></div>
                 </div>
               </li>
@@ -281,8 +280,7 @@ Settle in the comfort of our ergonomically designed rooms and suites with a rang
           <div class="row contactborder">
             <h4><?php echo $row['name'];?> <br />
               <span><?php echo $row['city'];?></span></h4>
-            <p class="padding-T10"><?php echo $row['address'];?> heritage road of the <br>
-              Road,<br />
+            <p class="padding-T10"><?php echo $row['address'];?>,<br />
               <?php echo $row['city'];?> - <?php echo $row['pincode'];?>, <br>
               <?php echo $row['country'];?> </p>
             <p class="padding-T10"><span><i class="icon-toll-free-small liac icon-md"></i></span> +91-<?php echo $row['phone'];?></p>
