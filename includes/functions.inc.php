@@ -586,15 +586,22 @@
     }
 
     // Sends an HTML formatted email
-    function send_html_mail($to, $subject, $msg, $from, $plaintext = '')
+    function send_html_mail($to, $subject, $msg, $from, $plaintext = '',$cc='',$bcc='')
     {
-        if(!is_array($to)) $to = array($to);
+       // if(!is_array($to)) $to = array($to);
 
-        foreach($to as $address)
-        {
+        //foreach($to as $address)
+        //{
             $boundary = uniqid(rand(), true);
 
             $headers  = "From: $from\n";
+			if($cc!=""){
+				$headers .= "Cc: $cc\n";
+			}
+			
+			if($bcc!=""){
+				$headers .= "Bcc: $bcc\n";
+			}
             $headers .= "MIME-Version: 1.0\n";
             $headers .= "Content-Type: multipart/alternative; boundary = $boundary\n";
             $headers .= "This is a MIME encoded message.\n\n";
@@ -607,9 +614,10 @@
                         "Content-Transfer-Encoding: base64\n\n";
             $headers .= chunk_split(base64_encode($msg));
             $headers .= "--$boundary--\n" .
-
-            mail($address, $subject, '', $headers);
-        }
+			
+            $result = mail($to, $subject, '', $headers);
+			return $result;
+       // }
     }
 
     // Returns the lat, long of an address via Yahoo!'s geocoding service.

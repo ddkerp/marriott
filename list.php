@@ -1,5 +1,5 @@
 <?php
-require 'includes/master.inc.php';
+require_once("includes.php");
 $db  = Database::getDatabase();
 $rows = $db->getRows("SELECT * FROM venue v LEFT JOIN city_master c ON (v.city_id = c.id) WHERE v.status=1 ORDER by c.city_name ASC");
 $cities = $db->getRows("SELECT c.id,c.city_name FROM venue v JOIN city_master c ON (v.city_id = c.id) WHERE v.status=1");

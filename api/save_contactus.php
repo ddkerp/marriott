@@ -55,9 +55,13 @@ $from = $cu_params['email'];
 $from_name = $cu_params['f_name'];
 $body = file_get_contents('../contactus_mail_template.php');
 $body   = eval('return "' . addslashes($body) . '";');
-$to=array("ddkerp1@gmail.com");
-$subject="Contact";
-echo sendmail($from,$from_name,$to,$subject,$body);exit;
+$to=CONTACTUSTTO;
+$subject="Contact Us";
+//echo sendmail($from,$from_name,$to,$subject,$body);
+//$cc=CONTACTUSTCC;
+$bcc=CONTACTUSTBCC;
+echo send_html_mail($to, $subject, $body, $from, $plaintext = '',$cc="",$bcc);
+exit;
 
 
 

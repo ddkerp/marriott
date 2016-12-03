@@ -1,5 +1,5 @@
 <?php
-require 'includes/master.inc.php';
+require_once("includes.php");
 $db  = Database::getDatabase();
 $rows = $db->getRows("SELECT * FROM testimonials WHERE status=1 ORDER BY sort ASC");
 $i=1;
