@@ -92,7 +92,7 @@ foreach($rows as $row){
             <label for="checkbox-1" class="checkbox-custom-label">Terms of use</label>
             <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox" checked>
             <label for="checkbox-2" class="checkbox-custom-label"><a href="http://www.marriott.com/about/privacy.mi" target="_blank">Privacy statement</a></label>
-            <input id="checkbox-3" class="checkbox-custom" name="checkbox-3" type="checkbox" checked="checked">
+            <input id="checkbox-3" class="checkbox-custom" name="checkbox-3" type="checkbox" checked>
             <label for="checkbox-3" class="checkbox-custom-label">Subscribe to Newsletter</label>
           </p>
          </div>
@@ -251,7 +251,7 @@ $(document).ready(function() {
             }
         }
     }).on('success.form.fv', function(e) {
-		 e.preventDefault();		  
+		 //e.preventDefault();		  
 		  var mob = $("#tel").val() + '' +  $("#phone").val();		 	
 		 	var formData = {
 			'first_name' 			: $('input[name=f_name]').val(),
@@ -266,34 +266,15 @@ $(document).ready(function() {
 			url 		: 'https://resu.io/Subscription/Index/Y3VzdF8zN2NjMGJkOV85YjdjXzQxNWVfOWE1OV80NDQ5MjIzMjE0ZmU=/1', // the url where we want to POST
 			data 		: formData
 			
-		})
-		var formData = {
-			'venue' 			: $(this).find('input[name=venue]').val(),
-			'f_name' 		: $(this).find('input[name=f_name]').val(),
-			'tel' 		: $(this).find('input[name=tel]').val(),
-			'phone' 		: $(this).find('input[name=phone]').val(),
-			'email' 		: $(this).find('input[name=email]').val(),
-			'venue' 				: '<?php echo $row['id'];?>',
-			'textmsg' 		: $(this).find('textarea[name=textmsg]').val(),
-			'checkbox-2' 		: $("#checkbox-2").prop("checked"),
-			'checkbox-3' 		: $("#checkbox-3").prop("checked")
-			
-		};
-		$.ajax({
-			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-			url 		: 'api/save_contactus.php', // the url where we want to POST
-			data 		: formData
-			
-		})
-		// using the done promise callback
+		})	// using the done promise callback
 			.done(function(data) {
 				console.log(data); 
-				  window.location = "thankyou.html";
+				 $('#registrationForm').submit();
 			})
 			// using the fail promise callback
 			.fail(function(data) {
 				console.log(data);
-				 window.location = "thankyou.html";
+				 window.location = "thankyou.php";
 			});
 	});	
 	 jQuery('#resetButton').on('click', function(e) {
@@ -335,26 +316,7 @@ $(document).ready(function() {
 			}
     }).on('success.form.fv', function(e) {
 		 e.preventDefault();
-		 
-		 var formData = {
-			'email' 		: $(this).find('input[name=email]').val()
-		};
-		$.ajax({
-			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-			url 		: 'api/save_newsletter.php', // the url where we want to POST
-			data 		: formData
-			
-		})
-		// using the done promise callback
-			.done(function(data) {
-				console.log(data); 
-				  window.location = "thankyou_subscription.html";
-			})
-			// using the fail promise callback
-			.fail(function(data) {
-				console.log(data);
-				 window.location = "thankyou_subscription.html";
-			});
+		  window.location = "thankyou_subscription.html";
 
 	});
 });

@@ -8,3 +8,11 @@
             parent::__construct('users', array('nid', 'username', 'password', 'level'), $id);
         }
     }
+	
+	class Newsletter extends DBObject
+    {
+        public function __construct($id = null)
+        {
+            parent::__construct('newsletter', array('email'), $id);
+        }
+    }

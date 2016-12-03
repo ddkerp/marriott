@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `enquiry`
 --
 
-CREATE TABLE IF NOT EXISTS `enquiry` (
+CREATE TABLE IF NOT EXISTS `enquiry_master` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `venue_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `enquiry` (
 -- Table structure for table `images`
 --
 
-CREATE TABLE IF NOT EXISTS `images` (
+CREATE TABLE IF NOT EXISTS `venue_image` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `venue_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,

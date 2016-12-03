@@ -1,4 +1,5 @@
 <?PHP
+
 	function timezone_list()
 	{
 		$zones_array = array();
@@ -901,3 +902,31 @@
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         return isset($mime_types[$ext]) ? $mime_types[$ext] : $default;
     }
+	function sendmail($from,$from_name,$to=array(),$subject,$body,$cc=array(),$bcc=array()){
+		require_once('../library/phpmailer/class.phpmailer.php');
+		$mail = new PHPMailer();  
+		$mail->IsSMTP();
+		$mail->SMTPDebug = 1;
+		$mail->SMTPAuth = true;
+		$mail->AddReplyTo($from, $from_name);
+		$mail->From       = $from;
+		$mail->FromName   = $from_name;
+		$mail->SetFrom($from, $from_name, 1);
+		foreach($to as $tomail){
+			$mail->AddAddress($tomail);
+		}
+		foreach($cc as $tomail){
+			$mail->AddCC($tomail);
+		}
+		foreach($bcc as $tomail){
+			$mail->AddBCC($tomail);
+		}
+		$mail->Subject  = $subject;
+		$body   = eval('return "' . addslashes($body) . '";');
+		$mail->MsgHTML($body);
+		if(!$mail->Send())
+		{
+		  return "Message sending failed! Please try after sometime.";
+
+		}else{ return "mail sent";}
+	}
