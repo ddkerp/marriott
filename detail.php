@@ -6,6 +6,9 @@ if($id == null || !is_numeric($id)){
 	echo "invalid request";exit;
 }
 $row = $db->getRow("SELECT * FROM venue WHERE status=1 AND id = " . $db->quote($id));
+$images = $db->getRows("SELECT * FROM venue_image WHERE status=1 AND venue_id = " . $db->quote($id) ."");//printr($images);exit;
+		  
+
 //printr($row);exit;
 ?>
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name='description' content='Marriott - the one-stop solution for dream destination weddings. Weddings at Marriott mean exotic wedding venues and tastefully decorated wedding halls. Top wedding destinations in India with best in class banquet halls for your marriage.'><meta name='keywords' content='Destination Wedding, Wedding Destinations, Marriage Halls, Wedding Venues, Banquet Halls, Wedding Hall, Best Wedding Destinations in India, Top Wedding Destinations, Dream Wedding Destinations'><title>Best Weddings in India | Dream Wedding Destination Venues, Marriage Halls at Marriott, India</title><link href="Images/favicon.png" rel="shortcut icon"><link href="CSS/style.css" rel="stylesheet" type="text/css" /><script src="Scripts/modernizr.custom.js"></script><script>(function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),m = s.getElementsByTagName(o)[0];a.async = 1; a.src = g;m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');ga('create', 'UA-53601335-1', 'auto');ga('send', 'pageview');</script>
@@ -21,9 +24,9 @@ $row = $db->getRow("SELECT * FROM venue WHERE status=1 AND id = " . $db->quote($
         
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active"> <img src="Images/Courtyard_Ahmedabad/Banner/Events-Alishan.jpg" alt="<?php echo $row['name'];?>">
+          <div class="item active"> <img src="Images/<?php echo $row['banner_image'];?>" alt="<?php echo $row['name'];?>">
             <div class="carousel-caption">
-              <div class="pull-right col-sm-6 col-sm-12 text-right"> <a href="Javascript:;"><i class="icon-rating-medium icon-md"></i><span class="">4.5</span></a><a href="Javascript:;"> <i class="icon-share-medium icon-md bgliac"></i></a><a href="Javascript:;"> <i class="icon-start-planning-medium icon-md bgliac"></i></a><a href="http://www.marriott.com/hotels/travel/amdcy-courtyard-ahmedabad/" target="_blank"> <i class="icon-visit-website-medium icon-md bgliac"></i> </a></div>
+              <div class="pull-right col-sm-6 col-sm-12 text-right"> <a href="Javascript:;"><i class="icon-rating-medium icon-md"></i><span class=""><?php echo $row['overall_rating'];?></span></a><a href="Javascript:;"> <i class="icon-share-medium icon-md bgliac"></i></a><a href="Javascript:;"> <i class="icon-start-planning-medium icon-md bgliac"></i></a><a href="<?php echo $row['vanity_url'];?>" target="_blank"> <i class="icon-visit-website-medium icon-md bgliac"></i> </a></div>
             </div>
           </div>
         </div>
@@ -161,45 +164,16 @@ $row = $db->getRow("SELECT * FROM venue WHERE status=1 AND id = " . $db->quote($
         <div id="amazingcarousel-1" style="display:none;position:relative;width:100%;max-width:1200px;margin:0px auto 0px;">
           <div class="amazingcarousel-list-container">
             <ul class="amazingcarousel-list">
-              <li class="amazingcarousel-item">
-                <div class="amazingcarousel-item-container">
-                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg" title="Façade
-Located at the heart of Ahmedabad City Centre, only 30 minutes from Ahmedabad airport and Railway Station"  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/CY-Ahmedabad-Facade.jpg"  alt="Façade
-Located at the heart of Ahmedabad City Centre, only 30 minutes from Ahmedabad airport and Railway Station" /></a></div>
-                </div>
-              </li>
-              <li class="amazingcarousel-item">
-                <div class="amazingcarousel-item-container">
-                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/Events--Alishan.jpg" title="Events
-Alishan, our exclusively designed ballroom for intimate weddings with an enormous pre-function area."  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/Events--Alishan.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/Events--Alishan.jpg"  alt="Events
-Alishan, our exclusively designed ballroom for intimate weddings with an enormous pre-function area." /></a></div>
-                </div>
-              </li>
-              <li class="amazingcarousel-item">
-                <div class="amazingcarousel-item-container">
-                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/Facilities--b&w.jpg" title="Our on-site retail liquor store boasts of 300+ labels of domestic and International spirits."  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/Facilities--b&w.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/Facilities--b&w.jpg"  alt="Facilities
-1. b&w: Our on-site retail liquor store boasts of 300+ labels of domestic and International spirits." /></a></div>
-                </div>
-              </li>
-              <li class="amazingcarousel-item">
-                <div class="amazingcarousel-item-container">
-                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/Facilities--Fitness-Centre.jpg" title="Fitness Centre: Stay fit and energized through the day with our 24X7 health club"  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/Facilities--Fitness-Centre.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/Facilities--Fitness-Centre.jpg"  alt="Facilities 2. Fitness Centre: Stay fit and energized through the day with our 24X7 health club" /></a></div>
-                </div>
-              </li>
-              <li class="amazingcarousel-item">
-                <div class="amazingcarousel-item-container">
-                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/Food--Bayleaf.jpg" title="Food
-Get spoilt for choice of sumptuous delicacies with MoMo Cafe, Bayleaf and Java+."  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/Food--Bayleaf.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/Food--Bayleaf.jpg"  alt="Food
-Get spoilt for choice of sumptuous delicacies with MoMo Cafe, Bayleaf and Java+." /></a></div>
-                </div>
-              </li>
-              <li class="amazingcarousel-item">
-                <div class="amazingcarousel-item-container">
-                  <div class="amazingcarousel-image"><a href="Images/Courtyard_Ahmedabad/Gallery Images/Room--Executive-Suite.jpg" title="Room
-Settle in the comfort of our ergonomically designed rooms and suites with a range of amenities."  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/Courtyard_Ahmedabad/Gallery Images/Room--Executive-Suite.jpg" ><img src="Images/Courtyard_Ahmedabad/Gallery Images/Room--Executive-Suite.jpg"  alt="Room
-Settle in the comfort of our ergonomically designed rooms and suites with a range of amenities." /></a></div>
-                </div>
-              </li>
+				<?php
+				foreach($images as $image){
+					?>
+					 <li class="amazingcarousel-item">
+								<div class="amazingcarousel-item-container">
+								  <div class="amazingcarousel-image"><a href="Images/<?php echo $image['file_name']; ?>" title="<?php echo $image['title']; ?>"  class="html5lightbox" data-group="amazingcarousel-1" data-thumbnail="Images/<?php echo $image['file_name']; ?>" ><img src="Images/<?php echo $image['file_name']; ?>"  alt="<?php echo $image['title']; ?>" /></a></div>
+								</div>
+							  </li>
+				<?php
+				}	?>
             </ul>
             <div class="amazingcarousel-prev"></div>
             <div class="amazingcarousel-next"></div>
@@ -351,17 +325,31 @@ Settle in the comfort of our ergonomically designed rooms and suites with a rang
         }
     }).on('success.form.fv', function(e) {
 		 e.preventDefault();
- var hotelname = 'Courtyard Ahmedabad';
+ var hotelname = '<?php echo $row['name'];?>';
 		 	var formData = {
-			'first_name' 			: $('input[name=name]').val(),
-			'email_address' 		: $('input[name=email]').val(),
+			'first_name' 			: $(this).find('input[name=name]').val(),
+			'email_address' 		: $(this).find('input[name=email]').val(),
 			'HotelName' 			: hotelname,
-			'mobile_number' 		: $('input[name=mobile]').val()			
+			'mobile_number' 		: $(this).find('input[name=mobile]').val()			
 		};
 // process the form
 		$.ajax({
 			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
 			url 		: 'https://resu.io/Subscription/Index/Y3VzdF8zN2NjMGJkOV85YjdjXzQxNWVfOWE1OV80NDQ5MjIzMjE0ZmU=/1', // the url where we want to POST
+			data 		: formData
+			
+		})
+		var formData = {
+			'first_name' 			: $(this).find('input[name=name]').val(),
+			'email_address' 		: $(this).find('input[name=email]').val(),
+			'venueid' 				: '<?php echo $row['id'];?>',
+			'page' 					: '<?php echo $row['name'];?>',
+			'mobile_number' 		: $(this).find('input[name=mobile]').val()
+			
+		};
+		$.ajax({
+			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+			url 		: 'api/save_enquiry.php', // the url where we want to POST
 			data 		: formData
 			
 		})
@@ -423,18 +411,32 @@ Settle in the comfort of our ergonomically designed rooms and suites with a rang
         }
     }).on('success.form.fv', function(e) {
 		 e.preventDefault();
-		  var hotelname_review = 'Courtyard Ahmedabad';
+		  var hotelname_review = '<?php echo $row['name'];?>';
 		 	var formData = {
-			'first_name' 			: $('input[name=name]').val(),
-			'email_address' 		: $('input[name=email]').val(),
+			'first_name' 			: $(this).find('input[name=name]').val(),
+			'email_address' 		: $(this).find('input[name=email]').val(),
 			'HotelName' 			: hotelname_review,
-			'mobile_number' 		: $('input[name=mobile]').val()
+			'mobile_number' 		: $(this).find('input[name=mobile]').val()
 			
 		};
 // process the form
 		$.ajax({
 			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
 			url 		: 'https://resu.io/Subscription/Index/Y3VzdF8zN2NjMGJkOV85YjdjXzQxNWVfOWE1OV80NDQ5MjIzMjE0ZmU=/1', // the url where we want to POST
+			data 		: formData
+			
+		})
+		var formData = {
+			'first_name' 			: $(this).find('input[name=name]').val(),
+			'email_address' 		: $(this).find('input[name=email]').val(),
+			'venueid' 				: '<?php echo $row['id'];?>',
+			'reviewmessage' 		: $(this).find('textarea[name=reviewmessage]').val(),
+			'mobile_number' 		: $(this).find('input[name=mobile]').val()
+			
+		};
+		$.ajax({
+			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+			url 		: 'api/save_review.php', // the url where we want to POST
 			data 		: formData
 			
 		})
