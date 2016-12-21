@@ -6,10 +6,14 @@ if($id == null || !is_numeric($id)){
 	echo "invalid request";exit;
 }
 $row = $db->getRow("SELECT * FROM venue WHERE status=1 AND id = " . $db->quote($id));
-$images = $db->getRows("SELECT * FROM venue_image WHERE status=1 AND venue_id = " . $db->quote($id) ."");//printr($images);exit;
+$images = $db->getRows("SELECT * FROM venue_image WHERE status=1 AND venue_id = " . $db->quote($id) ."");
+
+$amenities = $db->getRows("SELECT a.* FROM venue_amenity va JOIN amenity a on(a.id=va.amenity_id) WHERE a.status=1 AND va.venue_id = " . $db->quote($id) ."");
+
+$reviews = $db->getRows("SELECT * FROM review WHERE status=1 AND venue_id = " . $db->quote($id) ."");
 		  
 
-//printr($row);exit;
+//printr($reviews);exit;
 ?>
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name='description' content='Marriott - the one-stop solution for dream destination weddings. Weddings at Marriott mean exotic wedding venues and tastefully decorated wedding halls. Top wedding destinations in India with best in class banquet halls for your marriage.'><meta name='keywords' content='Destination Wedding, Wedding Destinations, Marriage Halls, Wedding Venues, Banquet Halls, Wedding Hall, Best Wedding Destinations in India, Top Wedding Destinations, Dream Wedding Destinations'><title>Best Weddings in India | Dream Wedding Destination Venues, Marriage Halls at Marriott, India</title><link href="Images/favicon.png" rel="shortcut icon"><link href="CSS/style.css" rel="stylesheet" type="text/css" /><script src="Scripts/modernizr.custom.js"></script><script>(function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),m = s.getElementsByTagName(o)[0];a.async = 1; a.src = g;m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');ga('create', 'UA-53601335-1', 'auto');ga('send', 'pageview');</script>
 </head>
@@ -93,30 +97,21 @@ $images = $db->getRows("SELECT * FROM venue_image WHERE status=1 AND venue_id = 
           <div class=" bgGrey-lighter padding10 border1px border-medium">
             <h3 class="text-center gainsboro">Key Amenities</h3>
             <div class="row margin-T20">
-              <div class="col-sm-6 col-xs-6 text-center margin-TB10">
-                <p><i class="icon-spa-xlarge icon-xl palesky"></i></p>
-                <p class="title">Full-service Spa</p>
+			<?php 
+			$i=1;
+			foreach($amenities as $amenity){
+				$col = "col-sm-6 col-xs-6";
+				if($i == count($amenities) && $i%2!=0){
+					$col = "col-sm-12 col-xs-12";
+				}
+				$i++;
+					?>
+				<div class="<?php echo $col;?> text-center margin-TB10">
+                <p><i class="<?php echo $amenity['class'];?> icon-xl palesky"></i></p>
+                <p class="title"><?php echo $amenity['name'];?></p>
               </div>
-              <div class="col-sm-6 col-xs-6 text-center margin-TB10">
-                <p><i class="icon-pool-xlarge icon-xl palesky"></i></p>
-                <p class="title">Pool</p>
-              </div>
-              <div class="col-sm-6 col-xs-6 text-center margin-TB10">
-                <p><i class="icon-bar-xlarge icon-xl palesky"></i></p>
-                <p class="title">Bar</p>
-              </div>
-              <div class="col-sm-6 col-xs-6 text-center margin-TB10">
-                <p><i class="icon-laundry-xlarge icon-xl palesky"></i></p>
-                <p class="title">Laundry</p>
-              </div>
-              <div class="col-sm-6 col-xs-6 text-center margin-TB10 hide">
-                <p><i class=" icon-airport-shuttle-xlarge icon-xl palesky"></i></p>
-                <p class="title">Airport shuttle</p>
-              </div>
-              <div class="col-sm-12 col-xs-12 text-center margin-TB10">
-                <p><i class="icon-hr-room-service-xlarge icon-xl palesky"></i></p>
-                <p class="title">24-hour room service</p>
-              </div>
+			<?php }?>
+             
             </div>
           </div>
         </div>
@@ -195,24 +190,15 @@ $images = $db->getRows("SELECT * FROM venue_image WHERE status=1 AND venue_id = 
       <div class="col-sm-6 col-xs-12 margin-T30 col-sm-push-1">
         <h3>Reviews</h3>
         <div class="review_testimonials">
+		<?php foreach($reviews as $review){?>
           <div class="row margin-T30 testimonials">
             <div class="col-sm-2 col-xs-3"> <img src="Images/review1.png" class="img-rounded" alt="review" /> </div>
             <div class="col-sm-7 col-xs-9">
-              <p><span>Admire N, Harare, Zimbabwe</span>"This a very comfortable hotel with good ambience, its clean and beautiful. The bed comfort is very good, friendly and excellent staff from housekeeping to restaurants who are concerned about your welfare and comfort. Suitable for both business and holiday.access to wifi, fitness centre, spa and swimming pool." </p>
+              <p><span><?php echo $review['user_name'];?></span>"<?php echo $review['review_text'];?>" </p>
             </div>
-            <div class="col-sm-3 col-xs-12 review_rate"> <i class=" icon-rate-us-medium icon-md liac"></i> <span> 4.0</span> </div>
+            <div class="col-sm-3 col-xs-12 review_rate"> <i class=" icon-rate-us-medium icon-md liac"></i> <span> <?php echo $review['ratings'];?>.0</span> </div>
           </div>
-          <div class="row margin-T30 testimonials">
-            <div class="col-sm-2 col-xs-3"> <img src="Images/review2.png" class="img-rounded" alt="review" /> </div>
-            <div class="col-sm-7 col-xs-9">
-              <p><span> Tushar G, Pune, India</span>If it is Marriott I need not say anything the name says it all 
-                Excellent Business hotel with outstanding services and very courteous and professional staff 
-                Food is super delicious be it Momo's cafe, Java+ or bay leaf really relished all the meals 
-                b&w is again a place to see such niche collection of liquor from around the globe brands
-                Rooms are extremely comfortable with all the modern facilities. Hats off to the management for maintaining the property so well. </p>
-            </div>
-            <div class="col-sm-3 col-xs-12 review_rate"> <i class="icon-rate-us-medium icon-md liac"></i> <span> 5.0</span> </div>
-          </div>
+		<?php }?>
           <div class="clearfix"></div>
         </div>
         <div class=" text-right margin-T30 width-90per"> <a href="javascript:;" id="reviews_testimonials_more" title="Read more">Read more</a>
