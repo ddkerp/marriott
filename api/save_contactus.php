@@ -58,9 +58,13 @@ $body   = eval('return "' . addslashes($body) . '";');
 $to=CONTACTUSTTO;
 $subject="Contact Us";
 //echo sendmail($from,$from_name,$to,$subject,$body);
-//$cc=CONTACTUSTCC;
-$bcc=CONTACTUSTBCC;
-echo send_html_mail($to, $subject, $body, $from, $plaintext = '',$cc="",$bcc);
+if(defined('CONTACTUSTCC')){
+	$cc=CONTACTUSTCC;
+}
+if(defined('CONTACTUSTBCC')){
+	$bcc=CONTACTUSTBCC;
+}
+echo send_html_mail($to, $subject, $body, $from, $plaintext = '',$cc="",$bcc="");
 exit;
 
 
