@@ -207,15 +207,15 @@ left:0 !important;
                     </tr>
                     <tr>
                       <td width="40%"><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">Mobile</p></td>
-                      <td><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">{$isd_code}{$mobile}</p></td>
+                      <td><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">{$mobile}</p></td>
                     </tr>
                     <tr>
                       <td width="40%"><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">Email ID: </p></td>
                       <td><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">{$email}</p></td>
                     </tr>
                     <tr>
-                      <td width="40%"><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">Message</p></td>
-                      <td><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">{$comment}</p></td>
+                      <td width="40%"><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">From Page</p></td>
+                      <td><p style="font-family: arial;  font-size: 14px; line-height:22px; color: #fff; text-align:left;">{$from_page}</p></td>
                     </tr>
                   </tbody>
                 </table></td>

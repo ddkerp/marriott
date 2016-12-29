@@ -1,21 +1,22 @@
 <?php
 require_once("../includes.php");
-//printr($_REQUEST);exit;
-if(ISSET($_POST)){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//echo "<pre>";print_r($_POST);exit;
 	$cu_params = array();
-	$cu_params['venue_id'] = ISSET($_POST['venueid'])?$_POST['venueid']:null;
-	$cu_params['name'] = ISSET($_POST['first_name'])?$_POST['first_name']:null;
-	$cu_params['email'] = ISSET($_POST['email_address'])?$_POST['email_address']:null;
-	$cu_params['phone'] = ISSET($_POST['mobile_number'])?$_POST['mobile_number']:null;
-	$cu_params['from_page'] = ISSET($_POST['page'])?$_POST['page']:null;
+	$cu_params['venue_id'] = ISSET($_REQUEST['venueid'])?$_REQUEST['venueid']:null;
+	$cu_params['f_name'] = ISSET($_REQUEST['first_name'])?$_REQUEST['first_name']:null;
+	$cu_params['email'] = ISSET($_REQUEST['email_address'])?$_REQUEST['email_address']:null;
+	$cu_params['mobile'] = ISSET($_REQUEST['mobile_number'])?$_REQUEST['mobile_number']:null;
+	$cu_params['from_page'] = ISSET($_REQUEST['page'])?$_REQUEST['page']:null;
+	$cu_params['newsletter_flag'] = 0;
+	$cu_params['privacy_flag'] = 0;
 }else{
 	die("method not allowed");
 }
 $cu_params['ip_address'] = $_SERVER['REMOTE_ADDR'];
 
 $db = Database::getDatabase();
-$cu_mandatory = array("venue_id","name","email","phone");
+$cu_mandatory = array("venue_id","f_name","email","mobile");
 $err_mandatory = array();
 $sql_name = array();
 $sql_value = array();
@@ -35,7 +36,30 @@ if(count($err_mandatory)>0){
 	}exit;
 }
 
-$row = $db->query("INSERT INTO enquiry_master ($sql_name) VALUES ($sql_value)", $sql_params);
+$row = $db->query("INSERT INTO contactus ($sql_name) VALUES ($sql_value)", $sql_params);
+
+$venue_name = $db->getValue("SELECT name FROM venue where id = " . $db->quote($cu_params['venue_id']));
+$f_name = $cu_params['f_name'];
+$mobile = $cu_params['mobile'];
+$email = $cu_params['email'];
+$from = $cu_params['email'];
+$from_name = $cu_params['f_name'];
+$from_page = $cu_params['from_page'];
+$base_url=base_url();
+$body = file_get_contents('../enquiry_mail_template.php');
+$body   = eval('return "' . addslashes($body) . '";');
+$to=array(CONTACTUSTTO);
+$subject="Contact Us";
+if(defined('CONTACTUSTCC')){
+	$cc=array(CONTACTUSTCC);
+}
+if(defined('CONTACTUSTBCC')){
+	$bcc=array(CONTACTUSTBCC);
+}
+echo sendmail($from,$from_name,$to,$subject,$body,$cc,$bcc);
+exit;
+
+
 exit("saved!");
 
 ?>

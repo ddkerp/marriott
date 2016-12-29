@@ -256,7 +256,7 @@ $(document).ready(function() {
 		 	var formData = {
 			'first_name' 			: $('input[name=f_name]').val(),
 			'email_address' 		: $('input[name=email]').val(),
-			'HotelName' 			: $("#venue").val(),
+			'HotelName' 			: $("#venue option:selected").text(),
 			'mobile_number' 		: mob
 			
 		};
@@ -266,15 +266,14 @@ $(document).ready(function() {
 			url 		: 'https://resu.io/Subscription/Index/Y3VzdF8zN2NjMGJkOV85YjdjXzQxNWVfOWE1OV80NDQ5MjIzMjE0ZmU=/1', // the url where we want to POST
 			data 		: formData
 			
-		})
+		});
 		var formData = {
-			'venue' 			: $(this).find('input[name=venue]').val(),
-			'f_name' 		: $(this).find('input[name=f_name]').val(),
-			'tel' 		: $(this).find('input[name=tel]').val(),
-			'phone' 		: $(this).find('input[name=phone]').val(),
-			'email' 		: $(this).find('input[name=email]').val(),
-			'venue' 				: '<?php echo $row['id'];?>',
-			'textmsg' 		: $(this).find('textarea[name=textmsg]').val(),
+			'venue' 			: $("#registrationForm #venue").val(),
+			'f_name' 			: $("#registrationForm #f_name").val(),
+			'tel' 				: $("#registrationForm #tel").val(),
+			'phone' 			: $("#registrationForm #phone").val(),
+			'email' 			: $("#registrationForm #email").val(),
+			'textmsg' 			: $("#registrationForm #f_name").val(),
 			'checkbox-2' 		: $("#checkbox-2").prop("checked"),
 			'checkbox-3' 		: $("#checkbox-3").prop("checked")
 			

@@ -1,6 +1,6 @@
 <?php
 require_once("../includes.php");
-if(ISSET($_POST)){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	$cu_params = array();
 	$cu_params['venue_id'] = ISSET($_REQUEST['venue'])?$_REQUEST['venue']:null;
 	$cu_params['f_name'] = ISSET($_REQUEST['f_name'])?$_REQUEST['f_name']:null;
@@ -29,7 +29,7 @@ foreach ($cu_params as $key=>$value){
 	$sql_params[$key] = $value;
 }
 if(!valid_email($cu_params['email'])){
-	die("Invalid Email");
+	die("Invalid Email -> ".$cu_params['email']);
 }
 
 $sql_name = implode(",",$sql_name);
@@ -41,11 +41,23 @@ if(count($err_mandatory)>0){
 }
 
 $row = $db->query("INSERT INTO contactus ($sql_name) VALUES ($sql_value)", $sql_params);
+if($row){
+	echo "Query saved!\n";
+}else{
+	echo "Query not saved!\n";
+}
+
 $n = new Newsletter();
 $n->email = $cu_params['email'];
-$n->insert();
-echo "Saved!";
+if($n->insert()){
+	echo "Newsletter saved!\n";
+}else{
+	echo "Newsletter not saved!\n";
+}
 
+
+
+$venue_name = $db->getValue("SELECT name FROM venue where id = " . $db->quote($cu_params['venue_id']));
 $f_name = $cu_params['f_name'];
 $isd_code = $cu_params['isd_code'];
 $mobile = $cu_params['mobile'];
@@ -53,18 +65,23 @@ $email = $cu_params['email'];
 $comment = $cu_params['comment'];
 $from = $cu_params['email'];
 $from_name = $cu_params['f_name'];
+$base_url=base_url();
 $body = file_get_contents('../contactus_mail_template.php');
 $body   = eval('return "' . addslashes($body) . '";');
-$to=CONTACTUSTTO;
+$to=array(CONTACTUSTTO);
+//$to=array("ddkerp1@gmail.com");
+//echo "<pre>";print_r($to);exit;
 $subject="Contact Us";
 //echo sendmail($from,$from_name,$to,$subject,$body);
+//echo sendmail($from,$from_name,$to=array(),$subject,$body,$cc=array(),$bcc=array());
+
 if(defined('CONTACTUSTCC')){
-	$cc=CONTACTUSTCC;
+	$cc=array(CONTACTUSTCC);
 }
 if(defined('CONTACTUSTBCC')){
-	$bcc=CONTACTUSTBCC;
+	$bcc=array(CONTACTUSTBCC);
 }
-echo send_html_mail($to, $subject, $body, $from, $plaintext = '',$cc="",$bcc="");
+echo sendmail($from,$from_name,$to,$subject,$body,$cc,$bcc);
 exit;
 
 
