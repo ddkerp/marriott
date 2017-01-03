@@ -1,0 +1,248 @@
+.thanks-msg-container{position:fixed;z-index:10000;top:0px;right:0px;left:0px;height:100%;display:block;background:#000000;opacity:0.8;}
+.thanks-msg-container .thanks-msg{position:relative;z-index:10000;top:50%;width:500px;font-family:arial;text-align:center;margin:0 auto;border:#ccc solid 1px;background-color:#FFFFFF;border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px;-o-border-radius:8px;box-shadow:5px 5px 30px 0 #000000;color:#000000;font-size:14px;opacity:0.9;font-weight:bold;padding:30px 15px;}
+/*.error { color:#fff }*/
+.enquiry .error {color:#f00;}
+#results {color:#f00 }
+.enqerror { color: #d00041; text-align:center; }
+.popup-message, .popup-message1, .popup-message2,.popup-message3{width:100%; height:64px; line-height:64px; position:absolute; top:0px; display:none; background:#910b2c;font-family: 'RotisSemiSerifStdRegular'; font-size:30px; color:#fff; text-align:center; z-index:99999;}
+.popup-album p{ font-family: 'OpenSansRegular'; font-size:14px; color:#fff;}
+.album-list.scrollbars {padding:15px 0;border-top:#ccc solid 1px; border-bottom:#ccc solid 1px; }
+.upload-scroll{height:204px;}
+.enqloadingclass { z-index: 2000; background:url("../images/enquiryloading.gif") no-repeat 6px center; width:100%; -webkit-border-radius: 10px; -moz-border-radius: 10px; margin: 0 auto; text-align:center; }
+/* Added style by AJOYDHAS for Planner Theme Page */
+.planner-group .gallery-list .list-block figure:before, .planner-group .gallery-list.theme-list-block .list-block figure:before{background:rgba(0,0,0,0.0); -moz-transition:all 0.4s ease 0s; -webkit-transition:all 0.4s ease 0s; -ms-transition:all 0.4s ease 0s; transition:all 0.4s ease 0s;}
+.planner-group .gallery-list .list-block:hover figure:before, .planner-group .gallery-list.theme-list-block .list-block.selected figure:before {background:rgba(0,0,0,0.7); -moz-transition:all 0.4s ease 0s; -webkit-transition:all 0.4s ease 0s; -ms-transition:all 0.4s ease 0s; transition:all 0.4s ease 0s;}
+
+.planner-group .gallery-list .list-block figure:after, .planner-group .gallery-list.theme-list-block .list-block figure:after {background:url('../images/heart-select.png') no-repeat center 40%; background-size:0px 0px; -moz-transition:all 0.4s ease 0s; -webkit-transition:all 0.4s ease 0s; -ms-transition:all 0.4s ease 0s; transition:all 0.4s ease 0s;}
+.planner-group .gallery-list .list-block:hover figure:after, .planner-group .gallery-list.theme-list-block .list-block.selected figure:after { background-size:40px 40px; -moz-transition:all 0.4s ease 0s; -webkit-transition:all 0.4s ease 0s; -ms-transition:all 0.4s ease 0s; transition:all 0.4s ease 0s;}
+	
+/* Added style by AJOYDHAS for Planner Cuisine Page */
+ .planner-group .gallery-list.cuisine-list-block .list-block figure:before{-moz-transition:all 0.7s ease 0s; -webkit-transition:all 0.7s ease 0s; -ms-transition:all 0.7s ease 0s; transition:all 0.7s ease 0s;}
+.planner-group .gallery-list.cuisine-list-block .list-block.selected figure:before {background:rgba(0,0,0,0.7); -moz-transition:all 0.7s ease 0s; -webkit-transition:all 0.7s ease 0s; -ms-transition:all 0.7s ease 0s; transition:all 0.7s ease 0s;}
+
+.planner-group .gallery-list.cuisine-list-block .list-block figure:after {background:url('../images/heart-select.png') no-repeat center 40%; background-size:0px 0px; -moz-transition:all 0.7s ease 0s; -webkit-transition:all 0.7s ease 0s; -ms-transition:all 0.7s ease 0s; transition:all 0.7s ease 0s;}
+.planner-group .gallery-list .list-block:hover figure:after, .planner-group .gallery-list.cuisine-list-block .list-block.selected figure:after { background-size:40px 40px; -moz-transition:all 0.7s ease 0s; -webkit-transition:all 0.7s ease 0s; -ms-transition:all 0.7s ease 0s; transition:all 0.7s ease 0s;}
+
+#formoverlay {position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:98; background:url('../images/bg-popup.png') repeat 0 0;}
+#formoverlay.overflow-auto {overflow-y:auto;overflow-x:inherit;}
+#formoverlay.overflow-auto .popup-form {position:relative; margin-top:40px;}
+
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	
+.planner-group .gallery-list .list-block figure:before, .planner-group .gallery-list.theme-list-block .list-block figure:before{background:rgba(0,0,0,0.0);transform:scale(1.02) !important;  -moz-transform:scale(1.02) !important;  -webkit-transform:scale(1.02) !important;  -ms-transform:scale(1.02) !important;  -moz-transition:all 0.7s ease 0s; -webkit-transition:all 0.7s ease 0s; -ms-transition:all 0.7s ease 0s; transition:all 0.7s ease 0s;}
+.planner-group .gallery-list .list-block:hover figure:before, .planner-group .gallery-list.theme-list-block .list-block.selected figure:before {background:rgba(0,0,0,0.7);transform:scale(1.1) !important;  -moz-transform:scale(1.1) !important;  -webkit-transform:scale(1.1) !important;  -ms-transform:scale(1.1) !important; -moz-transition:all 0.7s ease 0s; -webkit-transition:all 0.7s ease 0s; -ms-transition:all 0.7s ease 0s; transition:all 0.7s ease 0s;}
+
+.planner-group .gallery-list .list-block figure:after, .planner-group .gallery-list.theme-list-block .list-block figure:after {background:url('../images/heart-select.png') no-repeat center 40%; background-size:0px 0px;transform:scale(1.02) !important;  -moz-transform:scale(1.02) !important;  -webkit-transform:scale(1.02) !important;  -ms-transform:scale(1.02) !important;  -moz-transition:all 0.7s ease 0s !important; -webkit-transition:all 0.7s ease 0s !important; -ms-transition:all 0.7s ease 0s !important; transition:all 0.7s ease 0s !important;}
+.planner-group .gallery-list .list-block:hover figure:after, .planner-group .gallery-list.theme-list-block .list-block.selected figure:after { background-size:40px 40px; transform:scale(1.1) !important;  -moz-transform:scale(1.1) !important;  -webkit-transform:scale(1.1) !important;  -ms-transform:scale(1.1) !important;-moz-transition:all 0.7s ease 0s !important; -webkit-transition:all 0.7s ease 0s !important; -ms-transition:all 0.7s ease 0s !important; transition:all 0.7s ease 0s !important;}
+
+/* Added style by AJOYDHAS for Planner Cuisine Page */
+.planner-group .gallery-list .list-block figure:before, .planner-group .gallery-list.cuisine-list-block .list-block figure:before{background:rgba(0,0,0,0.0);transform:scale(1.02) !important;  -moz-transform:scale(1.02) !important;  -webkit-transform:scale(1.02) !important;  -ms-transform:scale(1.02) !important;  -moz-transition:all 0.7s ease 0s !important; -webkit-transition:all 0.7s ease 0s !important; -ms-transition:all 0.7s ease 0s !important; transition:all 0.7s ease 0s !important;}
+.planner-group .gallery-list .list-block:hover figure:before, .planner-group .gallery-list.cuisine-list-block .list-block.selected figure:before {background:rgba(0,0,0,0.7);transform:scale(1.1) !important;  -moz-transform:scale(1.1) !important;  -webkit-transform:scale(1.1) !important;  -ms-transform:scale(1.1) !important; -moz-transition:all 0.7s ease 0s !important; -webkit-transition:all 0.7s ease 0s !important; -ms-transition:all 0.7s ease 0s !important; transition:all 0.7s ease 0s !important;}
+
+.planner-group .gallery-list .list-block figure:after, .planner-group .gallery-list.cuisine-list-block .list-block figure:after {background:url('../images/heart-select.png') no-repeat center 40%; background-size:0px 0px;transform:scale(1.02) !important;  -moz-transform:scale(1.02) !important;  -webkit-transform:scale(1.02) !important;  -ms-transform:scale(1.02) !important;  -moz-transition:all 0.7s ease 0s !important; -webkit-transition:all 0.7s ease 0s !important; -ms-transition:all 0.7s ease 0s !important; transition:all 0.7s ease 0s !important;}
+.planner-group .gallery-list .list-block:hover figure:after, .planner-group .gallery-list.cuisine-list-block .list-block.selected figure:after { background-size:40px 40px;transform:scale(1.1) !important;  -moz-transform:scale(1.1) !important;  -webkit-transform:scale(1.1) !important;  -ms-transform:scale(1.1) !important; -moz-transition:all 0.7s ease 0s !important; -webkit-transition:all 0.7s ease 0s !important; -ms-transition:all 0.7s ease 0s !important; transition:all 0.7s ease 0s !important;}
+
+}
+#formoverlay.overflow-auto .popup-form {position:relative; margin-top:40px;}
+.plannerDatepicker .icon-calendar { display: block; width: 18px; height: 20px;background:url(../images/icon-date.png) no-repeat!important;}
+.plannerDatepicker .input-group-addon{ padding: 9px 14px!important; }
+.form-event-date .input-group-addon { display:none; }
+.form-event-date .eventpicker, .form-event-time .eventpicker { margin-top:5px; }
+
+div.valid_error {
+	position: relative;
+	display: inline;
+}
+
+div.valid_error{
+	position: absolute;
+	left:0;
+	min-width:160px;
+	max-width:240px;
+	padding: 6px 10px;
+	margin-left: 10px;
+	top:-40px;
+	background: #d00041;
+	color: #fff !important;
+	/*visibility: hidden;*/
+	width:auto;
+	border-radius: 5px;
+} 
+		
+div.valid_error:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -8px;
+	width: 0; height: 0;
+	border-top: 8px solid #d00041;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+div.valid_error_planner{
+	position: absolute;
+	left:0;
+	min-width:160px;
+	max-width:240px;
+	padding: 6px 10px;
+	margin-left: 10px;
+	top:-40px;
+	background: #d00041;
+	color: #fff !important;
+	/*visibility: hidden;*/
+	width:auto;
+	border-radius: 5px;
+} 
+
+div.valid_error_planner:after {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -8px;
+	width: 0; height: 0;
+	border-top: 8px solid #d00041;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+div.valid_error_upload{
+	position: absolute;
+	left:50%;
+	margin-left:-100px;
+	min-width:195px;
+	max-width:240px;
+	padding: 6px 10px;
+	top:-25px;
+	background: #d00041;
+	color: #fff !important;
+	/*visibility: hidden;*/
+	width:auto;
+	border-radius: 5px;
+} 
+
+div.valid_error_upload:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -10px;
+	width: 0; height: 0;
+	border-top: 8px solid #d00041;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+div.valid_error_uploadfrm{
+	position: absolute;
+	left:0;
+	min-width:160px;
+	max-width:240px;
+	padding: 6px 10px;
+	margin-left: 60px;
+	top:-42px;
+	background: #d00041;
+	color: #fff !important;
+	/*visibility: hidden;*/
+	width:auto;
+	border-radius: 5px;
+} 
+
+div.valid_error_uploadfrm:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -10px;
+	width: 0; height: 0;
+	border-top: 8px solid #d00041;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+/* Forgotpassword */
+.forgotpwd-form h1 {font-family: 'RotisSemiSerifStdRegular'; font-size:50px; line-height:70px; color:#fff; margin:0 0 5px 0;}
+.forgotpwd-form h2 {font-family: 'RotisSemiSerifStdRegular'; font-size:22px; line-height:30px; color:#fff; margin:0 0 20px 0;}
+.forgotpwd-form p {font-family: 'OpenSansRegular'; font-size:16px; line-height:26px; color:#fff; padding-bottom:7px;}
+/*  */
+.signin-form {position:absolute; top:50%; left:50%; margin-top:-92px; margin-left:-175px;}
+.signin-form .login-form {display: inline-block; left: 26%; position: absolute;}
+.signin-form h1 {font-family: 'RotisSemiSerifStdRegular'; font-size:50px; line-height:70px; color:#fff; margin:0 0 5px 0;}
+.signin-form h2 {font-family: 'RotisSemiSerifStdRegular'; font-size:22px; line-height:30px; color:#fff; margin:0 0 20px 0;}
+.signin-form p {font-family: 'OpenSansRegular'; font-size:16px; line-height:26px; color:#fff; padding-bottom:7px;}
+
+#map_canvas img { max-width: none; }
+
+.loader{ position: absolute; top:45%;left:45%}
+.homeFrame .delete {position:absolute; text-indent:-9999px; top:40px; right:60px; background:url('../images/enq-close_event.png') no-repeat center center #cd1541; width:20px; height:20px; }
+.innerFrame .delete {position:absolute; text-indent:-9999px; top:5px; right:5px; background:url('../images/enq-close_event.png') no-repeat center center #cd1541; width:20px; height:20px; }
+.albumCoverFrame .delete {position:absolute; text-indent:-9999px; top:10px; right:10px; background:url('../images/enq-close_event.png') no-repeat center center #cd1541; width:20px; height:20px; }
+.album-creation-overlay { z-index:99999 !important }
+
+.imgcaption {
+	position:absolute;
+	text-align:center;
+	width:100%;
+	/*top: -100%;*/
+	top:40%;
+	color: #fff;
+	padding:0 15%;
+	font-family: 'RotisSemiSerifStdRegular';
+    font-size: 22px;
+    line-height: 30px;
+	display:none;
+
+	-webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+}
+
+.gallery-list .list-block:hover figure .imgcaption { 
+	display:block;
+	-webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+
+}
+
+.termscond input[type="text"] {
+	float:left;
+	width:10px !important;
+	margin-right:15px;
+
+}
+
+.termscond label {
+	float:left;
+	margin-right:15px;
+	line-height:16px;
+}
+.mT10 { margin-top:10px; }
+.alCen {text-align:center; }
+.boldtxt {font-weight:bold; }
+.photo_frame { background-color:#333; }
+.flipbook-planner .flip-planner-content1 span.time{font-size:15px;}
+.ninetyoneper { width:91%; }
+.btactions { display:none }
+.mL60 { margin-left:60px !important }
+.upload-groom,.upload-bride { font-size:18px !important}
+.brochure_link { font-size:18px; color:#fff }
+.brochure_link a { font-size:18px; color:#fff !important;text-decoration:underline;}
+.brochure_link a:link, .brochure_link a:active, .brochure_link a:visited{color:#fff}
+.brochure_link a:hover { font-size:18px; color:#fff }
+.upload-groom, .upload-bride { display:none }
+#uploadbrideAction, #uploadgroomAction, #ctrl_groom3, #ctrl_groom3, #ctrl_bride3 {background:rgba(0,0,0,0.5); padding:5px;}
+#uploadgroomAction a, #uploadbrideAction a { color:#fff;}
+#uploadgroomAction a:hover,#uploadbrideAction a:hover { color:#CD1541;}
+#ctrl_groom3, #ctrl_bride3 { display:none }
+
+.radio-inline input[type="radio"] {
+  margin-top: 5px;
+}

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'RotisSemiSerifStdBold';
+    src: url('rotissemiserifstd-bold_1.eot');
+    src: url('rotissemiserifstd-bold_1.eot') format('embedded-opentype'),
+         url('rotissemiserifstd-bold_1.woff') format('woff'),
+         url('rotissemiserifstd-bold_1.ttf') format('truetype'),
+         url('rotissemiserifstd-bold_1.svg#RotisSemiSerifStdBold') format('svg');
+}
