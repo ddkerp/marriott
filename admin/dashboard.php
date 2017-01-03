@@ -1,6 +1,5 @@
 <?PHP
-session_start();
-ob_start();
+require '../includes/master.inc.php';
 
 if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 
