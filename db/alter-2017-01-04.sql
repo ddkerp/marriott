@@ -1,0 +1,1 @@
+ALTER TABLE  `review` ADD  `review_subject` VARCHAR( 255 ) NOT NULL AFTER  `phone`

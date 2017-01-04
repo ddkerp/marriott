@@ -42,7 +42,7 @@ if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
   <div class="content-block"> 
       <div class="container">
             <div class="login-stage">
-            <h1>Wedding Planner</h1>
+            <h1>Administration</h1>
             <input type="text" name="user_email_login" id="user_email_login" placeholder="Username" autocomplete="off">
                 <input type="password" name="user_password_login" id="user_password_login" placeholder="Password" autocomplete="off" maxlength="32">
                 <button type="button" class="btn btn-primary mB10 planner-login" id="login">Login</button><br/>

@@ -194,7 +194,7 @@ $reviews = $db->getRows("SELECT * FROM review WHERE status=1 AND venue_id = " . 
           <div class="row margin-T30 testimonials">
             <div class="col-sm-2 col-xs-3"> <img src="Images/review1.png" class="img-rounded" alt="review" /> </div>
             <div class="col-sm-7 col-xs-9">
-              <p><span><?php echo $review['user_name'];?></span>"<?php echo $review['review_text'];?>" </p>
+              <p><span><?php echo $review['user_name'];?></span><span><strong><?php echo $review['review_subject'];?></strong></span>"<?php echo $review['review_text'];?>" </p>
             </div>
             <div class="col-sm-3 col-xs-12 review_rate"> <i class=" icon-rate-us-medium icon-md liac"></i> <span> <?php echo $review['ratings'];?>.0</span> </div>
           </div>
@@ -224,6 +224,9 @@ $reviews = $db->getRows("SELECT * FROM review WHERE status=1 AND venue_id = " . 
               <input name="mobile" type="text" class="inputbox input-xlarge" placeholder="Mobile" id="phone"/>
             </div>
             <div class="clearfix"></div>
+			<div class="col-sm-4 col-xs-12">
+              <input name="reviewsubject" type="text" class="inputbox input-xlarge" placeholder="Subject" id="reviewsubject"/>
+            </div>
             <div class="col-sm-12 margin-T10">
               <textarea class="form-control review_text"  name="reviewmessage"  id="reviewsmsg" rows="4" >Share your experience with us...</textarea>
             </div>
@@ -416,6 +419,7 @@ $reviews = $db->getRows("SELECT * FROM review WHERE status=1 AND venue_id = " . 
 			'first_name' 			: $(this).find('input[name=name]').val(),
 			'email_address' 		: $(this).find('input[name=email]').val(),
 			'venueid' 				: '<?php echo $row['id'];?>',
+			'reviewsubject' 		: $(this).find('input[name=reviewsubject]').val(),
 			'reviewmessage' 		: $(this).find('textarea[name=reviewmessage]').val(),
 			'mobile_number' 		: $(this).find('input[name=mobile]').val()
 			
