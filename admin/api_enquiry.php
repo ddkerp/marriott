@@ -23,7 +23,7 @@ if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SER
 	
 
 	//Limit our results within a specified range. 
-	$stmt = $mysqli->prepare("SELECT c.id,c.f_name,concat(c.isd_code,c.mobile),c.email,c.comment,c.privacy_flag,c.from_page,c.newsletter_flag,c.ip_address,c.created_on,(select name from venue where id=c.venue_id) as venue_name FROM contactus c ORDER BY c.id DESC LIMIT $page_position, $item_per_page");
+	$stmt = $mysqli->prepare("SELECT c.id,c.f_name,concat(IFNULL(c.isd_code,''),c.mobile),c.email,c.comment,c.privacy_flag,c.from_page,c.newsletter_flag,c.ip_address,c.created_on,(select name from venue where id=c.venue_id) as venue_name FROM contactus c ORDER BY c.id DESC LIMIT $page_position, $item_per_page");
 	$stmt->execute(); //Execute prepared Query
 	//$results->bind_result($name, $email, $message, $hotel,$inserted_time); //bind variables to prepared statement
 	//$source = $inserted_time;
@@ -35,7 +35,7 @@ if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SER
 	echo '<h1>Enquiry</h1>
 	<h6>MARRIOTT WEDDING: Enquiry</h6>
 	<div class="table-responsive" id="tablewrapper" data-listing="enquiry">';
-	echo getTable($headers,$rows);
+	echo getTable($headers,$rows,$page_position);
 	echo ' </div>';
 	echo '<div class="fl-right" style="text-align: center;">Total Leads: <strong>'.$get_total_rows[0].'</strong></div>';
 	echo '<div align="center">';

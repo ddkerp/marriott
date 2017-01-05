@@ -14,6 +14,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	die("method not allowed");
 }
 $cu_params['ip_address'] = $_SERVER['REMOTE_ADDR'];
+$cu_params['from_page'] = "Contact us";
 
 $db = Database::getDatabase();
 $cu_mandatory = array("venue_id","f_name","isd_code","mobile","email","comment");

@@ -29,12 +29,12 @@ if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SER
 	//$date = new DateTime($source);
 	$rows = fetch_assoc_stmt($stmt);
 
-	$headers = array("S.No","Name","Email","Mobile","Review","Ratings","Status","IP Address","Contacted Date","Venue");
+	$headers = array("S.No","Name","Email","Mobile","Review","Ratings","Status","IP Address","Review Posted Date","Venue");
 	
 	echo '<h1>Review</h1>
 	<h6>MARRIOTT WEDDING: Review</h6>
 	<div class="table-responsive" id="tablewrapper" data-listing="review">';
-	echo getTable($headers,$rows);
+	echo getTable($headers,$rows,$page_position);
 	echo ' </div>';
 	echo '<div class="fl-right" style="text-align: center;">Total Leads: <strong>'.$get_total_rows[0].'</strong></div>';
 	echo '<div align="center">';

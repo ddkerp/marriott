@@ -179,9 +179,9 @@ body,td,th {
 			<menu id="ad-nav-menu"><ul><li><a id="enquiry" href="#">Enquiry</a><li><li><a href="#" id="review">Review</a></li></ul></menu>
 			<div class="container report" id="results">
 			</div>
-			<div class="fl-right" style="text-align: center;">
+			<!--<div class="fl-right" style="text-align: center;">
 				<a href="exportexcel.php" id="btLogin" class="btn btn-primary mB10 planner-login" type="submit" style="vertical-align:middle">Export As Excel</a>
-			</div>
+			</div> -->
 		</div>
     </section>
     </body>

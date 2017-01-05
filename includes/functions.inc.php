@@ -974,7 +974,7 @@ function fetch_assoc_stmt(\mysqli_stmt $stmt, $buffer = true) {
 function copy_value($v) {
     return $v;
 }
-function getTable($headers,$rows){
+function getTable($headers,$rows,$row_start){
 		$table='<table class="table dynoTable">
 					<thead>
 					<tr>';
@@ -988,8 +988,13 @@ function getTable($headers,$rows){
 						foreach($rows as $row){ //fetch values
 							$table .= "<tr>";
 							$i=0;
+							$row_start++;
 							foreach($row as $value){
-								$table .='<td class="'.strtolower(str_replace(" ","_",$headers[$i])).'">' . $value . '</td>';
+								if($i==0){
+									$table .='<td class="'.strtolower(str_replace(" ","_",$headers[$i])).'">' . $row_start . '</td>';
+								}else{
+									$table .='<td class="'.strtolower(str_replace(" ","_",$headers[$i])).'">' . $value . '</td>';
+								}
 								$i++;
 							}
 							$table .= '</tr>';

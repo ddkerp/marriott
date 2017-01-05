@@ -8,8 +8,8 @@ if(ISSET($_POST)){
 	$cu_params['email'] = ISSET($_POST['email_address'])?$_POST['email_address']:null;
 	$cu_params['venue_id'] = ISSET($_POST['venueid'])?$_POST['venueid']:null;
 	$cu_params['phone'] = ISSET($_POST['mobile_number'])?$_POST['mobile_number']:null;
-	$cu_params['review_text'] = ISSET($_POST['mobile_number'])?$_POST['reviewmessage']:null;
-	$cu_params['review_subject'] = ISSET($_POST['mobile_number'])?$_POST['reviewsubject']:null;
+	$cu_params['review_text'] = ISSET($_POST['reviewmessage'])?$_POST['reviewmessage']:null;
+	$cu_params['review_subject'] = ISSET($_POST['reviewsubject'])?$_POST['reviewsubject']:null;
 }else{
 	die("method not allowed");
 }
