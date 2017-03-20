@@ -991,7 +991,7 @@ function getTable($headers,$rows,$row_start){
 							$row_start++;
 							foreach($row as $value){
 								if($i==0){
-									$table .='<td class="'.strtolower(str_replace(" ","_",$headers[$i])).'">' . $row_start . '</td>';
+									$table .='<td class="'.strtolower(str_replace(" ","_",$headers[$i])).'">' . $row_start . '<input type="hidden" class="revid" value="'.$value.'" /> </td>';
 								}else{
 									$table .='<td class="'.strtolower(str_replace(" ","_",$headers[$i])).'">' . $value . '</td>';
 								}

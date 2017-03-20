@@ -38,7 +38,8 @@ if(count($err_mandatory)>0){
 
 $row = $db->query("INSERT INTO contactus ($sql_name) VALUES ($sql_value)", $sql_params);
 
-$venue_name = $db->getValue("SELECT name FROM venue where id = " . $db->quote($cu_params['venue_id']));
+$venue_detail = $db->getRow("SELECT * FROM venue where id = " . $db->quote($cu_params['venue_id']));
+$venue_name = $venue_detail['name'];
 $f_name = $cu_params['f_name'];
 $mobile = $cu_params['mobile'];
 $email = $cu_params['email'];
@@ -48,7 +49,12 @@ $from_page = $cu_params['from_page'];
 $base_url=base_url();
 $body = file_get_contents('../enquiry_mail_template.php');
 $body   = eval('return "' . addslashes($body) . '";');
-$to=array(CONTACTUSTTO);
+if($venue_detail['associate_mailid']!=""){
+	$tomail = $venue_detail['associate_mailid'];
+}else{
+	$tomail = CONTACTUSTTO;
+}
+$to=array($tomail);
 $subject="Contact Us";
 if(defined('CONTACTUSTCC')){
 	$cc=array(CONTACTUSTCC);

@@ -12,7 +12,7 @@ foreach ($cities as $city){
 	$city_options = $city_options.'<option value="'.$city['id'].'" data-filter="'.$city['id'].'">'.$city['city_name'].'</option>'.PHP_EOL;
 }
 foreach($rows as $row){
- $list_block = $list_block.'<div class="col-md-4 col-sm-6 col-xs-12 col-xxs-12 filtr-item margin-B20 '.$row['city'].'" data-category="'.$row['city_id'].'" data-sort="'.$row['city'].'"> <a href="destination.php?id='.$row['id'].'">
+ $list_block = $list_block.'<div class="col-md-4 col-sm-6 col-xs-12 col-xxs-12 filtr-item margin-B20 '.$row['city'].'" data-category="'.$row['city_id'].'" data-sort="'.$row['city'].'"> <a href="destination/'.strtolower(str_replace(' ','_',$row['name'])).'">
           <div class="hovereffect"> <img src="Images/Venue/'.$row['image'].'" alt="'.$row['name'].'" />
             <div class="overlay">
               <div class="pull-right "> <img src="Images/like.svg"/> <img src="Images/share.svg"/> 

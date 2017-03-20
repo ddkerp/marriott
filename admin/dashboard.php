@@ -40,6 +40,9 @@ $(document).ready(function() {
 		});
 		
 	});
+	$('.container').bind("DOMNodeInserted",function(){
+	  alert('changed');
+	});
 	$("#ad-nav-menu a").click(function(){
 		var payload= $(this).attr("id");
 		$("#results" ).load( "api_"+payload+".php", function( response, status, xhr ) {
@@ -61,7 +64,7 @@ $(document).ready(function() {
 					var parent = $(this).parent();
 					var formData = {
 					'status' 				: butt.attr("statid"),
-					'rev_id'				: $('td:first', butt.parents('tr')).text()
+					'rev_id'				: $('td:first .revid', butt.parents('tr')).val()
 					
 						};
 					$.ajax({

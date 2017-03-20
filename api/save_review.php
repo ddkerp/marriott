@@ -10,11 +10,11 @@ if(ISSET($_POST)){
 	$cu_params['phone'] = ISSET($_POST['mobile_number'])?$_POST['mobile_number']:null;
 	$cu_params['review_text'] = ISSET($_POST['reviewmessage'])?$_POST['reviewmessage']:null;
 	$cu_params['review_subject'] = ISSET($_POST['reviewsubject'])?$_POST['reviewsubject']:null;
+	$cu_params['ratings'] = ISSET($_POST['rating'])?$_POST['rating']:null;
 }else{
 	die("method not allowed");
 }
 $cu_params['status'] = false;
-$cu_params['ip_address'] = $_SERVER['REMOTE_ADDR'];
 
 $db = Database::getDatabase();
 $cu_mandatory = array("venue_id","user_name","email","phone","review_text");
@@ -36,7 +36,7 @@ if(count($err_mandatory)>0){
 		echo $label." is a mandatory field";
 	}exit;
 }
-
+//ALTER TABLE  `review` CHANGE  `ratings`  `ratings` VARCHAR( 255 ) NOT NULL
 $row = $db->query("INSERT INTO review ($sql_name) VALUES ($sql_value)", $sql_params);
 exit;
 

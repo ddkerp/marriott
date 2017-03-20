@@ -1,0 +1,15 @@
+
+RewriteEngine On
+RewriteBase /marriott
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#RewriteCond %{REQUEST_FILENAME} !destination\.php$
+#RewriteCond %{REQUEST_FILENAME} !contactus\.php$
+RewriteRule ^destination/(.*)$ destination.php?id=$1 [L,QSA]
+#RewriteRule destination/(Images|CSS|Scripts|carouselengine)/(.*)?$ marriott/$2/$3 [L,QSA,R=301]
+
+
+#RewriteRule ^(.*)$ /index.php?request=$1 [L,QSA]
+
+
+#RedirectMatch permanent ^/detail/((css|js)/.*)  /$1
