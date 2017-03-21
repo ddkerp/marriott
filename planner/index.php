@@ -14,13 +14,13 @@ $app = new \Slim\Slim();
 //$c = $app->getContainer($configuration);
 $response = new Response();
 //$request = new Request();
- 
+ //echo "<pre>";print_r($db);exit;
  session_start();
  //session_destroy();
  //$app->add();
 function dbconn ($config) {
     $db = $config['settings']['db'];
-    $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=test;charset=utf8" . $db['dbname'], $db['user'], $db['pass']);
+    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=marriou2_marriott;charset=utf8" . $db['dbname'], "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
@@ -67,28 +67,34 @@ $app->get('/getScore/{id}', function (Request $request, Response $response, $arg
 });
 $app->post('/uploadimg', function()use($app,$db)  {
 	//$db = $c['db'];
-	$sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
+	//$sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
 	$response = $app->response;
 	$request = $app->request;
-	$groom_pimage = $_FILES['groom_pimage'];
+	if($_FILES['groom_pimage']){
+		$gbimage = 'groom_pimage';
+	}elseif($_FILES['bride_pimage']){
+		$gbimage = 'bride_pimage';
+	}
+	$pimage = $_FILES[$gbimage];
 	//$_SESSION['dd']="dd";
 	$CSRFToken = $request->params('CSRFToken');
-	echo "<pre>";print_r($CSRFToken);exit;
-	
-	
-	
 	try 
     {
-		if(empty($groom_pimage)){
+		if(empty($pimage)){
 			throw new PDOException("No files");
 		}
+		if(empty($CSRFToken)){
+			throw new PDOException("Invalid Token");
+		}
+		
 		foreach($_FILES as $file){
 			if(empty($file)){
 				throw new PDOException("No file");
 			}
 			//1048576 = 1M
-			if($file['size'] > (1048576*2)){
-				throw new PDOException("File size is big");
+			$allowed_iange_size = 1048576*2;
+			if($file['size'] > $allowed_iange_size){
+				throw new PDOException("File size is bigger than the allowed size");
 			}
 			$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
 			if(!in_array($file['type'],$allowed_image_types)){
@@ -108,20 +114,90 @@ $app->post('/uploadimg', function()use($app,$db)  {
 				throw new PDOException("File move error!");
 			}
 			
-			
-			$sth = $db->prepare("INSERT INTO planner values (:groom_pimage,:event_date,:session_id,:created_date,:ip_address) WHERE student_id = :id");
- 
-			$sth->bindParam(':groom_pimage', $uploadedfilepath, PDO::PARAM_STR);
-			$sth->bindParam(':session_id', $session_id, PDO::PARAM_STR);
-			$sth->bindParam(':ip_address', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
+			$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 			$sth->execute();
+			$session_id = $sth->fetchColumn();
 			
-			//$file->moveTo(''.$filename);
+			//echo $session_id;exit;
+
+			if($CSRFToken == $session_id){
+				$sth = $db->prepare("UPDATE planner SET ".$gbimage." = :".$gbimage."  WHERE session_id = :session_id");
+				$sth->bindParam(':'.$gbimage.'', $uploadedfilepath, PDO::PARAM_STR);
+				$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+				$sth->execute();
+			}else{
+				$sth = $db->prepare("INSERT INTO planner (".$gbimage.",session_id,ip_address) values (:".$gbimage.",:session_id,:ip_address)");
+				$event_date = "2017-01-01";
+				$sth->bindParam(':'.$gbimage.'', $uploadedfilepath, PDO::PARAM_STR);
+				$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+				$sth->bindParam(':ip_address', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
+				$sth->execute();
+			}
+			$response->setStatus(200);
+			$response->headers->set('Content-Type', 'application/json');
+			$dataAry = array("success"=>array("msg"=>"Uploaded successfully"),"data"=>array("image_path"=>$uploadedfilepath));
+			return $response->body(json_encode($dataAry));
+		}
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+
+$app->post('/profile', function()use($app,$db)  {
+	//$db = $c['db'];
+	//$sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	$bride_name = $request->params('bride_name');
+	$groom_name = $request->params('groom_name');
+	$event_date = $request->params('event_date');
+	try 
+    {
+		if(empty($bride_name)){
+			throw new PDOException("Bride Name is empty");
+		}
+		if(empty($groom_name)){
+			throw new PDOException("Groom Name is empty");
+		}
+		if(empty($event_date)){
+			throw new PDOException("Event date is empty");
+		}
+		if(empty($CSRFToken)){
+			throw new PDOException("Invalid Token");
+		}
+		
+			
+			$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+			$sth->execute();
+			$session_id = $sth->fetchColumn();
+			if($CSRFToken == $session_id){
+				$sth = $db->prepare("UPDATE planner SET bride_name = :bride_name, groom_name = :groom_name, event_date = :event_date WHERE session_id = :session_id");
+				$sth->bindParam(':bride_name', $bride_name, PDO::PARAM_STR);
+				$sth->bindParam(':groom_name', $groom_name, PDO::PARAM_STR);
+				$sth->bindParam(':event_date', $event_date, PDO::PARAM_STR);
+				$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+				$sth->execute();
+			}else{
+				$sth = $db->prepare("INSERT INTO planner (bride_name,groom_name,event_date,session_id,ip_address) values (:bride_name,:groom_name,:event_date,:session_id,:ip_address)");
+				$event_date = "2017-01-01";
+				$sth->bindParam(':bride_name', $bride_name, PDO::PARAM_STR);
+				$sth->bindParam(':groom_name', $groom_name, PDO::PARAM_STR);
+				$sth->bindParam(':event_date', $event_date, PDO::PARAM_STR);
+				$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+				$sth->bindParam(':ip_address', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
+				$sth->execute();
+			}
 			$response->setStatus(200);
 			$response->headers->set('Content-Type', 'application/json');
 			$dataAry = array("success"=>array("msg"=>"Uploaded successfully"));
 			return $response->body(json_encode($dataAry));
-		}
+		
 	} catch(PDOException $e) {
 		$response->setStatus(422);
 		$response->headers->set('Content-Type', 'application/json');
@@ -178,9 +254,10 @@ $app->post('/uploadgallimg', function(Request $request, Response $response, $arg
 $app->post('/createplanurl', function()use($app)  {
 	$response = $app->response;
 	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	$planurl = $request->params('planurl');
 	try 
     {
-		$planurl = $request->params('planurl');
 		if(empty($planurl)){
 			throw new PDOException("Empty Url");
 		}
@@ -195,6 +272,25 @@ $app->post('/createplanurl', function()use($app)  {
 		if(in_array($planurl,array("ddk"))){
 			throw new PDOException("Url already exist. Please create new one");
 		}
+		
+		$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$session_id = $sth->fetchColumn();
+		if($CSRFToken == $session_id){
+			$sth = $db->prepare("UPDATE planner SET planurl = :planurl WHERE session_id = :session_id");
+			$sth->bindParam(':planurl', $planurl, PDO::PARAM_STR);
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+			$sth->execute();
+		}else{
+			$sth = $db->prepare("INSERT INTO planner (planurl,session_id,ip_address) values (:planurl,:session_id,:ip_address)");
+			$event_date = "2017-01-01";
+			$sth->bindParam(':planurl', $planurl, PDO::PARAM_STR);
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+			$sth->bindParam(':ip_address', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
+			$sth->execute();
+		}
+			
 		$response->setStatus(200);
 		$response->headers->set('Content-Type', 'application/json');
 		$dataAry = array("status"=>"success","data"=>array($planurl));
