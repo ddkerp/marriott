@@ -20,7 +20,7 @@ $response = new Response();
  //$app->add();
 function dbconn ($config) {
     $db = $config['settings']['db'];
-    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=marriou2_marriott;charset=utf8" . $db['dbname'], "root", "");
+    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=test;charset=utf8" . $db['dbname'], "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
@@ -35,51 +35,24 @@ $app->get('/', function() use($app,$response) {
 	   echo "<pre>";print_r($_SESSION);exit;
     echo "Welcome to Slim 2.0 based API";
 }); 
-$app->get('/getScore/{id}', function (Request $request, Response $response, $args) use($app) {
- 
- $id = (int)$args['id'];
-    try 
-    {
-		$db = $this->db;
-        $sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
-		$sth->bindParam(':id', $id, PDO::PARAM_INT);
-        $sth->execute();
-        $student = $sth->fetch(PDO::FETCH_ASSOC);
-		
-		if (!$sth) {
-			throw new PDOException($sth->errorInfo());
-		}
-        if($student) {
-            $response->setStatus(200);
-          //$response->withHeader('Content-Type', 'application/json');
-		  $response->headers->set('Content-Type', 'application/json');
-			return $response->withJson($student);
-			//$response->getBody()->write(var_export($student));return $response;
-        } else {
-            throw new PDOException('No records found.');
-        }
- 
-    } catch(PDOException $e) {
-        $response->setStatus(404);
-        echo '{"error":{"text":'. $e->getMessage() .'}}';
-    }
-	
-});
+
 $app->post('/uploadimg', function()use($app,$db)  {
 	//$db = $c['db'];
 	//$sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
 	$response = $app->response;
 	$request = $app->request;
-	if($_FILES['groom_pimage']){
+	
+	if(ISSET($_FILES['groom_pimage'])){
 		$gbimage = 'groom_pimage';
-	}elseif($_FILES['bride_pimage']){
+		$pimage = $_FILES[$gbimage];
+	}elseif(ISSET($_FILES['bride_pimage'])){
 		$gbimage = 'bride_pimage';
+		$pimage = $_FILES[$gbimage];
 	}
-	$pimage = $_FILES[$gbimage];
-	//$_SESSION['dd']="dd";
 	$CSRFToken = $request->params('CSRFToken');
 	try 
     {
+		
 		if(empty($pimage)){
 			throw new PDOException("No files");
 		}
@@ -120,7 +93,6 @@ $app->post('/uploadimg', function()use($app,$db)  {
 			$session_id = $sth->fetchColumn();
 			
 			//echo $session_id;exit;
-
 			if($CSRFToken == $session_id){
 				$sth = $db->prepare("UPDATE planner SET ".$gbimage." = :".$gbimage."  WHERE session_id = :session_id");
 				$sth->bindParam(':'.$gbimage.'', $uploadedfilepath, PDO::PARAM_STR);
@@ -140,13 +112,13 @@ $app->post('/uploadimg', function()use($app,$db)  {
 			return $response->body(json_encode($dataAry));
 		}
 	} catch(PDOException $e) {
+	//}catch (\Exception $e) {
 		$response->setStatus(422);
 		$response->headers->set('Content-Type', 'application/json');
 		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
 		return $response->body(json_encode($dataAry));
     }
 });
-
 $app->post('/profile', function()use($app,$db)  {
 	//$db = $c['db'];
 	//$sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
@@ -170,8 +142,6 @@ $app->post('/profile', function()use($app,$db)  {
 		if(empty($CSRFToken)){
 			throw new PDOException("Invalid Token");
 		}
-		
-			
 			$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
 			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 			$sth->execute();
@@ -206,6 +176,175 @@ $app->post('/profile', function()use($app,$db)  {
     }
 });
 
+$app->post('/template', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	$templates = $request->params('templates');
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Invalid Token");
+		}
+		if(empty($templates)){
+			throw new PDOException("Template is empty");
+		}
+
+		$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$session_id = $sth->fetchColumn();
+		if($CSRFToken == $session_id){
+			$sth = $db->prepare("UPDATE planner SET template_order = :template_order WHERE session_id = :session_id");
+			$sth->bindParam(':template_order', $templates, PDO::PARAM_STR);
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+			$sth->execute();
+		}else{
+			throw new PDOException("Token is not valid");
+		}
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Template order saved"));
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+
+$app->post('/headers', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	$event_date = $request->params('event_date');
+	$event_name = $request->params('event_name');
+	$bride_name = $request->params('bride_name');
+	$groom_name = $request->params('groom_name');
+	$header_image = $request->params('header_image');
+	
+	if(ISSET($_FILES['header_image'])){
+		$himage =$_FILES['header_image'];
+	}
+	
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Invalid Token");
+		}
+
+		$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$session_id = $sth->fetchColumn();
+		if($CSRFToken == $session_id){
+			$sth = $db->prepare("UPDATE planner SET event_date = :event_date, event_name = :event_name, bride_name = :bride_name, groom_name = :groom_name, header_image = :header_image WHERE session_id = :session_id");
+			$sth->bindParam(':event_date', $event_date, PDO::PARAM_STR);
+			$sth->bindParam(':event_name', $event_name, PDO::PARAM_STR);
+			$sth->bindParam(':bride_name', $bride_name, PDO::PARAM_STR);
+			$sth->bindParam(':groom_name', $groom_name, PDO::PARAM_STR);
+			$sth->bindParam(':header_image', $header_image, PDO::PARAM_STR);
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+			$sth->execute();
+		}else{
+			throw new PDOException("Token is not valid");
+		}
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Header saved"));
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+
+$app->post('/bridegroom', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	$bride_desc = $request->params('bride_desc');
+	$groom_desc = $request->params('groom_desc');
+	$bride_name = $request->params('bride_name');
+	$groom_name = $request->params('groom_name');
+	
+	if(ISSET($_FILES['groom_pimage'])){
+		$groom_pimage = $_FILES['groom_pimage'];
+	}
+	if(ISSET($_FILES['bride_pimage'])){
+		$bride_pimage = $_FILES['bride_pimage'];
+	}
+	
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Invalid Token");
+		}
+
+		foreach($_FILES as $key=>$file){
+			if(empty($file)){
+				throw new PDOException("No file");
+			}
+			//1048576 = 1M
+			$allowed_iange_size = 1048576*2;
+			if($file['size'] > $allowed_iange_size){
+				throw new PDOException("File size is bigger than the allowed size");
+			}
+			$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
+			if(!in_array($file['type'],$allowed_image_types)){
+				throw new PDOException("Not valid ext");
+			}
+			if(!in_array(mime_content_type($file['tmp_name']),$allowed_image_types)){
+				throw new PDOException("Not an Image");
+			}
+			if ($file['error'] != 0 ) {
+				throw new PDOException("Upload error");
+			}
+			$uploadedfilepath[$key] = $file['name'];
+			
+			if (move_uploaded_file($file['tmp_name'], $file['name']) === true) {
+                
+            }else{
+				throw new PDOException("File move error!");
+			}
+
+		}
+		
+		$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$session_id = $sth->fetchColumn();
+		if($CSRFToken == $session_id){
+			$sth = $db->prepare("UPDATE planner SET bride_description = :bride_description, groom_description = :groom_description, bride_name = :bride_name, groom_name = :groom_name, groom_pimage = :groom_pimage, bride_pimage = :bride_pimage WHERE session_id = :session_id");
+			$sth->bindParam(':bride_description', $bride_desc, PDO::PARAM_STR);
+			$sth->bindParam(':groom_description', $groom_desc, PDO::PARAM_STR);
+			$sth->bindParam(':bride_name', $bride_name, PDO::PARAM_STR);
+			$sth->bindParam(':groom_name', $groom_name, PDO::PARAM_STR);
+			$sth->bindParam(':groom_pimage', $uploadedfilepath['groom_pimage'], PDO::PARAM_STR);
+			$sth->bindParam(':bride_pimage', $uploadedfilepath['bride_pimage'], PDO::PARAM_STR);
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+			$sth->execute();
+		}else{
+			throw new PDOException("Token is not valid");
+		}
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Header saved"));
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+
 $app->post('/uploadgallimg', function(Request $request, Response $response, $args)use($app)  {
 	$response->withHeader('Content-Type', 'application/json');
 	//$files = $request->getUploadedFiles();
@@ -226,7 +365,6 @@ $app->post('/uploadgallimg', function(Request $request, Response $response, $arg
 				throw new PDOException("File size is big");
 			}
 			$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
-
 			if(!in_array($file->getClientMediaType(),$allowed_image_types)){
 				throw new PDOException("Not valid ext");
 			}
@@ -250,7 +388,6 @@ $app->post('/uploadgallimg', function(Request $request, Response $response, $arg
 		return $response->withJson(array("error"=>array("msg"=>$e->getMessage())), 422);
     }
 });
-
 $app->post('/createplanurl', function()use($app)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -301,6 +438,37 @@ $app->post('/createplanurl', function()use($app)  {
 		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
 		return $response->body(json_encode($dataAry));
     }
+});
+
+$app->get('/getScore/{id}', function (Request $request, Response $response, $args) use($app) {
+ 
+ $id = (int)$args['id'];
+    try 
+    {
+		$db = $this->db;
+        $sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
+		$sth->bindParam(':id', $id, PDO::PARAM_INT);
+        $sth->execute();
+        $student = $sth->fetch(PDO::FETCH_ASSOC);
+		
+		if (!$sth) {
+			throw new PDOException($sth->errorInfo());
+		}
+        if($student) {
+            $response->setStatus(200);
+          //$response->withHeader('Content-Type', 'application/json');
+		  $response->headers->set('Content-Type', 'application/json');
+			return $response->withJson($student);
+			//$response->getBody()->write(var_export($student));return $response;
+        } else {
+            throw new PDOException('No records found.');
+        }
+ 
+    } catch(PDOException $e) {
+        $response->setStatus(404);
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+	
 });
 $app->post('/updateScore', function() {
     $app = \Slim\Slim::getInstance();
