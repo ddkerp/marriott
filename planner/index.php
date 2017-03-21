@@ -345,6 +345,77 @@ $app->post('/bridegroom', function()use($app,$db)  {
     }
 });
 
+$app->post('/bridalparty', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	$name = $request->params('name');
+	$relation = $request->params('relation');
+	if(ISSET($_FILES['guest_image'])){
+		$guest_image = $_FILES['guest_image'];
+	}
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Invalid Token");
+		}
+		if(empty($name)){
+			throw new PDOException("name is empty");
+		}
+		if(empty($relation)){
+			throw new PDOException("relation is empty");
+		}
+
+			$file = $_FILE['guest_image'];
+			if(empty($file)){
+				throw new PDOException("No file");
+			}
+			//1048576 = 1M
+			$allowed_iange_size = 1048576*2;
+			if($file['size'] > $allowed_iange_size){
+				throw new PDOException("File size is bigger than the allowed size");
+			}
+			$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
+			if(!in_array($file['type'],$allowed_image_types)){
+				throw new PDOException("Not valid ext");
+			}
+			if(!in_array(mime_content_type($file['tmp_name']),$allowed_image_types)){
+				throw new PDOException("Not an Image");
+			}
+			if ($file['error'] != 0 ) {
+				throw new PDOException("Upload error");
+			}
+						
+			if (move_uploaded_file($file['tmp_name'], $file['name']) === true) {
+                
+            }else{
+				throw new PDOException("File move error!");
+			}
+		$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$session_id = $sth->fetchColumn();
+		if($CSRFToken == $session_id){
+			$sth = $db->prepare("UPDATE planner SET template_order = :template_order WHERE session_id = :session_id");
+			$sth->bindParam(':template_order', $templates, PDO::PARAM_STR);
+			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+			$sth->execute();
+		}else{
+			throw new PDOException("Token is not valid");
+		}
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Template order saved"));
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+
 $app->post('/uploadgallimg', function(Request $request, Response $response, $args)use($app)  {
 	$response->withHeader('Content-Type', 'application/json');
 	//$files = $request->getUploadedFiles();
