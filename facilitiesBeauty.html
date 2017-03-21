@@ -129,6 +129,29 @@
     </div>
     </section>
     
+    <!-- Enquiry Form Starts-->
+    <section id="enquiry" class="bgGrey-lighter2">
+        <div class="container margin-T50 padding-B40 padding-T20">
+            <h3 class="text-center">Have a question? We'll call you back.</h3>
+            <div class="row margin-T30">
+                <form name="contactus" id="registrationForm">
+                    <div class="col-sm-3 col-xs-12">
+                        <input name="name" type="text" class="inputbox input-xlarge" placeholder="Name" id="name" />
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <input name="email" type="email" class="inputbox input-xlarge" placeholder="Email" id="email" />
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <input name="mobile" type="text" class="inputbox input-xlarge" placeholder="Mobile" id="phone" />
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <button type="submit" class="btn btn-lg bgliac">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Enquiry Form Ends-->
 
 <!-- Facilities_page End -->
 <div class="clearfix"></div>
@@ -138,6 +161,84 @@
 <!-- // Footer --> 
 <script src="Scripts/plugin.js"></script>
 <!--<script src="Scripts/bootstrap.min.js"></script><script src="Scripts/custom_js.js"></script>--> 
+          <script src="Scripts/validation.js"></script>
+    <script>
+        $(document).ready(function () {
+            //validation	
+            jQuery('#registrationForm').formValidation({
+                    framework: 'bootstrap',
+                    icon: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    err: {
+                        container: 'tooltip'
+                    },
+                    fields: {
+                        name: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please enter your name'
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z\s]+$/,
+                                    message: 'The full name can only consist of alphabetical and spaces'
+                                }
+                            }
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The email address is required'
+                                },
+                                emailAddress: {
+                                    message: 'The input is not a valid email address'
+                                }
+                            }
+                        },
+                        mobile: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please enter your mobile number'
+                                },
+                                regexp: {
+                                    regexp: /^[0-9]+$/,
+                                    message: 'The mobile number can only consist of numbers'
+                                }
+                            }
+                        },
+                    }
+                })
+                .on('success.form.fv', function (e) {
+                    e.preventDefault();
+                    var hotelname = 'JW Marriott Chandigarh';
+                    var formData = {
+                        'first_name': $('input[name=name]').val(),
+                        'email_address': $('input[name=email]').val(),
+                        'HotelName': hotelname,
+                        'mobile_number': $('input[name=mobile]').val()
+                    };
+                    // process the form
+                    $.ajax({
+                            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                            url: 'https://resu.io/Subscription/Index/Y3VzdF8zN2NjMGJkOV85YjdjXzQxNWVfOWE1OV80NDQ5MjIzMjE0ZmU=/1', // the url where we want to POST
+                            data: formData
+
+                        })
+                        // using the done promise callback
+                        .done(function (data) {
+                            console.log(data);
+                            window.location = "thankyou.html";
+                        })
+                        // using the fail promise callback
+                        .fail(function (data) {
+                            console.log(data);
+                            window.location = "thankyou.html";
+                        });
+                });
+        });
+    </script>
     <!-- Tracking Code -->
 <script src='https://static.getclicky.com/js'></script><script>try {clicky.init(100849934);} catch (e) {}</script><noscript><img height='1' width='1' src='http://static.getclicky.com/100849934ns.gif' /></noscript>
 <script type='text/javascript' langauge='javascript'>document.write(unescape("%3Cscript src='" + "Scripts/sslpathanalyzer.js' type='text/javascript'%3E%3C/script%3E"));</script>
