@@ -32,13 +32,10 @@ $app->get('/', function() use($app,$response) {
     //$app->response->setStatus(200);
 	//$response =new \Slim\Http\Response();
        $response->setStatus(400);
-	   echo "<pre>";print_r($_SESSION);exit;
-    echo "Welcome to Slim 2.0 based API";
+		echo "Welcome to Slim 2.0 based API";
 }); 
 
 $app->post('/uploadimg', function()use($app,$db)  {
-	//$db = $c['db'];
-	//$sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
 	$response = $app->response;
 	$request = $app->request;
 	
@@ -54,15 +51,15 @@ $app->post('/uploadimg', function()use($app,$db)  {
     {
 		
 		if(empty($pimage)){
-			throw new PDOException("No files");
+			throw new PDOException("File is empty");
 		}
 		if(empty($CSRFToken)){
-			throw new PDOException("Invalid Token");
+			throw new PDOException("Token is empty");
 		}
 		
 		foreach($_FILES as $file){
 			if(empty($file)){
-				throw new PDOException("No file");
+				throw new PDOException("File is empty");
 			}
 			//1048576 = 1M
 			$allowed_iange_size = 1048576*2;
@@ -93,14 +90,13 @@ $app->post('/uploadimg', function()use($app,$db)  {
 			$session_id = $sth->fetchColumn();
 			
 			//echo $session_id;exit;
-			if($CSRFToken == $session_id){
+			if($session_id != ""){
 				$sth = $db->prepare("UPDATE planner SET ".$gbimage." = :".$gbimage."  WHERE session_id = :session_id");
 				$sth->bindParam(':'.$gbimage.'', $uploadedfilepath, PDO::PARAM_STR);
 				$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 				$sth->execute();
 			}else{
 				$sth = $db->prepare("INSERT INTO planner (".$gbimage.",session_id,ip_address) values (:".$gbimage.",:session_id,:ip_address)");
-				$event_date = "2017-01-01";
 				$sth->bindParam(':'.$gbimage.'', $uploadedfilepath, PDO::PARAM_STR);
 				$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 				$sth->bindParam(':ip_address', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
@@ -140,13 +136,13 @@ $app->post('/profile', function()use($app,$db)  {
 			throw new PDOException("Event date is empty");
 		}
 		if(empty($CSRFToken)){
-			throw new PDOException("Invalid Token");
+			throw new PDOException("Token is empty");
 		}
 			$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
 			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 			$sth->execute();
 			$session_id = $sth->fetchColumn();
-			if($CSRFToken == $session_id){
+			if($session_id != ""){
 				$sth = $db->prepare("UPDATE planner SET bride_name = :bride_name, groom_name = :groom_name, event_date = :event_date WHERE session_id = :session_id");
 				$sth->bindParam(':bride_name', $bride_name, PDO::PARAM_STR);
 				$sth->bindParam(':groom_name', $groom_name, PDO::PARAM_STR);
@@ -184,7 +180,7 @@ $app->post('/template', function()use($app,$db)  {
 	try 
     {
 		if(empty($CSRFToken)){
-			throw new PDOException("Invalid Token");
+			throw new PDOException("Token is empty");
 		}
 		if(empty($templates)){
 			throw new PDOException("Template is empty");
@@ -194,7 +190,7 @@ $app->post('/template', function()use($app,$db)  {
 		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 		$sth->execute();
 		$session_id = $sth->fetchColumn();
-		if($CSRFToken == $session_id){
+		if($session_id != ""){
 			$sth = $db->prepare("UPDATE planner SET template_order = :template_order WHERE session_id = :session_id");
 			$sth->bindParam(':template_order', $templates, PDO::PARAM_STR);
 			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
@@ -232,14 +228,14 @@ $app->post('/headers', function()use($app,$db)  {
 	try 
     {
 		if(empty($CSRFToken)){
-			throw new PDOException("Invalid Token");
+			throw new PDOException("Token is empty");
 		}
 
 		$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
 		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 		$sth->execute();
 		$session_id = $sth->fetchColumn();
-		if($CSRFToken == $session_id){
+		if($session_id != ""){
 			$sth = $db->prepare("UPDATE planner SET event_date = :event_date, event_name = :event_name, bride_name = :bride_name, groom_name = :groom_name, header_image = :header_image WHERE session_id = :session_id");
 			$sth->bindParam(':event_date', $event_date, PDO::PARAM_STR);
 			$sth->bindParam(':event_name', $event_name, PDO::PARAM_STR);
@@ -283,7 +279,7 @@ $app->post('/bridegroom', function()use($app,$db)  {
 	try 
     {
 		if(empty($CSRFToken)){
-			throw new PDOException("Invalid Token");
+			throw new PDOException("Token is empty");
 		}
 
 		foreach($_FILES as $key=>$file){
@@ -319,7 +315,7 @@ $app->post('/bridegroom', function()use($app,$db)  {
 		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 		$sth->execute();
 		$session_id = $sth->fetchColumn();
-		if($CSRFToken == $session_id){
+		if($session_id ! =""){
 			$sth = $db->prepare("UPDATE planner SET bride_description = :bride_description, groom_description = :groom_description, bride_name = :bride_name, groom_name = :groom_name, groom_pimage = :groom_pimage, bride_pimage = :bride_pimage WHERE session_id = :session_id");
 			$sth->bindParam(':bride_description', $bride_desc, PDO::PARAM_STR);
 			$sth->bindParam(':groom_description', $groom_desc, PDO::PARAM_STR);
@@ -357,13 +353,13 @@ $app->post('/bridalparty', function()use($app,$db)  {
 	try 
     {
 		if(empty($CSRFToken)){
-			throw new PDOException("Invalid Token");
+			throw new PDOException("Token is empty");
 		}
 		if(empty($name)){
-			throw new PDOException("name is empty");
+			throw new PDOException("Name is empty");
 		}
 		if(empty($relation)){
-			throw new PDOException("relation is empty");
+			throw new PDOException("Relation is empty");
 		}
 
 			$file = $_FILE['guest_image'];
@@ -395,7 +391,7 @@ $app->post('/bridalparty', function()use($app,$db)  {
 		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 		$sth->execute();
 		$session_id = $sth->fetchColumn();
-		if($CSRFToken == $session_id){
+		if($session_id != ""){
 			$sth = $db->prepare("UPDATE planner SET template_order = :template_order WHERE session_id = :session_id");
 			$sth->bindParam(':template_order', $templates, PDO::PARAM_STR);
 			$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
@@ -484,6 +480,7 @@ $app->post('/createplanurl', function()use($app)  {
 		$sth = $db->prepare("SELECT session_id FROM planner WHERE session_id = :session_id");
 		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 		$sth->execute();
+		//$student = $sth->fetch(PDO::FETCH_ASSOC);
 		$session_id = $sth->fetchColumn();
 		if($CSRFToken == $session_id){
 			$sth = $db->prepare("UPDATE planner SET planurl = :planurl WHERE session_id = :session_id");
@@ -511,63 +508,4 @@ $app->post('/createplanurl', function()use($app)  {
     }
 });
 
-$app->get('/getScore/{id}', function (Request $request, Response $response, $args) use($app) {
- 
- $id = (int)$args['id'];
-    try 
-    {
-		$db = $this->db;
-        $sth = $db->prepare("SELECT * FROM venue  WHERE id = :id");
-		$sth->bindParam(':id', $id, PDO::PARAM_INT);
-        $sth->execute();
-        $student = $sth->fetch(PDO::FETCH_ASSOC);
-		
-		if (!$sth) {
-			throw new PDOException($sth->errorInfo());
-		}
-        if($student) {
-            $response->setStatus(200);
-          //$response->withHeader('Content-Type', 'application/json');
-		  $response->headers->set('Content-Type', 'application/json');
-			return $response->withJson($student);
-			//$response->getBody()->write(var_export($student));return $response;
-        } else {
-            throw new PDOException('No records found.');
-        }
- 
-    } catch(PDOException $e) {
-        $response->setStatus(404);
-        echo '{"error":{"text":'. $e->getMessage() .'}}';
-    }
-	
-});
-$app->post('/updateScore', function() {
-    $app = \Slim\Slim::getInstance();
-    $allPostVars = $app->request->post();
-    $score = $allPostVars['score'];
-    $id = $allPostVars['id'];
- 
-    try 
-    {
-        $db = getDB();
- 
-        $sth = $db->prepare("UPDATE students 
-            SET score = :score 
-            WHERE student_id = :id");
- 
-        $sth->bindParam(':score', $score, PDO::PARAM_INT);
-        $sth->bindParam(':id', $id, PDO::PARAM_INT);
-        $sth->execute();
- 
-        $app->response->setStatus(200);
-        $app->response()->headers->set('Content-Type', 'application/json');
-        echo json_encode(array("status" => "success", "code" => 1));
-        $db = null;
- 
-    } catch(PDOException $e) {
-        $app->response()->setStatus(404);
-        echo '{"error":{"text":'. $e->getMessage() .'}}';
-    }
- 
-});
 $app->run();
