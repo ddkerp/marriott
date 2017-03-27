@@ -1,0 +1,1 @@
+ALTER TABLE  `planner` ADD  `template_order` VARCHAR( 255 ) NOT NULL AFTER  `groom_description`;
