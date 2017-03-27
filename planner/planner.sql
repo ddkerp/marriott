@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `planner` (
   `groom_description` text NOT NULL,
   `session_id` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `published_date` datetime NOT NULL,
   `ip_address` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)

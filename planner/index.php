@@ -20,7 +20,7 @@ $response = new Response();
  //$app->add();
 function dbconn ($config) {
     $db = $config['settings']['db'];
-    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=test;charset=utf8" . $db['dbname'], "root", "");
+    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=marriou2_marriott;charset=utf8" . $db['dbname'], "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
@@ -29,12 +29,36 @@ $db = dbconn($config);
  //echo "<pre>";print_r($db);exit;
  
 $app->get('/', function() use($app,$response) {
-    //$app->response->setStatus(200);
-	//$response =new \Slim\Http\Response();
        $response->setStatus(400);
 		echo "Welcome to Slim 2.0 based API";
 }); 
-
+$app->get('/profile', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	try{
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		$sth = $db->prepare("SELECT id,groom_name,bride_name,groom_pimage,bride_pimage,event_date FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetch();
+		if(empty($result)){
+			throw new PDOException("Token is not valid");
+		}
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$result);
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+	}
+});
 $app->post('/uploadimg', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -159,9 +183,10 @@ $app->post('/profile', function()use($app,$db)  {
 				$sth->bindParam(':ip_address', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
 				$sth->execute();
 			}
+			$data = array("bride_name"=>$bride_name,"groom_name"=>$groom_name,"event_date"=>$event_date);
 			$response->setStatus(200);
 			$response->headers->set('Content-Type', 'application/json');
-			$dataAry = array("success"=>array("msg"=>"Uploaded successfully"));
+			$dataAry = array("success"=>array("msg"=>"Uploaded successfully"),"data"=>$data);
 			return $response->body(json_encode($dataAry));
 		
 	} catch(PDOException $e) {
@@ -171,7 +196,34 @@ $app->post('/profile', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
     }
 });
-
+$app->get('/template', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	try{
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		$sth = $db->prepare("SELECT template_order FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetchColumn();
+		if(empty($result)){
+			throw new PDOException("Token is not valid");
+		}
+		$data = array("template_order"=>$result);
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$data);
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+	}
+});
 $app->post('/template', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -210,7 +262,34 @@ $app->post('/template', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
     }
 });
-
+$app->get('/headers', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	try{
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		$sth = $db->prepare("SELECT event_date,bride_name,groom_name,header_image FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetch();
+		if(empty($result)){
+			throw new PDOException("Token is not valid");
+		}
+		$data = array("template_order"=>$result);
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$data);
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+	}
+});
 $app->post('/headers', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -259,7 +338,34 @@ $app->post('/headers', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
     }
 });
-
+$app->get('/bridegroom', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	try{
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		$sth = $db->prepare("SELECT bride_description,groom_description,bride_name,groom_name,groom_pimage,bride_pimage FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetch();
+		if(empty($result)){
+			throw new PDOException("Token is not valid");
+		}
+		$data = $result;
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$data);
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+	}
+});
 $app->post('/bridegroom', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -315,7 +421,7 @@ $app->post('/bridegroom', function()use($app,$db)  {
 		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 		$sth->execute();
 		$session_id = $sth->fetchColumn();
-		if($session_id ! =""){
+		if($session_id !=""){
 			$sth = $db->prepare("UPDATE planner SET bride_description = :bride_description, groom_description = :groom_description, bride_name = :bride_name, groom_name = :groom_name, groom_pimage = :groom_pimage, bride_pimage = :bride_pimage WHERE session_id = :session_id");
 			$sth->bindParam(':bride_description', $bride_desc, PDO::PARAM_STR);
 			$sth->bindParam(':groom_description', $groom_desc, PDO::PARAM_STR);
@@ -340,7 +446,44 @@ $app->post('/bridegroom', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
     }
 });
-
+$app->get('/bridalparty', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->params('CSRFToken');
+	try{
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		$sth = $db->prepare("SELECT id FROM planner WHERE session_id = :session_id");
+		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetchColumn();
+		if(empty($result)){
+			throw new PDOException("Token is not valid");
+		}
+		$sth = $db->prepare("SELECT guest_name,guest_image,guest_relation FROM planner_guest WHERE planner_id = :planner_id");
+		$sth->bindParam(':planner_id', $result, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetch();
+		if(empty($result)){
+			$dataAry = array("success"=>array("msg"=>"Data not available"));
+		}else{
+			$data = $result;
+			$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$data);
+		}
+		
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+	}
+});
 $app->post('/bridalparty', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
