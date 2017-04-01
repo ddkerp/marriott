@@ -16,6 +16,11 @@ jQuery(document).ready(function(){
 			processData:false,
 			success: function(data){
 				console.log(data.success.msg);
+				console.log(data.data.bride_name);
+				console.log(data.data.groom_name);
+				console.log(data.data.event_date);
+				console.log(data.data.groom_pimage);
+				console.log(data.data.bride_pimage);
 				console.log(data.data.url);
 				if($.cookie('CSRFToken') == null){
 					$.cookie('CSRFToken',data.CSRFToken);
@@ -49,6 +54,7 @@ jQuery(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
+				console.log(data.success.msg);
 				console.log(data.data.image_path);
 				if($.cookie('CSRFToken') == null){
 					$.cookie('CSRFToken',data.CSRFToken);
@@ -106,7 +112,7 @@ jQuery(document).ready(function(){
 			processData:false,
 			success: function(data){
 				console.log(data.success.msg);
-				console.log(data.data.templates);
+				console.log(data.data.template_order);
 			},
 			error: function(e, xhr){
 				var error = jQuery.parseJSON (e.responseText);
@@ -135,6 +141,7 @@ jQuery(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
+				console.log(data.success.msg);
 				console.log(data.data.header_image);
 			},
 			error: function(e, xhr){
@@ -161,7 +168,10 @@ jQuery(document).ready(function(){
 			processData:false,
 			success: function(data){
 				console.log(data.success.msg);
-				console.log(data.data.header_image);
+				console.log(data.data.bride_name);
+				console.log(data.data.groom_name);
+				console.log(data.data.event_date);
+				console.log(data.data.event_name);
 			},
 			error: function(e, xhr){
 				var error = jQuery.parseJSON (e.responseText);
@@ -187,7 +197,17 @@ jQuery(document).ready(function(){
 			processData:false,
 			success: function(data){
 				console.log(data.success.msg);
-				console.log(data.data.header_image);
+				console.log(data.data.bride_description);
+				console.log(data.data.groom_description);
+				console.log(data.data.bride_name);
+				console.log(data.data.groom_name);
+				console.log(data.data.groom_pimage);
+				console.log(data.data.bride_twitter_link);
+				console.log(data.data.bride_fb_link);
+				console.log(data.data.bride_insta_link);
+				console.log(data.data.groom_twitter_link);
+				console.log(data.data.groom_fb_link);
+				console.log(data.data.groom_insta_link);
 			},
 			error: function(e, xhr){
 				var error = jQuery.parseJSON (e.responseText);
@@ -195,9 +215,11 @@ jQuery(document).ready(function(){
 			}			
 	   });
 	});		
-	
+
+/*	
 	$('.guest_image').on('change', function(e) {
 		e.preventDefault();
+		var formData = new FormData(this);
 		if($.cookie('CSRFToken') != null){
 			var CSRFToken = $.cookie('CSRFToken');
 		}
@@ -205,8 +227,11 @@ jQuery(document).ready(function(){
 		if (file.size > 1024*1024) {
 			alert('max upload size is 1024KB')
 		}
-		//alert(this.name);
-		var formData = new FormData(this);
+		
+		if($(this).parent().attr('guest_id') != null){
+			formData.append("guest_id", $(this).parent().attr('guest_id'));
+		}
+		var guestForm = $(this);
 		formData.append(this.name, file);
 		jQuery.ajax({
 			url: "http://localhost:8080/test/ajax/api2/guestimage",
@@ -217,7 +242,10 @@ jQuery(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
-				console.log(data.data.header_image);
+				console.log(data.success.msg);
+				console.log(data.data.guest_image);
+				console.log(data.data.guest_id);
+				guestForm.parent().attr('guest_id',data.data.guest_id)
 			},
 			error: function(e, xhr){
 				var error = jQuery.parseJSON (e.responseText);
@@ -227,14 +255,17 @@ jQuery(document).ready(function(){
 	});	
 	$('.guestForm').on('submit', function(e) {
 		e.preventDefault();
+		var formData = new FormData(this);
 		var CSRFToken = $.cookie('CSRFToken');
 		if(CSRFToken == ""){
 			alert('Token is empty');
 			return false;
 		}
-		var formData = new FormData(this);
+		if($(this).attr('guest_id') != null){
+			formData.append("guest_id", $(this).attr('guest_id'));
+		}
 		jQuery.ajax({
-			url: "http://localhost:8080/test/ajax/api2/bridegroom",
+			url: "http://localhost:8080/test/ajax/api2/bridalparty",
 			type: "POST",
 			data:  formData,
 			headers: {"CSRFToken":CSRFToken},
@@ -243,7 +274,11 @@ jQuery(document).ready(function(){
 			processData:false,
 			success: function(data){
 				console.log(data.success.msg);
-				console.log(data.data.header_image);
+				console.log(data.data.guest_relation);
+				console.log(data.data.guest_image);
+				console.log(data.data.guest_name);
+				console.log(data.data.guest_id);
+				$(this).attr('guest_id',data.data.guest_id)
 			},
 			error: function(e, xhr){
 				var error = jQuery.parseJSON (e.responseText);
@@ -251,7 +286,41 @@ jQuery(document).ready(function(){
 			}			
 	   });
 	});			
-	
+*/	
+
+	$('.guestForm').on('submit', function(e) {
+		e.preventDefault();
+		var formData = new FormData(this);
+		var CSRFToken = $.cookie('CSRFToken');
+		if(CSRFToken == ""){
+			alert('Token is empty');
+			return false;
+		}
+		if($(this).attr('guest_id') != null){
+			//formData.append("guest_id", $(this).attr('guest_id'));
+		}
+		jQuery.ajax({
+			url: "http://localhost:8080/test/ajax/api2/bridalparty",
+			type: "POST",
+			data:  formData,
+			headers: {"CSRFToken":CSRFToken},
+			contentType: false,
+			cache: false,
+			processData:false,
+			success: function(data){
+				console.log(data.success.msg);
+				console.log(data.data.guest_relation);
+				console.log(data.data.guest_image);
+				console.log(data.data.guest_name);
+				console.log(data.data.guest_id);
+				$(this).attr('guest_id',data.data.guest_id)
+			},
+			error: function(e, xhr){
+				var error = jQuery.parseJSON (e.responseText);
+				console.log(error.errors.message);
+			}			
+	   });
+	});	
 	
 	
 	
@@ -338,8 +407,30 @@ jQuery(document).ready(function(){
 	   });
 	});
 	
-
-	
+/*
+	var templates
+	//replace #tempord with ul id. make sure no images other than template image present inside ul
+	var images = $("#tempord").find('img');
+      if( images[0] == null ) { 
+		console.log("nothing selected");
+	}else{
+		  images.each(function(){
+			  if( templates == null ) { 
+					templates =  $(this).attr('img_id');
+			  }else{
+					templates = templates + "," + $(this).attr('img_id');
+			  }
+		  });
+		  console.log(templates);
+     }
+	 $("#tempord li img").each(function() { 
+		var temp_imageID = $(this).attr('img_id');
+		console.log(temp_imageID);
+	});
+	*/
+	$('#testForm').on('submit',function(e){alert("hi");
+		
+	});
 
 			
 });

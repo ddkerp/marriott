@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2017 at 03:40 PM
+-- Generation Time: Mar 31, 2017 at 05:16 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -39,13 +39,43 @@ CREATE TABLE IF NOT EXISTS `planner` (
   `event_name` varchar(255) NOT NULL,
   `bride_description` text NOT NULL,
   `groom_description` text NOT NULL,
+  `bride_twitter_link` varchar(255) NOT NULL,
+  `bride_fb_link` varchar(255) NOT NULL,
+  `bride_insta_link` varchar(255) NOT NULL,
+  `groom_twitter_link` varchar(255) NOT NULL,
+  `groom_fb_link` varchar(255) NOT NULL,
+  `groom_insta_link` varchar(255) NOT NULL,
+  `template_order` varchar(255) NOT NULL,
   `session_id` varchar(255) NOT NULL,
+  `story_intro` text NOT NULL,
+  `event_intro` text NOT NULL,
+  `counter_bg_image` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `published_date` datetime NOT NULL,
   `ip_address` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `planner_event`
+--
+
+DROP TABLE IF EXISTS `planner_event`;
+CREATE TABLE IF NOT EXISTS `planner_event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `planner_id` int(11) NOT NULL,
+  `event_name` varchar(255) NOT NULL,
+  `venue_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `theme` varchar(255) NOT NULL,
+  `cuisine` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -63,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `planner_gallery` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -81,7 +111,26 @@ CREATE TABLE IF NOT EXISTS `planner_guest` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=65 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `planner_story`
+--
+
+DROP TABLE IF EXISTS `planner_story`;
+CREATE TABLE IF NOT EXISTS `planner_story` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `planner_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
