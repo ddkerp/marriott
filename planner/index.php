@@ -1229,8 +1229,49 @@ $app->post('/story', function()use($app,$db)  {
 				}
 			
 			}
-			$sth = $db->prepare("UPDATE planner SET story_intro = :story_intro WHERE id = :planner_id");
+			
+			if(ISSET($_FILES["counter_bg_image"]['tmp_name'])){
+				if(file_exists($_FILES["counter_bg_image"]['tmp_name']) || is_uploaded_file($_FILES["counter_bg_image"]['tmp_name'])) {
+					$file = $_FILES["counter_bg_image"];
+					$allowed_iange_size = 1048576*2;
+					if($file['size'] > $allowed_iange_size){
+						throw new PDOException($file['name']. " - File size is bigger than the allowed size");
+					}
+					$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
+					if(!in_array($file['type'],$allowed_image_types)){
+						throw new PDOException($file['name']." - Not valid ext");
+					}
+					if(!in_array(mime_content_type($file['tmp_name']),$allowed_image_types)){
+						throw new PDOException($file['name']." - Not an Image");
+					}
+					if ($file['error'] != 0 ) {
+						throw new PDOException($file['name']." - Upload error");
+					}
+					
+					$userDirName = substr($CSRFToken,-8);
+					$groupDirName = "upload/".$userDirName."";
+					if (!file_exists($groupDirName)) {
+						if (!mkdir($groupDirName, 0777, true)) {
+							throw new PDOException("Cannot create dir");
+						}
+					}
+					$fileinfo = pathinfo($file['name']);
+					$fileext = $fileinfo['extension'];
+					$uploadedfilepath = $groupDirName."/counter_bg".mt_rand().".".$fileext;
+					if (move_uploaded_file($file['tmp_name'], $uploadedfilepath) === true) {
+						
+					}else{
+						throw new PDOException("File move error!");
+					}
+					$counter_bg_image = $uploadedfilepath;
+				}
+			}else{
+				$counter_bg_image = "";
+			}
+					
+			$sth = $db->prepare("UPDATE planner SET story_intro = :story_intro,counter_bg_image = :counter_bg_image WHERE id = :planner_id");
 			$sth->bindParam(':story_intro', $story_intro, PDO::PARAM_STR);
+			$sth->bindParam(':counter_bg_image', $counter_bg_image, PDO::PARAM_STR);
 			$sth->bindParam(':planner_id', $planner_id, PDO::PARAM_STR);
 			$sth->execute();
 		}else{
@@ -1246,7 +1287,7 @@ $app->post('/story', function()use($app,$db)  {
 		$sth->execute();
 		$result = $sth->fetchAll();
 		$data['story'] = $result;
-		$sth = $db->prepare("SELECT event_date,story_intro FROM planner WHERE id = :planner_id");
+		$sth = $db->prepare("SELECT event_date,story_intro,counter_bg_image FROM planner WHERE id = :planner_id");
 		$sth->bindParam(':planner_id', $planner_id, PDO::PARAM_STR);
 		$sth->execute();
 		$result = $sth->fetch();
@@ -1284,7 +1325,7 @@ $app->get('/story', function()use($app,$db)  {
 		$sth->execute();
 		$result = $sth->fetchAll();
 		$data['story'] = $result;
-		$sth = $db->prepare("SELECT event_date,story_intro FROM planner WHERE id = :planner_id");
+		$sth = $db->prepare("SELECT event_date,story_intro,counter_bg_image FROM planner WHERE id = :planner_id");
 		$sth->bindParam(':planner_id', $planner_id, PDO::PARAM_STR);
 		$sth->execute();
 		$result = $sth->fetch();
