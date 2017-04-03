@@ -78,7 +78,7 @@ $app->post('/uploadimg', function()use($app,$db)  {
 	$CSRFToken = $request->headers('CSRFToken');
 	try 
     {
-		
+		$newToken = false;
 		if(empty($pimage)){
 			throw new PDOException("File is empty.");
 		}
@@ -205,6 +205,7 @@ $app->post('/profile', function()use($app,$db)  {
 	$event_date = $request->params('event_date');
 	try 
     {
+		$newToken = false;
 		if(empty($bride_name)){
 			throw new PDOException("Bride Name is empty");
 		}
@@ -1536,24 +1537,43 @@ $app->get('/preview', function()use($app,$db)  {
 		$sth = $db->prepare("SELECT image,image_title,image_description FROM planner_gallery WHERE planner_id = :planner_id");
 		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
 		$sth->execute();
-		$gallery = $sth->fetch();
+		$gallery = $sth->fetchAll();
 		//if(!empty($gallery)){
 			$data["gallery"] = $gallery;
 		//}
 		$sth = $db->prepare("SELECT title,description,image,date FROM planner_story WHERE planner_id = :planner_id");
 		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
 		$sth->execute();
-		$story = $sth->fetch();
+		$story = $sth->fetchAll();
 		if(!empty($story)){
 			$data["story"] = $story;
 		}
 		$sth = $db->prepare("SELECT event_name,date,venue_id,theme,cuisine FROM planner_event WHERE planner_id = :planner_id");
 		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
 		$sth->execute();
-		$event = $sth->fetch();
+		$event = $sth->fetchAll();
+
+		foreach($event as $key=>$value){
+			$sth = $db->prepare("SELECT name,image,replace(name,' ','_') as url FROM venue WHERE id = :id");
+			$sth->bindParam(':id', $value["venue_id"], PDO::PARAM_STR);
+			$sth->execute();
+			$venue = $sth->fetch();
+			if(!empty($venue)){
+				$event[$key]["venue"] = $venue;
+			}
+			$sth = $db->prepare("SELECT title,file_name FROM venue_image WHERE venue_id = :venue_id");
+			$sth->bindParam(':venue_id', $value["venue_id"], PDO::PARAM_STR);
+			$sth->execute();
+			$venue_image = $sth->fetchAll();
+			if(!empty($venue_image)){
+				$event[$key]["venue"]["venue_image"] = $venue_image;
+			}
+		}
 		if(!empty($event)){
 			$data["event"] = $event;
 		}
+		
+		
 		
 
 		
