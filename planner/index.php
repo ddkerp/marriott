@@ -1591,7 +1591,88 @@ $app->get('/preview', function()use($app,$db)  {
 	}
 });
 
+$app->get('/eventplannerpage', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$plannerurl = $request->params("plannerurl");
+	try{
+		if(empty($plannerurl)){
+			throw new PDOException("Token is empty");
+		}
+		$sth = $db->prepare("SELECT id,url,groom_name,bride_name,groom_pimage,bride_pimage,event_date,header_image,event_name,bride_description,groom_description,bride_twitter_link,bride_fb_link,bride_insta_link,groom_twitter_link,groom_fb_link,groom_insta_link,template_order,session_id,story_intro,event_intro,counter_bg_image  FROM planner WHERE url = :url");
+		$sth->bindParam(':url', $plannerurl, PDO::PARAM_STR);
+		$sth->execute();
+		$planner = $sth->fetch();
+		if(empty($planner)){
+			throw new PDOException("Token is not valid");
+		}else{
+			$data = $planner;
+			unset($data['id']);
+		}
+	
+		$sth = $db->prepare("SELECT guest_name,guest_image,guest_relation FROM planner_guest WHERE planner_id = :planner_id");
+		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
+		$sth->execute();
+		$guest = $sth->fetchAll();
+		if(!empty($guest)){
+			$data["guest"] = $guest;
+		}
+		$sth = $db->prepare("SELECT image,image_title,image_description FROM planner_gallery WHERE planner_id = :planner_id");
+		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
+		$sth->execute();
+		$gallery = $sth->fetchAll();
+		//if(!empty($gallery)){
+			$data["gallery"] = $gallery;
+		//}
+		$sth = $db->prepare("SELECT title,description,image,date FROM planner_story WHERE planner_id = :planner_id");
+		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
+		$sth->execute();
+		$story = $sth->fetchAll();
+		if(!empty($story)){
+			$data["story"] = $story;
+		}
+		$sth = $db->prepare("SELECT event_name,date,venue_id,theme,cuisine FROM planner_event WHERE planner_id = :planner_id");
+		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
+		$sth->execute();
+		$event = $sth->fetchAll();
 
+		foreach($event as $key=>$value){
+			$sth = $db->prepare("SELECT name,image,replace(name,' ','_') as url FROM venue WHERE id = :id");
+			$sth->bindParam(':id', $value["venue_id"], PDO::PARAM_STR);
+			$sth->execute();
+			$venue = $sth->fetch();
+			if(!empty($venue)){
+				$event[$key]["venue"] = $venue;
+			}
+			$sth = $db->prepare("SELECT title,file_name FROM venue_image WHERE venue_id = :venue_id");
+			$sth->bindParam(':venue_id', $value["venue_id"], PDO::PARAM_STR);
+			$sth->execute();
+			$venue_image = $sth->fetchAll();
+			if(!empty($venue_image)){
+				$event[$key]["venue"]["venue_image"] = $venue_image;
+			}
+		}
+		if(!empty($event)){
+			$data["event"] = $event;
+		}
+		
+		
+		
+
+		
+		$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$data);
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+	}
+});
 
 
 
