@@ -2,25 +2,14 @@
 use \Slim\Http\Response as Response;
 use \Slim\Http\Request as Request;
 use \Slim\Container as Container;
-//use Slim\Middleware\SessionCookie;
 $config = include(__DIR__ . '/config/local.php');
-//$db = new PDO("mysql:host=localhost;dbname=test", $config['db']['user'], $config['db']['pass'] );
 require 'vendor/autoload.php';
-//\Slim\Slim::registerAutoloader();
-//$c = new Container($configuration);
-//$app = new \Slim\App();
 $app = new \Slim\Slim();
-//$app = new \Slim\App($c);
-//$c = $app->getContainer($configuration);
 $response = new Response();
-//$request = new Request();
- //echo "<pre>";print_r($db);exit;
- session_start();
- //session_destroy();
- //$app->add();
+session_start();
 function dbconn ($config) {
     $db = $config['settings']['db'];
-    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=marriou2_marriott;charset=utf8" . $db['dbname'], "root", "");
+    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=test;charset=utf8", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
@@ -63,7 +52,6 @@ $app->get('/', function() use($app,$response) {
        $response->setStatus(400);
 		echo "Welcome to Slim 2.0 based API";
 }); 
-
 $app->post('/uploadimg', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -164,7 +152,6 @@ $app->post('/uploadimg', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
     }
 });
-
 $app->get('/profile', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -687,7 +674,6 @@ $app->post('/bridegroom', function()use($app,$db)  {
 		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 		$sth->execute();
 		$data = $sth->fetch();
-
 		$response->setStatus(200);
 		$response->headers->set('Content-Type', 'application/json');
 		$dataAry = array("success"=>array("msg"=>"Header saved"),"data"=>$data);
@@ -700,100 +686,6 @@ $app->post('/bridegroom', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
     }
 });
-/*
-$app->post('/guestimage', function()use($app,$db)  {
-	$response = $app->response;
-	$request = $app->request;
-	$CSRFToken = $request->headers('CSRFToken');
-	$guest_id = $request->params('guest_id');
-	
-	if(file_exists($_FILES['guest_image']['tmp_name']) || is_uploaded_file($_FILES['guest_image']['tmp_name'])) {
-		$file =$_FILES['guest_image'];
-	}
-	
-	try 
-    {
-		if(empty($CSRFToken)){
-			throw new PDOException("Token is empty");
-		}
-		$session_id = checkValidToken($CSRFToken,$db);
-		if($session_id == ""){
-			throw new PDOException("Token is invalid");
-		}
-		if(!empty($file)){
-			//1048576 = 1M
-			$allowed_iange_size = 1048576*2;
-			if($file['size'] > $allowed_iange_size){
-				throw new PDOException("File size is bigger than the allowed size");
-			}
-			$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
-			if(!in_array($file['type'],$allowed_image_types)){
-				throw new PDOException("Not valid ext");
-			}
-			if(!in_array(mime_content_type($file['tmp_name']),$allowed_image_types)){
-				throw new PDOException("Not an Image");
-			}
-			if ($file['error'] != 0 ) {
-				throw new PDOException("Upload error");
-			}
-			
-			$userDirName = substr($CSRFToken,-8);
-			if (!file_exists("upload/".$userDirName)) {
- 				if (!mkdir("upload/".$userDirName, 0777, true)) {
-					throw new PDOException("Cannot create dir");
-				}
-			}
-			$fileinfo = pathinfo($file['name']);
-			$fileext = $fileinfo['extension'];
-			$uploadedfilepath = "upload/".$userDirName."/guest_".mt_rand().".".$fileext;
-			if (move_uploaded_file($file['tmp_name'], $uploadedfilepath) === true) {
-                
-            }else{
-				throw new PDOException("File move error!");
-			}
-			
-			
-		}
-		
-		$sth = $db->prepare("SELECT id FROM planner WHERE session_id = :session_id");
-		$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
-		$sth->execute();
-		$planner_id = $sth->fetchColumn();
-			
-		//echo $session_id;exit;
-		if($guest_id != ""){
-			$sth = $db->prepare("UPDATE planner_guest SET guest_image = :guest_image WHERE id = :id and planner_id = :planner_id");
-			$sth->bindParam(':guest_image', $uploadedfilepath, PDO::PARAM_STR);
-			$sth->bindParam(':planner_id', $planner_id, PDO::PARAM_STR);
-			$sth->bindParam(':id', $guest_id, PDO::PARAM_STR);
-			$sth->execute();
-		}else{
-			$sth = $db->prepare("INSERT INTO planner_guest (planner_id,guest_image) values (:planner_id,:guest_image)");
-			$sth->bindParam(':planner_id', $planner_id, PDO::PARAM_STR);
-			$sth->bindParam(':guest_image', $uploadedfilepath, PDO::PARAM_STR);
-			$sth->execute();
-			$guest_id = $db->lastInsertId(); 
-		}
-			
-		$sth = $db->prepare("SELECT guest_image,id as guest_id FROM planner_guest WHERE id = :id and planner_id = :planner_id");
-		$sth->bindParam(':planner_id', $planner_id, PDO::PARAM_STR);
-		$sth->bindParam(':id', $guest_id, PDO::PARAM_STR);
-		$sth->execute();
-		$result = $sth->fetch();
-		$data = $result;
-		$response->setStatus(200);
-		$response->headers->set('Content-Type', 'application/json');
-		$dataAry = array("success"=>array("msg"=>"Guest image saved"),"data"=>$data);
-		return $response->body(json_encode($dataAry));
-		
-	} catch(PDOException $e) {
-		$response->setStatus(422);
-		$response->headers->set('Content-Type', 'application/json');
-		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
-		return $response->body(json_encode($dataAry));
-    }
-});
-*/
 $app->post('/bridalparty', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -812,6 +704,9 @@ $app->post('/bridalparty', function()use($app,$db)  {
 		
 		$group_name = "guest";
 		$file_name = "guest_image";
+		if(!ISSET($group[$group_name])){
+			throw new PDOException("Guest data is required");
+		}
 		if(is_array($group[$group_name]) && count($group[$group_name])>0){
 			foreach($group[$group_name] as $key=>$value){
 			
@@ -912,7 +807,7 @@ $app->post('/bridalparty', function()use($app,$db)  {
 		
 		$response->setStatus(200);
 		$response->headers->set('Content-Type', 'application/json');
-		$dataAry = array("success"=>array("msg"=>"Header saved"),"data"=>$data);
+		$dataAry = array("success"=>array("msg"=>"Guest saved"),"data"=>$data);
 		return $response->body(json_encode($dataAry));
 		
 	} catch(PDOException $e) {
@@ -959,9 +854,67 @@ $app->get('/bridalparty', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
+$app->delete('/gallery', function()use($app,$db)  {
+	
+	$response = $app->response;
+	$request = $app->request;
+	//$group = $request->params();
+	$CSRFToken = $request->headers('CSRFToken');
+	$image_id = $request->params('image_id');
 
-
-
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		
+		if(empty($image_id)){
+			throw new PDOException("ID is empty");
+		}
+		
+		$session_id = checkValidToken($CSRFToken,$db);
+		if($session_id == ""){
+			throw new PDOException("Token is invalid");
+		}
+		
+		
+		$sth = $db->prepare("SELECT pg.* FROM planner p join planner_gallery pg on (p.id = pg.planner_id) WHERE pg.id = :image_id and p.session_id = :session_id");
+		$sth->bindParam(':image_id', $image_id, PDO::PARAM_STR);
+		$sth->bindParam(':session_id', $session_id, PDO::PARAM_STR);
+		$sth->execute();
+		$gallery = $sth->fetch();
+		
+		if($gallery["id"] == ""){
+			throw new PDOException("ID is invalid");
+		}
+		
+		$userDirName = substr($session_id,-8);
+		$uploadedfilepath = $gallery["image"];
+		if($uploadedfilepath !=""){
+			if (file_exists($uploadedfilepath)) {
+				if (!unlink($uploadedfilepath)) {
+					throw new PDOException("Cannot delete the file");
+				}
+			}
+		}
+	
+		$sth = $db->prepare("DELETE FROM planner_gallery WHERE id = :image_id");
+		$sth->bindParam(':image_id', $gallery["id"], PDO::PARAM_STR);
+		$sth->execute();
+		
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Image Deleted"));
+		return $response->body(json_encode($dataAry));
+		
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
 $app->post('/gallery', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -979,6 +932,9 @@ $app->post('/gallery', function()use($app,$db)  {
 		
 		$group_name = "gallery";
 		$file_name = "gallery_image";
+		if(!ISSET($group[$group_name])){
+			throw new PDOException("Image data is required");
+		}
 		if(is_array($group[$group_name]) && count($group[$group_name])>0){
 			foreach($group[$group_name] as $key=>$value){
 			
@@ -988,51 +944,59 @@ $app->post('/gallery', function()use($app,$db)  {
 				if(empty($value['image_description'])){
 					throw new PDOException("Image Desc is empty for Index - ".$key);
 				}
-				
-					if(ISSET($_FILES[$file_name]['tmp_name'][$key])){
-						if(file_exists($_FILES[$file_name]['tmp_name'][$key]) || is_uploaded_file($_FILES[$file_name]['tmp_name'][$key])) {
-							//$file =$_FILES['header_image'];
-						}
+					
+					if(ISSET($value['image_id'])){
+						//old images
+							//$uploadedfilepath = $value['image'];
 					}else{
-						throw new PDOException("Image not selected for index - ".$key);
+						// new images
+						if(ISSET($_FILES[$file_name]['tmp_name'][$key])){
+							if(file_exists($_FILES[$file_name]['tmp_name'][$key]) || is_uploaded_file($_FILES[$file_name]['tmp_name'][$key])) {
+								//$file =$_FILES['header_image'];
+								$file['name'] = $_FILES[$file_name]["name"][$key];
+								$file['type'] = $_FILES[$file_name]["type"][$key];
+								$file['tmp_name'] = $_FILES[$file_name]["tmp_name"][$key];
+								$file['error'] = $_FILES[$file_name]["error"][$key];
+								$file['size'] = $_FILES[$file_name]["size"][$key];
+								//1048576 = 1M
+								$allowed_iange_size = 1048576*2;
+								if($file['size'] > $allowed_iange_size){
+									throw new PDOException($file['name']. " - File size is bigger than the allowed size");
+								}
+								$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
+								if(!in_array($file['type'],$allowed_image_types)){
+									throw new PDOException($file['name']." - Not valid ext");
+								}
+								if(!in_array(mime_content_type($file['tmp_name']),$allowed_image_types)){
+									throw new PDOException($file['name']." - Not an Image");
+								}
+								if ($file['error'] != 0 ) {
+									throw new PDOException($file['name']." - Upload error");
+								}
+								
+								$userDirName = substr($CSRFToken,-8);
+								$groupDirName = "upload/".$userDirName."/gallery";
+								if (!file_exists($groupDirName)) {
+									if (!mkdir($groupDirName, 0777, true)) {
+										throw new PDOException("Cannot create dir");
+									}
+								}
+								$fileinfo = pathinfo($file['name']);
+								$fileext = $fileinfo['extension'];
+								$uploadedfilepath = $groupDirName."/".mt_rand().".".$fileext;
+								if (move_uploaded_file($file['tmp_name'], $uploadedfilepath) === true) {
+									
+								}else{
+									throw new PDOException("File move error!");
+								}
+							}
+						}else{
+								throw new PDOException("Image not selected for index - ".$key);
+
+						}
 					}
 					
-					$file['name'] = $_FILES[$file_name]["name"][$key];
-					$file['type'] = $_FILES[$file_name]["type"][$key];
-					$file['tmp_name'] = $_FILES[$file_name]["tmp_name"][$key];
-					$file['error'] = $_FILES[$file_name]["error"][$key];
-					$file['size'] = $_FILES[$file_name]["size"][$key];
-					//1048576 = 1M
-					$allowed_iange_size = 1048576*2;
-					if($file['size'] > $allowed_iange_size){
-						throw new PDOException($file['name']. " - File size is bigger than the allowed size");
-					}
-					$allowed_image_types = array('image/png', 'image/jpeg', 'image/jpg', 'image/gif','image/bmp');
-					if(!in_array($file['type'],$allowed_image_types)){
-						throw new PDOException($file['name']." - Not valid ext");
-					}
-					if(!in_array(mime_content_type($file['tmp_name']),$allowed_image_types)){
-						throw new PDOException($file['name']." - Not an Image");
-					}
-					if ($file['error'] != 0 ) {
-						throw new PDOException($file['name']." - Upload error");
-					}
 					
-					$userDirName = substr($CSRFToken,-8);
-					$groupDirName = "upload/".$userDirName."/gallery";
-					if (!file_exists($groupDirName)) {
-						if (!mkdir($groupDirName, 0777, true)) {
-							throw new PDOException("Cannot create dir");
-						}
-					}
-					$fileinfo = pathinfo($file['name']);
-					$fileext = $fileinfo['extension'];
-					$uploadedfilepath = $groupDirName."/".mt_rand().".".$fileext;
-					if (move_uploaded_file($file['tmp_name'], $uploadedfilepath) === true) {
-						
-					}else{
-						throw new PDOException("File move error!");
-					}
 				
 				
 				$sth = $db->prepare("SELECT id FROM planner WHERE session_id = :session_id");
@@ -1041,7 +1005,7 @@ $app->post('/gallery', function()use($app,$db)  {
 				$planner_id = $sth->fetchColumn();
 				$id  = ISSET($value['image_id'])?$value['image_id']:null;
 				if($id != ""){
-					$sth = $db->prepare("UPDATE planner_gallery SET image_title = :image_title, image_description = :image_description, image = :image WHERE id = :id and planner_id = :planner_id");
+					$sth = $db->prepare("UPDATE planner_gallery SET image_title = :image_title, image_description = :image_description, image = IFNULL(:image, image) WHERE id = :id and planner_id = :planner_id");
 					$sth->bindParam(':image_title', $value['image_title'], PDO::PARAM_STR);
 					$sth->bindParam(':image_description', $value['image_description'], PDO::PARAM_STR);
 					$sth->bindParam(':image', $uploadedfilepath, PDO::PARAM_STR);
@@ -1076,7 +1040,7 @@ $app->post('/gallery', function()use($app,$db)  {
 		
 		$response->setStatus(200);
 		$response->headers->set('Content-Type', 'application/json');
-		$dataAry = array("success"=>array("msg"=>"Header saved"),"data"=>$data);
+		$dataAry = array("success"=>array("msg"=>"Image saved"),"data"=>$data);
 		return $response->body(json_encode($dataAry));
 		
 	} catch(PDOException $e) {
@@ -1123,9 +1087,6 @@ $app->get('/gallery', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
-
-
-
 $app->post('/story', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -1144,6 +1105,9 @@ $app->post('/story', function()use($app,$db)  {
 		
 		$group_name = "story";
 		$file_name = "story_image";
+		if(!ISSET($group[$group_name])){
+			throw new PDOException("Story data is required");
+		}
 		if(is_array($group[$group_name]) && count($group[$group_name])>0){
 			foreach($group[$group_name] as $key=>$value){
 			
@@ -1156,10 +1120,8 @@ $app->post('/story', function()use($app,$db)  {
 				if(empty($value['date'])){
 					throw new PDOException("Date is empty for Index - ".$key);
 				}
-
 					if(ISSET($_FILES[$file_name]['tmp_name'][$key])){
 						if(file_exists($_FILES[$file_name]['tmp_name'][$key]) || is_uploaded_file($_FILES[$file_name]['tmp_name'][$key])) {
-
 						}
 					}else{
 						throw new PDOException("Image not selected for index - ".$key);
@@ -1296,7 +1258,7 @@ $app->post('/story', function()use($app,$db)  {
 		
 		$response->setStatus(200);
 		$response->headers->set('Content-Type', 'application/json');
-		$dataAry = array("success"=>array("msg"=>"Header saved"),"data"=>$data);
+		$dataAry = array("success"=>array("msg"=>"Story saved"),"data"=>$data);
 		return $response->body(json_encode($dataAry));
 		
 	} catch(PDOException $e) {
@@ -1348,9 +1310,6 @@ $app->get('/story', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
-
-
-
 $app->post('/event', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -1368,6 +1327,9 @@ $app->post('/event', function()use($app,$db)  {
 		}
 		
 		$group_name = "event";
+		if(!ISSET($group[$group_name])){
+			throw new PDOException("Event data is required");
+		}
 		if(is_array($group[$group_name]) && count($group[$group_name])>0){
 			foreach($group[$group_name] as $key=>$value){
 			
@@ -1386,7 +1348,6 @@ $app->post('/event', function()use($app,$db)  {
 				if(empty($value['cuisine'])){
 					throw new PDOException("Cuisine is empty for Index - ".$key);
 				}
-
 				$sth = $db->prepare("SELECT id FROM planner WHERE session_id = :session_id");
 				$sth->bindParam(':session_id', $CSRFToken, PDO::PARAM_STR);
 				$sth->execute();
@@ -1442,7 +1403,7 @@ $app->post('/event', function()use($app,$db)  {
 		
 		$response->setStatus(200);
 		$response->headers->set('Content-Type', 'application/json');
-		$dataAry = array("success"=>array("msg"=>"Header saved"),"data"=>$data);
+		$dataAry = array("success"=>array("msg"=>"Event saved"),"data"=>$data);
 		return $response->body(json_encode($dataAry));
 		
 	} catch(PDOException $e) {
@@ -1494,20 +1455,6 @@ $app->get('/event', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $app->get('/preview', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -1552,7 +1499,6 @@ $app->get('/preview', function()use($app,$db)  {
 		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
 		$sth->execute();
 		$event = $sth->fetchAll();
-
 		foreach($event as $key=>$value){
 			$sth = $db->prepare("SELECT name,image,replace(name,' ','_') as url FROM venue WHERE id = :id");
 			$sth->bindParam(':id', $value["venue_id"], PDO::PARAM_STR);
@@ -1575,7 +1521,6 @@ $app->get('/preview', function()use($app,$db)  {
 		
 		
 		
-
 		
 		$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$data);
 		$response->setStatus(200);
@@ -1590,7 +1535,6 @@ $app->get('/preview', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
-
 $app->get('/eventplannerpage', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
@@ -1635,7 +1579,6 @@ $app->get('/eventplannerpage', function()use($app,$db)  {
 		$sth->bindParam(':planner_id', $planner['id'], PDO::PARAM_STR);
 		$sth->execute();
 		$event = $sth->fetchAll();
-
 		foreach($event as $key=>$value){
 			$sth = $db->prepare("SELECT name,image,replace(name,' ','_') as url FROM venue WHERE id = :id");
 			$sth->bindParam(':id', $value["venue_id"], PDO::PARAM_STR);
@@ -1658,7 +1601,6 @@ $app->get('/eventplannerpage', function()use($app,$db)  {
 		
 		
 		
-
 		
 		$dataAry = array("success"=>array("msg"=>"Data is available"),"data"=>$data);
 		$response->setStatus(200);
@@ -1673,16 +1615,4 @@ $app->get('/eventplannerpage', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
 $app->run();
