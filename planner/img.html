@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chat</title>
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link media="all" type="text/css" rel="stylesheet" href="css/style.css">
+				
+<script src="js/jquery.min.js"></script>
+<script src="js/dropzone.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<style>
+.dropzone .dz-preview .dz-image img {
+      width: 80px;
+      height: 80px;
+    }
+</style>
+
+		
+		<!--[if lt IE 9]>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+		<![endif]-->
+    </head>
+    <body>
+		<body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+			var myDropzone;
+			var CSRFToken = $.cookie('CSRFToken');
+			if(CSRFToken == ""){
+				alert('Token is empty');
+				return false;
+			}
+			Dropzone.options.myAwesomeDropzone = {
+				thumbnailWidth: 250,
+				thumbnailHeight: 250,
+				paramName: function(file, done) {
+					var oldcount = myDropzone.getAddedFiles().length;
+					var newcount = $("#my-awesome-dropzone .dz-success").length;
+					var cc =  oldcount+newcount+file+1;
+					return "gallery_image["+cc+"]";
+				}, // The name that will be used to transfer the file
+				maxFilesize: 2, // MB
+				//url: 'img.php',
+				url: 'http://localhost:8080/test/ajax/api2/gallery',
+				dictDefaultMessage: "Drag your images",
+				dictInvalidFileType: 'This form only accepts images.',
+					headers: {
+						'CSRFToken': CSRFToken
+				},
+				
+				//acceptedFiles: '.pdf',
+				maxFilesize: 20,
+				clickable: true,
+				parallelUploads: 20,
+				autoProcessQueue: false,
+				uploadMultiple: true,
+				addRemoveLinks: true,
+				accept: function(file, done) {
+					done();
+				},
+				error: function(file, msg){
+					file.status = Dropzone.QUEUED;
+					//alert(msg);
+				},
+				init: function() {
+					myDropzone = this;
+					$("#submit-all").on("click", function(e) {//alert(myDropzone.getAcceptedFiles().length);
+						e.preventDefault();
+						//e.stopPropagation();
+						if (myDropzone.getAcceptedFiles().length > 0) {console.log(myDropzone.getAcceptedFiles());
+							myDropzone.processQueue();
+						} else if(myDropzone.getAddedFiles().length > 0){
+							myDropzone.uploadFiles([{name:'nofiles'}]); //send empty 
+						}
+					});   
+					this.on("success", function(file, serverFileName) {
+                       // fileList[i] = {"serverFileName" : serverFileName, "fileName" : file.name,"fileId" : i };
+                        //console.log(fileList);
+                       // i++;
+
+                    });
+					this.on("removedfile", function(file) {//console.log(file.image_id);
+						if(file.image_id){
+							$.ajax({
+								url: 'http://localhost:8080/test/ajax/api2/gallery' + '?' + $.param({"image_id": file.image_id}),
+								type: 'DELETE',
+								headers:  {"CSRFToken":CSRFToken},
+								contentType: false,
+								cache: false,
+								processData:false,
+								success: function(result) {
+									console.log(result);
+									// Do something with the result
+								},
+								error: function(e, xhr){
+									var error = jQuery.parseJSON (e.responseText);
+									console.log(error.errors.message);
+								}
+							});
+						}
+					 });
+					this.on("addedfile", function(file) {
+						 var fileCount= myDropzone.files.length;
+						  var image_id = file.image_id == undefined ? "" : file.image_id;
+						  if (image_id != ""){
+							var fileCount= file.index;
+							file.previewElement.appendChild(Dropzone.createElement("<input type='hidden' class='imgid' name='gallery["+fileCount+"][image_id]' value='"+image_id+"' />"));
+						  }
+						  var image_title = file.image_title == undefined ? "" : file.image_title;
+						  var image_description = file.image_description == undefined ? "" : file.image_description;
+						  file._captionLabel = Dropzone.createElement("<p>Title:</p>")
+						  file._captionBox = Dropzone.createElement("<input type='text' class='title'  name='gallery["+fileCount+"][image_title]' value='"+image_title+"' />")
+						  file.previewElement.appendChild(file._captionLabel);
+						  file.previewElement.appendChild(file._captionBox);
+						  file.previewElement.appendChild(Dropzone.createElement("<input type='text' class='desc' name='gallery["+fileCount+"][image_description]' value='"+image_description+"' />"));
+					});					
+					jQuery.ajax({
+						url: "http://localhost:8080/test/ajax/api2/gallery",
+						type: "GET",
+						headers:  {"CSRFToken":CSRFToken},
+						contentType: false,
+						cache: false,
+						processData:false,
+						success: function(data){
+							if (data.data) {
+								var i=1;
+								jQuery.each(data.data, function (index, item) {
+									var UniqueId = item.image_title;
+									var mockFile = {
+										index: i,
+										status: 'added',
+										upload: 164203,
+										image_id: item.image_id,
+										image: item.image,
+										image_title: item.image_title,
+										image_description: item.image_description 
+									};
+									myDropzone.files.push(mockFile);
+									myDropzone.emit("addedfile", mockFile);
+									myDropzone.emit("thumbnail", mockFile, "api2/"+item.image);
+									i++;
+								});
+							}
+						},
+						error: function(e, xhr){
+							var error = jQuery.parseJSON (e.responseText);
+							console.log(error.errors.message);
+						}			
+					});
+				}
+			};
+        });
+    </script>
+	<div >
+<form action="img.php"  style="width:200px;height:200px;padding 10px;border:1px solid #000;" class="dropzone"   id="my-awesome-dropzone"><button id='submit-all'>submit</button></form>
+</div>
+</body>
+
+	</body>
+</html>
+
