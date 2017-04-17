@@ -861,7 +861,6 @@ $app->delete('/gallery', function()use($app,$db)  {
 	//$group = $request->params();
 	$CSRFToken = $request->headers('CSRFToken');
 	$image_id = $request->params('image_id');
-
 	try 
     {
 		if(empty($CSRFToken)){
@@ -992,7 +991,6 @@ $app->post('/gallery', function()use($app,$db)  {
 							}
 						}else{
 								throw new PDOException("Image not selected for index - ".$key);
-
 						}
 					}
 					
@@ -1535,20 +1533,23 @@ $app->get('/preview', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
-$app->get('/eventplannerpage', function()use($app,$db)  {
+
+$app->get('/wedding', function()use($app,$db)  {
 	$response = $app->response;
 	$request = $app->request;
-	$plannerurl = $request->params("plannerurl");
+	$url = $request->params("url");
 	try{
-		if(empty($plannerurl)){
-			throw new PDOException("Token is empty");
+		if(empty($url)){
+			throw new PDOException("Url is empty");
 		}
-		$sth = $db->prepare("SELECT id,url,groom_name,bride_name,groom_pimage,bride_pimage,event_date,header_image,event_name,bride_description,groom_description,bride_twitter_link,bride_fb_link,bride_insta_link,groom_twitter_link,groom_fb_link,groom_insta_link,template_order,session_id,story_intro,event_intro,counter_bg_image  FROM planner WHERE url = :url");
-		$sth->bindParam(':url', $plannerurl, PDO::PARAM_STR);
+		$status = 1;
+		$sth = $db->prepare("SELECT id,url,groom_name,bride_name,groom_pimage,bride_pimage,event_date,header_image,event_name,bride_description,groom_description,bride_twitter_link,bride_fb_link,bride_insta_link,groom_twitter_link,groom_fb_link,groom_insta_link,template_order,session_id,story_intro,event_intro,counter_bg_image  FROM planner WHERE url = :url and status = :status");
+		$sth->bindParam(':url', $url, PDO::PARAM_STR);
+		$sth->bindParam(':status', $status, PDO::PARAM_STR);
 		$sth->execute();
 		$planner = $sth->fetch();
 		if(empty($planner)){
-			throw new PDOException("Token is not valid");
+			throw new PDOException("Url is not valid");
 		}else{
 			$data = $planner;
 			unset($data['id']);
@@ -1615,4 +1616,5 @@ $app->get('/eventplannerpage', function()use($app,$db)  {
 		return $response->body(json_encode($dataAry));
 	}
 });
+
 $app->run();
