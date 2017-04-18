@@ -9,7 +9,7 @@ $response = new Response();
 session_start();
 function dbconn ($config) {
     $db = $config['settings']['db'];
-    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=test;charset=utf8", "root", "");
+    $pdo = new PDO("mysql:host=" . "localhost" . ";dbname=marriou2_marriott;charset=utf8", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
@@ -1617,4 +1617,207 @@ $app->get('/wedding', function()use($app,$db)  {
 	}
 });
 
+
+$app->delete('/bridalparty', function()use($app,$db)  {
+	
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->headers('CSRFToken');
+	$id = $request->params('id');
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		
+		if(empty($id)){
+			throw new PDOException("ID is empty");
+		}
+		
+		$session_id = checkValidToken($CSRFToken,$db);
+		if($session_id == ""){
+			throw new PDOException("Token is invalid");
+		}
+		
+		
+		$sth = $db->prepare("SELECT ps.* FROM planner p join planner_guest ps on (p.id = ps.planner_id) WHERE ps.id = :id and p.session_id = :session_id");
+		$sth->bindParam(':id', $id, PDO::PARAM_STR);
+		$sth->bindParam(':session_id', $session_id, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetch();
+		
+		if($result["id"] == ""){
+			throw new PDOException("ID is invalid");
+		}
+		
+		$userDirName = substr($session_id,-8);
+		$uploadedfilepath = $result["image"];
+		if($uploadedfilepath !=""){
+			if (file_exists($uploadedfilepath)) {
+				if (!unlink($uploadedfilepath)) {
+					throw new PDOException("Cannot delete the file");
+				}
+			}
+		}
+	
+		$sth = $db->prepare("DELETE FROM planner_guest WHERE id = :id");
+		$sth->bindParam(':id', $result["id"], PDO::PARAM_STR);
+		$sth->execute();
+		
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Guest Deleted"));
+		return $response->body(json_encode($dataAry));
+		
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+
+$app->delete('/event', function()use($app,$db)  {
+	
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->headers('CSRFToken');
+	$id = $request->params('id');
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		
+		if(empty($id)){
+			throw new PDOException("ID is empty");
+		}
+		
+		$session_id = checkValidToken($CSRFToken,$db);
+		if($session_id == ""){
+			throw new PDOException("Token is invalid");
+		}
+		
+		$sth = $db->prepare("SELECT ps.* FROM planner p join planner_event ps on (p.id = ps.planner_id) WHERE ps.id = :id and p.session_id = :session_id");
+		$sth->bindParam(':id', $id, PDO::PARAM_STR);
+		$sth->bindParam(':session_id', $session_id, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetch();
+		
+		if($result["id"] == ""){
+			throw new PDOException("ID is invalid");
+		}
+			
+		$sth = $db->prepare("DELETE FROM planner_event WHERE id = :id");
+		$sth->bindParam(':id', $result["id"], PDO::PARAM_STR);
+		$sth->execute();
+		
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Event Deleted"));
+		return $response->body(json_encode($dataAry));
+		
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+$app->delete('/story', function()use($app,$db)  {
+	
+	$response = $app->response;
+	$request = $app->request;
+	$CSRFToken = $request->headers('CSRFToken');
+	$id = $request->params('id');
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		
+		if(empty($id)){
+			throw new PDOException("ID is empty");
+		}
+		
+		$session_id = checkValidToken($CSRFToken,$db);
+		if($session_id == ""){
+			throw new PDOException("Token is invalid");
+		}
+		
+		
+		$sth = $db->prepare("SELECT ps.* FROM planner p join planner_story ps on (p.id = ps.planner_id) WHERE ps.id = :id and p.session_id = :session_id");
+		$sth->bindParam(':id', $id, PDO::PARAM_STR);
+		$sth->bindParam(':session_id', $session_id, PDO::PARAM_STR);
+		$sth->execute();
+		$result = $sth->fetch();
+		
+		if($result["id"] == ""){
+			throw new PDOException("ID is invalid");
+		}
+		
+		$userDirName = substr($session_id,-8);
+		$uploadedfilepath = $result["image"];
+		if($uploadedfilepath !=""){
+			if (file_exists($uploadedfilepath)) {
+				if (!unlink($uploadedfilepath)) {
+					throw new PDOException("Cannot delete the file");
+				}
+			}
+		}
+	
+		$sth = $db->prepare("DELETE FROM planner_story WHERE id = :id");
+		$sth->bindParam(':id', $result["id"], PDO::PARAM_STR);
+		$sth->execute();
+		
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Story Deleted"));
+		return $response->body(json_encode($dataAry));
+		
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
+
+$app->post('/publish', function()use($app,$db)  {
+	$response = $app->response;
+	$request = $app->request;
+	$group = $request->params();
+	$CSRFToken = $request->headers('CSRFToken');
+	try 
+    {
+		if(empty($CSRFToken)){
+			throw new PDOException("Token is empty");
+		}
+		$session_id = checkValidToken($CSRFToken,$db);
+		if($session_id == ""){
+			throw new PDOException("Token is invalid");
+		}
+		
+		//TODO check if the planner has necessary data for publishing
+		$status=1;
+		$sth = $db->prepare("UPDATE planner SET status = :status WHERE session_id = :session");
+		$sth->bindParam(':status', $status, PDO::PARAM_STR);
+		$sth->bindParam(':session', $CSRFToken, PDO::PARAM_STR);
+		$sth->execute();
+		
+		$response->setStatus(200);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("success"=>array("msg"=>"Planner Published"));
+		return $response->body(json_encode($dataAry));
+		
+	} catch(PDOException $e) {
+		$response->setStatus(422);
+		$response->headers->set('Content-Type', 'application/json');
+		$dataAry = array("status"=>"error","errors"=>array("message"=>$e->getMessage()));
+		return $response->body(json_encode($dataAry));
+    }
+});
 $app->run();
