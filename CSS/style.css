@@ -31,48 +31,118 @@ url('../Fonts/icomoon.svg#icomoon') format('svg');font-weight:normal;font-style:
 
 /*=========== */
 
-.icon-search-small:before{content:"\e900";}
-.icon-toll-free-small:before{content:"\e901";}
-.icon-arrow-next-medium:before{content:"\e902";}
-.icon-arrow-prev-medium:before{content:"\e903";}
-.icon-call-medium:before{content:"\e904";}
-.icon-cross-medium:before{content:"\e905";}
-.icon-decor-glyph:before{content:"\e906";}
-.icon-decor-glyph-medium:before{content:"\e907";}
-.icon-like-bg-medium:before{content:"\e908";}
-.icon-like-bg-medium2:before{content:"\e909";}
-.icon-mail-medium:before{content:"\e90a";}
-.icon-mobile-medium:before{content:"\e90b";}
-.icon-rate-us-medium:before{content:"\e90c";}
-.icon-rating-medium:before{content:"\e90d";}
-.icon-search-medium:before{content:"\e90e";}
-.icon-share-bg-medium:before{content:"\e90f";}
-.icon-share-bg-medium2:before{content:"\e910";}
-.icon-share-medium:before{content:"\e911";}
-.icon-start-planning-medium:before{content:"\e912";}
-.icon-visit-website-medium:before{content:"\e913";}
-.icon-beauty-large .path1:before{content:"\e914";color:rgb(179, 136, 85);}
-.icon-beauty-large .path2:before{content:"\e915";margin-left:-1em;color:rgb(255, 255, 255);}
-.icon-beauty-large .path3:before{content:"\e916";margin-left:-1em;color:rgb(255, 255, 255);}
-.icon-beauty-large .path4:before{content:"\e917";margin-left:-1em;color:rgb(255, 255, 255);}
-.icon-culinary-large .path1:before{content:"\e918";color:rgb(255, 255, 255);}
-.icon-culinary-large .path2:before{content:"\e919";margin-left:-1em;color:rgb(179, 136, 85);}
-.icon-shaadi-large .path1:before{content:"\e91a";color:rgb(179, 136, 85);}
-.icon-shaadi-large .path2:before{content:"\e91b";margin-left:-1em;color:rgb(255, 255, 255);}
-.icon-airport-shuttle-xlarge:before{content:"\e91c";}
-.icon-banquet-halls-xlarge:before{content:"\e91d";}
-.icon-bar-xlarge:before{content:"\e91e";}
-.icon-call-service-xlarge:before{content:"\e91f";}
-.icon-contact-xlarge:before{content:"\e920";}
-.icon-decorators-xlarge:before{content:"\e921";}
-.icon-guest-rooms-xlarge:before{content:"\e922";}
-.icon-hand-shake-xlarge:before{content:"\e923";}
-.icon-hr-room-service-xlarge:before{content:"\e924";}
-.icon-laundry-xlarge:before{content:"\e925";}
-.icon-one-roof-xlarge:before{content:"\e926";}
-.icon-pool-xlarge:before{content:"\e927";}
-.icon-spa-xlarge:before{content:"\e928";}
-.icon-total-capacity-xlarge:before{content:"\e929";}
+
+.icon-import-photo-xxlarge:before{content:"\e969"}
+.icon-cuisine-small:before{content:"\e96a"}
+.icon-delete-small:before{content:"\e967"}
+.icon-event-ornament-small:before{content:"\e96b"}
+.icon-search-small:before{content:"\e900"}
+.icon-theme-small:before{content:"\e96c"}
+.icon-toll-free-small:before{content:"\e901"}
+.icon-Audio-disable-medium:before{content:"\e902"}
+.icon-Audio-enable-medium:before{content:"\e903"}
+.icon-Play-medium:before{content:"\e904"}
+.icon-PlayPause-medium:before{content:"\e905"}
+.icon-arrow-next-medium:before{content:"\e906"}
+.icon-arrow-prev-medium:before{content:"\e907"}
+.icon-calendar-medium:before{content:"\e908"}
+.icon-call-medium:before{content:"\e909"}
+.icon-cross-medium:before{content:"\e90a"}
+.icon-decor-glyph:before{content:"\e90b"}
+.icon-decor-glyph-medium:before{content:"\e90c"}
+.icon-edit-medium:before{content:"\e90d"}
+.icon-like-bg-medium:before{content:"\e90e"}
+.icon-like-bgcolor-medium:before{content:"\e90f"}
+.icon-mail-medium:before{content:"\e910"}
+.icon-mobile-medium:before{content:"\e911"}
+.icon-rate-us-medium:before{content:"\e912"}
+.icon-rating-medium:before{content:"\e913"}
+.icon-search-medium:before{content:"\e914"}
+.icon-share-bg-medium:before{content:"\e915"}
+.icon-share-bgcolor-medium:before{content:"\e916"}
+.icon-share-medium:before{content:"\e917"}
+.icon-start-planning-medium:before{content:"\e918"}
+.icon-visit-website-medium:before{content:"\e919"}
+.icon-album-large:before{content:"\e91a"}
+.icon-banner-ornament-large .path1:before{content:"\e91b";color:#fff}
+.icon-banner-ornament-large .path2:before{content:"\e91c";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path3:before{content:"\e91d";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path4:before{content:"\e91e";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path5:before{content:"\e91f";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path6:before{content:"\e920";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path7:before{content:"\e921";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path8:before{content:"\e922";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path9:before{content:"\e923";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path10:before{content:"\e924";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path11:before{content:"\e925";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path12:before{content:"\e926";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path13:before{content:"\e927";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path14:before{content:"\e928";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path15:before{content:"\e929";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path16:before{content:"\e92a";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path17:before{content:"\e92b";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path18:before{content:"\e92c";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path19:before{content:"\e92d";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path20:before{content:"\e92e";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path21:before{content:"\e92f";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path22:before{content:"\e930";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path23:before{content:"\e931";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path24:before{content:"\e932";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path25:before{content:"\e933";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path26:before{content:"\e934";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path27:before{content:"\e935";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path28:before{content:"\e936";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path29:before{content:"\e937";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path30:before{content:"\e938";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path31:before{content:"\e939";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path32:before{content:"\e93a";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path33:before{content:"\e93b";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path34:before{content:"\e93c";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path35:before{content:"\e93d";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path36:before{content:"\e93e";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path37:before{content:"\e93f";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path38:before{content:"\e940";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path39:before{content:"\e941";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path40:before{content:"\e942";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path41:before{content:"\e943";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path42:before{content:"\e944";margin-left:-1em;color:#fff}
+.icon-banner-ornament-large .path43:before{content:"\e945";margin-left:-1em;color:#bb8b46}
+.icon-beauty-large-large .path1:before{content:"\e946";color:#b38855}
+.icon-beauty-large-large .path2:before{content:"\e947";margin-left:-1em;color:#fff}
+.icon-beauty-large-large .path3:before{content:"\e948";margin-left:-1em;color:#fff}
+.icon-beauty-large-large .path4:before{content:"\e949";margin-left:-1em;color:#fff}
+.icon-bridalparty-large:before{content:"\e94a"}
+.icon-bride-groom-large:before{content:"\e94b"}
+.icon-culinary-large-large .path1:before{content:"\e94c";color:#fff}
+.icon-culinary-large-large .path2:before{content:"\e94d";margin-left:-1em;color:#b38855}
+.icon-edit-photo-large:before{content:"\e94e"}
+.icon-events-large:before{content:"\e94f"}
+.icon-facebook-large:before{content:"\e964"}
+.icon-gallery-large:before{content:"\e950"}
+.icon-header-large:before{content:"\e951"}
+.icon-instagram-large:before{content:"\e965"}
+.icon-rsvp-large:before{content:"\e952"}
+.icon-shaadi-large .path1:before{content:"\e953";color:#b38855}
+.icon-shaadi-large .path2:before{content:"\e954";margin-left:-1em;color:#fff}
+.icon-twitter-large:before{content:"\e966"}
+.icon-yourstory-large:before{content:"\e955"}
+.icon-airport-shuttle-xlarge:before{content:"\e956"}
+.icon-banquet-halls-xlarge:before{content:"\e957"}
+.icon-bar-xlarge:before{content:"\e958"}
+.icon-call-service-xlarge:before{content:"\e959"}
+.icon-contact-xlarge:before{content:"\e95a"}
+.icon-decorators-xlarge:before{content:"\e95b"}
+.icon-guest-rooms-xlarge:before{content:"\e95c"}
+.icon-hand-shake-xlarge:before{content:"\e95d"}
+.icon-hr-room-service-xlarge:before{content:"\e95e"}
+.icon-laundry-xlarge:before{content:"\e95f"}
+.icon-one-roof-xlarge:before{content:"\e960"}
+.icon-plus-xlarge:before{content:"\e968"}
+.icon-pool-xlarge:before{content:"\e961"}
+.icon-spa-xlarge:before{content:"\e962"}
+.icon-total-capacity-xlarge:before{content:"\e963"}
+
+
 
 @charset "utf-8";
 @font-face{font-family:'BodoniSvtyTwoITCTT-Bold';src:url(../Fonts/WebFonts/BodoniSvtyTwoITCTT-Bold.eot);src:url(../Fonts/WebFonts/BodoniSvtyTwoITCTT-Bold.woff2) format("woff2"),url(../Fonts/WebFonts/BodoniSvtyTwoITCTT-Bold.woff) format("woff"),url(../Fonts/WebFonts/BodoniSvtyTwoITCTT-Bold.ttf) format("truetype"),url(../Fonts/WebFonts/BodoniSvtyTwoITCTT-Bold.svg#BodoniSvtyTwoITCTT-Bold) format("svg"),url(../Fonts/WebFonts/BodoniSvtyTwoITCTT-Bold.eot?#iefix) format("embedded-opentype");font-weight:400;font-style:normal}
@@ -92,7 +162,11 @@ a{outline:0}
 .no-gutter.row{margin-right:0;margin-left:0}
 .no-gutter > [class*='col-']{padding-right:0;padding-left:0}
 .hide{display:none}
+.normal{font-style:normal !important}
+.italic{font-style:italic}
+.font-bold{font-weight:500}
 .click-off{cursor:default!important;opacity:.4;pointer-events:none}
+small, .small, .smaller{color:#b8b8b8}
 .align-top{vertical-align:top}
 .align-middle{display:inline-block;vertical-align:middle}
 .align-bottom{display:inline-block;vertical-align:bottom}
@@ -100,12 +174,13 @@ a{outline:0}
 .text-right{text-align:right!important}
 .align-inherit{vertical-align:inherit!important}
 .text-topright{float:right;vertical-align:text-top}
-.inline{display:inline-block}
+.inline{display:inline}
 .inline-block{display:inline-block!important}
 .d-block{display:block!important}
 .no-float{float:none!important}
 .width-100per{width:100%}
 .width-90per{width:90%}
+.height-auto{height: auto !important;}
 .no-margin-border{margin:0!important;border:none!important}
 .no-padding-border{padding:0!important;border:none!important}
 .no-padding-margin{padding:0!important;margin:0!important}
@@ -130,6 +205,7 @@ a{outline:0}
 .overflow-scroll{overflow:scroll!important}
 .overflow-visible{overflow:visible!important}
 .background-transparent{background:transparent!important}
+.background-transparent:hover{box-shadow:none !important;}
 .visibility-hidden{visibility:hidden;height:0;overflow:hidden}
 .clear-container-margin{margin-left:-15px!important;margin-right:-15px!important;margin-top:-15px!important}
 .no-hover{display:inline-block}
@@ -145,6 +221,8 @@ a{outline:0}
 .space-bottom30{margin-bottom:30px!important}
 .space-bottom5Per{margin-bottom:5%!important}
 .no-data{margin:8% 0!important;text-align:center!important}
+.margin10{margin:10px!important}
+.margin20{margin:20px!important}
 .margin-TB10{margin:10px 0}
 .margin-T-5{margin-top:-5px!important}
 .margin-T-8{margin-top:-8px!important}
@@ -152,6 +230,9 @@ a{outline:0}
 .margin-T-13{margin-top:-13px!important}
 .margin-T-20{margin-top:-20px!important}
 .margin-T-30{margin-top:-30px!important}
+.margin-T-40{margin-top:-40px!important}
+.margin-T-50{margin-top:-50px!important}
+.margin-T-80{margin-top:-80px!important}
 .margin-L-30{margin-left:-30px}
 .margin-T3{margin-top:3px!important}
 .margin-T4{margin-top:4px!important}
@@ -164,6 +245,7 @@ a{outline:0}
 .margin-T30{margin-top:30px!important}
 .margin-T35{margin-top:35px!important}
 .margin-T50{margin-top:50px}
+	.margin-T80{margin-top:80px !important;}
 .margin-T100{margin-top:100px}
 .margin-T120{margin-top:120px!important}
 .margin-L5{margin-left:5px!important}
@@ -182,14 +264,22 @@ a{outline:0}
 .margin-B20{margin-bottom:20px!important}
 .margin-B30{margin-bottom:30px!important}
 .margin-B50{margin-bottom:50px!important}
+.margin-B60{margin-bottom:50px!important}		
+.margin-B70{margin-bottom:50px!important}		
+.margin-B80{margin-bottom:50px!important}		
+.margin-B90{margin-bottom:50px!important}
 .margin-B100{margin-bottom:100px!important}
 .margin-B150{margin-bottom:150px!important}
+	.top-50{top:50px !important;}
 .padding5{padding:5px!important}
 .padding10{padding:10px!important}
 .padding20{padding:20px!important}
+.padding-L5{padding-left:5px!important}
 .padding-L10{padding-left:10px!important}
 .padding-L30{padding-left:30px!important}
+.padding-L50{padding-left:50px!important}
 .padding-R10{padding-right:10px!important}
+.padding-R50{padding-right:50px!important}
 .padding-B10{padding-bottom:10px!important}
 .padding-B15{padding-bottom:15px!important}
 .padding-B20{padding-bottom:20px!important}
@@ -197,6 +287,7 @@ a{outline:0}
 .padding-T10{padding-top:10px!important}
 .padding-T15{padding-top:15px!important}
 .padding-T20{padding-top:20px!important}
+.padding-T50{padding-top:50px!important}
 .padding-R15{padding-right:15px!important}
 .no-padding{padding:0!important}
 .no-padding-top{padding-top:0!important}
@@ -357,8 +448,25 @@ input:focus::-webkit-input-placeholder{color:transparent!important}
 input:focus::-moz-placeholder{color:transparent!important}
 input:focus:-moz-placeholder{color:transparent!important}
 
+select option:first{opacity:.4;font-family:'proxima_nova_rgregular'}
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:url(../Images/dropdown.png) no-repeat #ffffff;background-position:center right;background-size:30px;border-radius:0;border-style: solid;padding: 11px;   font-size: 17px;border-width: 1px;border-color: #dcdcdc;color: #333;font-family: 'proxima_nova_rgregular';box-shadow:none!important;}
+textarea.form-control.review_text{border-radius:0;border:1px solid #dcdcdc;width:100%;font-size:16px;font-family:'proxima_nova_rgregular';min-height:100px}
+.inputbox,#contact_page select{border-style:solid;padding:11px;font-size:17px;border-width:1px;border-color:#dcdcdc;color:#333;font-family:'proxima_nova_rgregular';box-shadow:none!important}
+.inputbox::-webkit-input-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
+.inputbox:-moz-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
+.inputbox::-moz-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
+.inputbox:-ms-input-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
+button.btn{font-family:'Conv_GiovanniStd-Book';font-size:16px;color:#ffffff !important;border-radius:0;border:0;text-transform:uppercase;font-style:normal;font-weight:400;letter-spacing:1px;border:1px solid transparent;background:-moz-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(176,135,92,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);transition:all .7s ease}
+button.btn:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2}
+a.btn{font-family:'Conv_GiovanniStd-Book';font-size:16px;color:#ffffff !important;border-radius:0;border:0;text-transform:uppercase;font-style:normal;font-weight:400;letter-spacing:1px;border:1px solid transparent;background:-moz-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(176,135,92,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);transition:all .7s ease}
+ a.btn:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2}
+
+#enquiry form#registrationForm .col-sm-2 {width: 20%;}
+
 /*--------------------------------------------- */
 .loader{position:fixed;left:0;top:0;width:100%;height:100%;z-index:9999;background:url(../Images/loading.gif) 50% 50% no-repeat #fff}
+
+*{outline: none !important;}
 
 header #myCarousel .item img{width:100%}
 header #myCarousel .item img.w3-animate-zoom{-webkit-animation:animatezoom 3s;-moz-animation:animatezoom 3s;-ms-animation:animatezoom 3s;-o-animation:animatezoom 3s;animation:animatezoom 3s;transition:ease-in-out;-webkit-transition-timing-function:ease-in-out;-moz-transition-timing-function:ease-in-out;-ms-transition-timing-function:ease-in-out;-o-transition-timing-function:ease-in-out}
@@ -388,7 +496,7 @@ header #myCarousel p .btn:hover{background:rgba(197,167,117,1);background:-moz-r
 header .navbar-brand{display:none}
 header .navbar{border:0 solid transparent;max-height:90px}
 header .navbar-fixed-top{border-width:0 0 1px;top:0}
-header nav.navbar.navbar-default.navbar-fixed-top{background:transparent;border-bottom:0;box-shadow:0 0 0}
+header nav.navbar.navbar-default.navbar-fixed-top{/*background:transparent;*/ background: repeating-linear-gradient(rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%); border-bottom:0;box-shadow:0 0 0}
 header .navbar-default .navbar-nav>li>a{font-family:'proxima_nova_rgregular';color:#fff;font-size:15px;text-shadow:0 0 0 rgba(255,255,255,0);padding:5px 0;letter-spacing:.1px;border-bottom:2px solid transparent}
 header .navbar-default .navbar-nav>li.logo a{opacity:1!important}
 header .navbar-default .navbar-nav>li>a:focus,header .navbar-default .navbar-nav>li>a:hover{color:#fff;opacity:1!important;border-bottom:2px solid #b0875c!important}
@@ -404,6 +512,12 @@ header .navbar .navbar-form .input-group>.input-group-btn .btn{background:transp
 header .navbar-default .navbar-nav>li{float:left;padding:10px 9px}
 header #banner .carousel-caption h3{font-family:'Conv_GiovanniStd-Book';font-size:68px;text-transform:capitalize}
 header .responsive_search_small{display:none}
+#videoControls a:hover{text-decoration: none;}
+#videoControls{top: -60px; position: relative;z-index: 999; left: 15px;}
+
+header .navbar .navbar-form .input-group>.form-control::-webkit-input-placeholder{color:#fff!important}
+header .navbar .navbar-form .input-group>.form-control::-moz-placeholder{color:#fff!important}
+header .navbar .navbar-form .input-group>.form-control::-moz-placeholder{color:#fff!important}
 
 /******************* //Header ********************/
 #about .home_text{margin-top:12%}
@@ -415,7 +529,7 @@ section#honeymoon .honeymoon_img{-webkit-transition:.5s ease-in-out;-moz-transit
 #honeymoon .h_content{background:#2c3539}
 #honeymoon .h_content .borderatomic{border:1px solid #425056;padding:10px 10px 9px!important}
 #honeymoon .h_content .row.padding20{padding-bottom:20px!important;padding-top:20px!important}
-#honeymoon h3{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:50px;color:#fff}
+#honeymoon h3{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:50px;color:#fff;margin: 10px 0px;}
 #honeymoon p{font-family:'proxima_nova_rgregular';font-size:16px;color:#fff}
 #honeymoon p .btn{font-family:'Conv_GiovanniStd-Book';font-size:16px;color:#fff;border-radius:0;border:0;text-transform:uppercase;font-style:normal;font-weight:400;letter-spacing:1px;border:1px solid transparent;background:-moz-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(176,135,92,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);transition:all .7s ease}
 #honeymoon p .btn:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2;transition:all .75s cubic-bezier(0,0,0.2,1)}
@@ -443,23 +557,23 @@ section#inspired .gInsImage4{float:left;position:relative;margin-left:-170px}
 #inspired p .btn:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2;transition:all .75s cubic-bezier(0,0,0.2,1)}
 
 
-#testimonials{background:url(../Images/testimonial.jpg) no-repeat;background-size:cover}
-#testimonials a:hover{text-decoration:none;}
-#testimonials .testimonialsInfo{width:40%;position:relative;margin:5% auto}
-#testimonials .testimonialsInfobg{background:#fff;padding:20px}
-#testimonials .testimonialsInfo .testimonialsborder{border:1px solid #dcdcdc;padding:10px 10px 30px;color:#000;font-family:'proxima_nova_rgregular';font-size:16px}
-#testimonials .testimonialsInfo h3{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:50px;color:#332f2c}
-#testimonials .testimonialsInfo p{font-family:'proxima_nova_rgregular';font-size:16px;color:#332f2c;text-align:center}
-#testimonials .testimonialsInfo span{font-family:'proxima_nova_rgregular';font-size:16px;color:#332f2c;text-align:center}
-#testimonials .testimonialsInfo .carousel-indicators{bottom:-20px;left:10px;width:100%;padding:6px 0;margin:auto;position:absolute;right:0;text-align:center}
-#testimonials .testimonialsInfo .carousel-indicators li{width:10px;height:10px;background-color:#e5e5e5;border:0 solid #fff}
-#testimonials .testimonialsInfo .carousel-indicators .active{width:10px;height:10px;background:#b0875c}
-#testimonials .testimonialsInfo .carousel-inner .thumbnail{margin-bottom:0;border-bottom-left-radius:0;border-bottom-right-radius:0}
-#testimonials .testimonialsInfo .carousel-inner .caption{padding:10px}
-#testimonials .home_testimonials .testimonialsInfobg{-webkit-transition:.5s ease-in-out;-moz-filter:grayscale(0%);-moz-transition:.5s ease-in-out;-o-filter:grayscale(0%);-o-transition:.5s ease-in-out}
-#testimonials .home_testimonials:hover .testimonialsInfobg{-webkit-box-shadow:0 38px 45px 0 rgba(0,0,0,0.4);-moz-box-shadow:0 38px 45px 0 rgba(0,0,0,0.4);box-shadow:0 38px 45px 0 rgba(0,0,0,0.4); cursor:auto;)}
+section#testimonials{background:url(../Images/testimonial.jpg) no-repeat;background-size:cover}
+section#testimonials a:hover{text-decoration:none;}
+section#testimonials .testimonialsInfo{width:40%;position:relative;margin:5% auto}
+section#testimonials .testimonialsInfobg{background:#fff;padding:20px}
+section#testimonials .testimonialsInfo .testimonialsborder{border:1px solid #dcdcdc;padding:10px 10px 30px;color:#000;font-family:'proxima_nova_rgregular';font-size:16px}
+section#testimonials .testimonialsInfo h3{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:50px;color:#332f2c}
+section#testimonials .testimonialsInfo p{font-family:'proxima_nova_rgregular';font-size:16px;color:#332f2c;text-align:center}
+section#testimonials .testimonialsInfo span{font-family:'proxima_nova_rgregular';font-size:16px;color:#332f2c;text-align:center}
+section#testimonials .testimonialsInfo .carousel-indicators{bottom:-20px;left:10px;width:100%;padding:6px 0;margin:auto;position:absolute;right:0;text-align:center}
+section#testimonials .testimonialsInfo .carousel-indicators li{width:10px;height:10px;background-color:#e5e5e5;border:0 solid #fff}
+section#testimonials .testimonialsInfo .carousel-indicators .active{width:10px;height:10px;background:#b0875c}
+section#testimonials .testimonialsInfo .carousel-inner .thumbnail{margin-bottom:0;border-bottom-left-radius:0;border-bottom-right-radius:0}
+section#testimonials .testimonialsInfo .carousel-inner .caption{padding:10px}
+section#testimonials .home_testimonials .testimonialsInfobg{-webkit-transition:.5s ease-in-out;-moz-filter:grayscale(0%);-moz-transition:.5s ease-in-out;-o-filter:grayscale(0%);-o-transition:.5s ease-in-out}
+section#testimonials .home_testimonials:hover .testimonialsInfobg{-webkit-box-shadow:0 38px 45px 0 rgba(0,0,0,0.4);-moz-box-shadow:0 38px 45px 0 rgba(0,0,0,0.4);box-shadow:0 38px 45px 0 rgba(0,0,0,0.4); cursor:auto;)}
 
-#footer_full{background:#111416;padding:25px 0 20px}
+#footer_full{background:#0f1315;padding:50px 0 20px}
 #footer_full .f_border{border-bottom:1px solid #666;opacity:.5;margin:0}
 #footer_full .copyrights{opacity:.3;font-family:'proxima_nova_rgregular';font-size:13px;color:#fff;letter-spacing:1px}
 #footer_full a{font-family:'proxima_nova_rgregular';color:#fff;text-decoration:none}
@@ -467,7 +581,34 @@ section#inspired .gInsImage4{float:left;position:relative;margin-left:-170px}
 footer#footer_full i{float:left;padding-right:10px}
 footer#footer_full img{text-align:center;max-width:100%}
 footer#footer_full span.copyrights a{text-transform:none}
-footer#footer_full .footer_img{width:80%;margin:auto}
+footer#footer_full .footer_img{width:100%;margin:auto}
+#footer_fullDestination {background: #0f1315;padding: 50px 0 20px;}
+#footer_fullDestination .f_border{border-bottom:1px solid #666;opacity:.5;margin:0}
+#footer_fullDestination .copyrights{opacity:.3;font-family:'proxima_nova_rgregular';font-size:13px;color:#fff;letter-spacing:1px}
+#footer_fullDestination a{font-family:'proxima_nova_rgregular';color:#fff;text-decoration:none}
+#footer_fullDestination .text-capitalize a:hover{text-decoration:underline}
+footer#footer_fullDestination i{float:left;padding-right:10px}
+footer#footer_fullDestination img{text-align:center;max-width:100%}
+footer#footer_fullDestination span.copyrights a{text-transform:none}
+footer#footer_fullDestination .footer_img{width:100%;margin:auto}
+
+.sprite { background: url('../Images/Footer_logo/footer-sprite.png') no-repeat top left; width: 106px; height: 67px; margin: auto; } 
+.sprite.ritzcarlton { background-position: 0 0; } 
+.sprite.stregis { background-position: -116px 0; } 
+.sprite.jwmarriott { background-position: -232px 0; } 
+.sprite.luxurycollection { background-position: -348px 0; } 
+.sprite.whotels { background-position: -464px 0; } 
+.sprite.renaissancehotels { background-position: -580px 0; } 
+.sprite.sheraton { background-position: -696px 0; } 
+.sprite.westin { background-position: -812px 0; } 
+.sprite.marriott { background-position: -928px 0; } 
+.sprite.lemeridien { background-position: -1044px 0; } 
+.sprite.courtyard { background-position: -1160px 0; } 
+.sprite.designhotels { background-position: -1276px 0; } 
+.sprite.marriottea { background-position: -1392px 0; } 
+.sprite.fourpoints { background-position: -1508px 0; } 
+.sprite.aloft { background-position: -1624px 0; } 
+.sprite.fairfield { background-position: -1740px 0; } 
 
 /******************* //Destination Page ********************/
 
@@ -515,12 +656,16 @@ footer#footer_full .footer_img{width:80%;margin:auto}
 #reviews button.btn:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2}
 #reviews .review_testimonials{height:170px;overflow-x:hidden;overflow-y:hidden}
 #reviews #reviews_testimonials_more{font-size:18px;text-transform:uppercase;background:transparent;box-shadow:0 0;border:none;color:#b0875c;font-family:'Conv_GiovanniStd-Book';text-decoration:underline}
-#reviews .review_form #reviewForm .inputbox{border-style:solid;padding:11px;font-size:17px;border-width:1px;border-color:#dcdcdc;color:#333;font-family:'proxima_nova_rgregular'}
+#reviews .review_form #reviewForm .inputbox{border-style:solid;padding:11px;font-size:17px;border-width:1px;border-color:#dcdcdc;color:#333;font-family:'proxima_nova_rgregular';}
 #reviews .review_form #reviewForm .inputbox::-webkit-input-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
 #reviews .review_form #reviewForm .inputbox:-moz-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
 #reviews .review_form #reviewForm .inputbox::-moz-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
 #reviews .review_form #reviewForm .inputbox:-ms-input-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
-
+#reviews .review_form #reviewForm .inputbox:-ms-input-placeholder{opacity:.4;font-family:'proxima_nova_rgregular'}
+#reviews .review_form div#reviewModal .modal-header {border-bottom: 0px;}
+#reviews .review_form div#reviewModal .modal-body{border:1px solid #ccc;margin:10px}
+#reviews .review_form div#reviewModal .modal-footer{border-top:0}
+.modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;background-color:rgba(0,0,0,0.67)}
 /******************* //Testimonial Page ********************/
 #testimonials_page .t_quotation{background:url(../Images/testimonials/quotation.png) no-repeat;background-position:center right}
 #testimonials_page .t_quotation .row{width:90%;margin:auto;padding-top:0!important}
@@ -623,7 +768,7 @@ section#blogDetailed_page .blogList li {margin-top: 20px;margin-bottom: 20px;}
 #blog_share .fancy{line-height:.5;text-align:center}
 #blog_share .fancy span{display:inline-block;position:relative;line-height:36px;vertical-align:middle}
 #blog_share .fancy span:before,#blog_share .fancy span:after{content:"";position:absolute;height:5px;border-bottom:1px solid rgba(17,20,22,0.25);border-top:1px solid rgba(17,20,22,0.25);top:0;width:500%;bottom:0;margin:auto}
-#blog_share .fancy span:before{right:100%;margin-right:15px}
+#blog_share .fancy span:before{right:100%;margin-right:15px;}
 #blog_share .fancy span:after{left:100%;margin-left:15px}
 #blog_reviews .review_form{width:95%;margin:auto}
 #blog_reviews h5{font-family:'Conv_GiovanniStd-Book';font-weight:400;font-size:24px;color:#332f2c;margin-bottom:30px}
@@ -665,7 +810,7 @@ section#blogDetailed_page .blogList li {margin-top: 20px;margin-bottom: 20px;}
 #venue_page .searc_venue .input__label--hoshi-color-3::after{border-color:hsl(35,46%,50%)}
 #venue_page .searc_venue .input__field--hoshi:focus + .input__label--hoshi::after,#venue_page .searc_venue .input--filled .input__label--hoshi::after{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
 #venue_page .searc_venue .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,#venue_page .searc_venue .input--filled .input__label-content--hoshi{-webkit-animation:anim-1 .3s forwards;animation:anim-1 .3s forwards}
-#venue_page .search_icon{position:absolute;bottom:10px;right:75px}
+#venue_page .search_icon{position:absolute;bottom:-10px;right:75px}
 #venue_listing .filtr-item{padding:1rem}
 #venue_listing .hovereffect{width:100%;height:100%;float:left;overflow:hidden;position:relative;text-align:center}
 #venue_listing .hovereffect .overlay{width:100%;height:100%;position:absolute;overflow:hidden;top:0;left:0;padding:10px}
@@ -691,7 +836,7 @@ section#venue_page .venue_list .simplefilter span img{transform:rotate(90deg);ma
 section#venue_page .venue_list .btn-default.simplefilter:hover{background-color:rgba(225,223,223,0.51);color:#fff}
 section#venue_page .venue_list .open>.dropdown-menu li{padding:10px;cursor:pointer}
 section#venue_page .venue_list .open .dropdown-toggle.btn-default{background-color:rgba(165,165,165,0.28);color:#fff}
-section#venue_page .venue_list .open>.dropdown-menu{border-radius:0;margin-left:-30px;font-size:17px;font-family:'proxima_nova_rgregular';height:250px;overflow-y:scroll;min-width:200px}
+section#venue_page .venue_list .open>.dropdown-menu{border-radius:0;margin-left:-30px;font-size:17px;font-family:'proxima_nova_rgregular';height:250px;overflow-y:scroll;min-width:280px}
 #venue_listing .hovereffect .overlay .pull-right{display:none}
 #venue_listing .hovereffect:hover .overlay .pull-right{display:block;-webkit-transition-timing-function:ease-in-out}
 #venue_listing .hovereffect .overlay .pull-right img{width:46px;padding:0 5px}
@@ -711,7 +856,7 @@ header #banner .ty_banner .carousel-caption p{font-family:'proxima_nova_rgregula
 #honeymoon_page p{font-family:'proxima_nova_rgregular';font-size:17px;color:#333}
 #honeymoon_promotion h4{font-size:24px;font-family:'Conv_GiovanniStd-Book';color:#fff;line-height:normal}
 #honeymoon_promotion .promotion{background-image:url(../Images/honeymoon_promotion.jpg);background-repeat:no-repeat;background-size:cover;color:#fff}
-#honeymoon_promotion .promotion .bgGrey2{padding:20px 30px;opacity:.8;left:20%;width:60%;}
+#honeymoon_promotion .promotion .bgGrey2{padding:20px 30px;opacity:.8;left:10%;width:80%;}
 #honeymoon_promotion .promotionborder{border:1px solid #fff;padding:50px 5px}
 #honeymoon_promotion .promotionborder span i{float:left;position:absolute;margin-left:-29px}
 #honeymoon_promotion .promotion p{font-size:16px;font-family:'proxima_nova_rgregular'}
@@ -784,6 +929,66 @@ div#html5-play,div#html5-close{display:none!important}
 div#html5-prev{left:-60px!important}
 div#html5-next{right:-60px!important}
 
+/******** My wedding Page *************/
+
+section#mywedding_page .container {width: 80%;}
+section#mywedding_page .mywedding_start{background: #242c2f;padding: 10px;border: 10px solid #202729;}
+section#mywedding_page .mywedding_start span {font-size: 48px;font-family: 'Great Vibes';color: #5b6062;padding-right: 15px!important;}
+section#mywedding_page .mywedding_start .enter_text {font-size: 28px;font-family: 'Conv_GiovanniStd-Book';color: #5b6062;padding-right: 15px!important;padding-top: 15px;}
+section#mywedding_page .mywedding_start .enter_text input#url {padding: 10px;border: 2px solid #303b3f;background: #14181a;font-size: 20px;}
+section#mywedding_page  .mywedding_bg {margin-top: -25%;}
+section#mywedding_page .mywedding_start button.btn{font-family:'Conv_GiovanniStd-Book';font-size:16px;color:#fff;border-radius:0;border:0;text-transform:uppercase;font-style:normal;font-weight:400;letter-spacing:1px;border:1px solid transparent;background:-moz-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(176,135,92,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);transition:all .7s ease}
+section#mywedding_page .mywedding_start button.btn:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2}
+
+/******** My wedding Creation *************/
+
+header#myweddingCreate {height: 90px;background: #111416;}
+.mywedding_Create{font-family: 'Conv_GiovanniStd-Book';}
+.mywedding_Create .mywedding_groom{background: #2c3539;}
+.mywedding_Create .borderatomic{border: 1px solid #425056; min-height: 550px;}
+.mywedding_Create .mywedding_couple{background: url(../Images/weddingCreate.png) no-repeat;background-position:top center; background-size: cover; min-height: 550px;}
+.mywedding_Create .mywedding_bride{background: #2c3539; }
+.mywedding_Create .mywedding_couple .myweddingDate{position: absolute;bottom: 0px;left: 22%;}
+.mywedding_Create .mywedding_couple h3 {font-family: 'Great Vibes';font-weight: 400;font-style: normal;font-size: 50px;color: #332f2c; text-align: center;}
+.mywedding_Create .mywedding_couple .inputbox {border-style: solid;padding: 11px;font-size: 17px;border-width: 1px;border-color: #dcdcdc;color: #333;font-family: 'proxima_nova_rgregular';}
+.mywedding_Create .mywedding_couple img.ui-datepicker-trigger {right: 25px;position: relative;margin-right: -15px;}
+.mywedding_Create .mywedding_couple a{font-family:'Conv_GiovanniStd-Book';font-size:16px;color:#fff;border-radius:0;border:0;text-transform:uppercase;font-style:normal;font-weight:400;letter-spacing:1px;border:1px solid transparent;background:-moz-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(176,135,92,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);transition:all .7s ease}
+.mywedding_Create .mywedding_couple a:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2}
+.groomInput .input{position:relative;z-index:1;display:inline-block;width:calc(100% - 2em);vertical-align:top}
+.groomInput .input__field{position:relative;display:block;float:right;padding:.8em;width:60%;border:none;border-radius:0;background:#f0f0f0;font-size:16px;-webkit-appearance:none}
+.groomInput .input__field:focus{outline:none}
+.groomInput .input__label{display:inline-block;float:right;padding:0 1em;width:40%;color:#6a7989;font-weight:700;font-size:70.25%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.groomInput .input__label-content{position:relative;display:block;padding:1.6em 0;width:100%}
+.groomInput .graphic{position:absolute;top:0;left:0;fill:none}
+.groomInput .icon{color:#ddd;font-size:150%}
+.groomInput .input--hoshi{overflow:hidden}
+.groomInput .input__field--hoshi{margin-top:.4em;padding:.75em 2.0em .75em .15em;width:100%;background:transparent;color:#ccc}
+.groomInput .input__label--hoshi{position:absolute;bottom:-10px;left:0;padding:0 .25em;width:100%;height:calc(100% - 1em);text-align:left;pointer-events:none}
+.groomInput .input__label-content--hoshi{position:absolute}
+.groomInput .input__label--hoshi::before,.groomInput .input__label--hoshi::after{content:'';position:absolute;top:0;left:0;width:100%;height:calc(100% - 10px);border-bottom:1px solid #B9C1CA}
+.groomInput .input__label--hoshi::after{margin-top:0;border-bottom:1px solid #b0875c;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);-webkit-transition:-webkit-transform .3s;transition:transform .3s}
+.groomInput .input__label--hoshi-color-3::after{border-color:hsl(35,46%,50%)}
+.groomInput .input__field--hoshi:focus + .input__label--hoshi::after,#venue_page .searc_venue .input--filled .input__label--hoshi::after{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+.groomInput .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,.groomInput .input--filled .input__label-content--hoshi{-webkit-animation:anim-1 .3s forwards;animation:anim-1 .3s forwards}
+
+.profile-picture{position:relative;text-align:center;margin:auto;min-width:135px;overflow:hidden}
+.profile-picture figure,.profile-picture figure img{width:100%;text-align:center;margin:auto}
+.profile-info{display:block;padding:7px 0;font-size:13px;line-height:15px, position: relative;}
+input[type=file]{display:block}
+.btn-browse-hidden{cursor:pointer;position:absolute;top:50px;bottom:0;opacity:0;height:165px;filter:alpha(opacity=0)}
+/*.profile-picture figure{background:url(../Images/groom-pic.png) no-repeat}*/
+.profile-picture figure img{margin-top:3px;margin-left:3px}
+
+#mywedding_pageCreate i{top: -10px;position: relative;right: 10px;}
+
+#mywedding_pageTemplate h3{font-size: 48px;font-family: 'Great Vibes';text-align: center; margin: 30px 0;}
+#mywedding_pageTemplate .mywedding_Template {background: #2c353a; color: #e1e1e1;}
+.mywedding_Template img{border: 5px solid #b0875c;padding: 3px;}
+.mywedding_Template p{font-family:'proxima_nova_rgregular';font-size:15px;color:#7f8284;}
+.mywedding_Template button.btn{font-family:'Conv_GiovanniStd-Book';font-size:16px;color:#fff;border-radius:0;border:0;text-transform:uppercase;font-style:normal;font-weight:400;letter-spacing:1px;border:1px solid transparent;background:-moz-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(176,135,92,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);transition:all .7s ease}
+.mywedding_Template button.btn:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2}
+
+#mywedding_pageTemplate .mywedding_TempPreview {color: #5b6062;}
 /******** Media Quereies *************/
  @media (max-width: 1300px) {
 #gallery .owl-theme .owl-controls .owl-buttons .owl-next{right:10px;top:45%}
@@ -843,7 +1048,7 @@ header form.navbar-form.navbar-right{display:none}
 header .nav.navbar-nav li.margin-T20{margin-top:0!important;margin-bottom:0;padding:5px 10px;width:20%}
 header .navbar{min-height:90px}
 header #myCarousel .carousel-control.right i.icon-arrow-next-medium.icon-xl,header #myCarousel .carousel-control.left i.icon-arrow-prev-medium.icon-xl{font-size:36px!important}
-header .responsive_search{display:block!important;margin-top:3%;float:right;position:relative}
+header .responsive_search{display:block!important;margin-top:35px;float:right;position:relative}
 header .toggle{border:medium none;color:#FFF;cursor:pointer;display:block;height:30px;position:absolute;right:0;width:50px;border-right:0 solid #4d4d4d}
 header #searchform{float:right;height:40px;margin:-10px 0 0;opacity:0;padding:0;transition:all .2s ease-in-out 0;visibility:hidden;width:10px;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out}
 header .form:hover #searchform{display:block;opacity:1;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;visibility:visible;width:200px}
@@ -869,15 +1074,18 @@ header #banner .ty_banner .carousel-caption p{font-size:16px}
 section#venue_page{margin-top:auto;position:relative;margin-bottom:auto}
 #about h3,#honeymoon h3{font-size:50px}
 #reviews .review_form p{margin-right:0px;margin-left: -15px;}
-
+section#mywedding_page .mywedding_start span {font-size: 40px;}
+}
+@media (min-width: 992px) {
+footer#footer_full .footer_img .col-md-2 {width: 12%;padding: 10px 0;}
 }
 @media (max-width: 991px) {
 /*header .navbar-toggle{display:block;margin-top:3%;}*/
-header .responsive_search{display:block!important;margin-top:4%;float:right;position:relative}
+header .responsive_search{display:block!important;float:right;position:relative}
 header .nav.navbar-nav li.margin-T20{width:50%}
 header{min-height:60px}
 header div#banner{display:none}
-
+header#mywedding div#banner {display:block}
 /******************* //Header ********************/
 
 #about .margin-T100,#honeymoon .margin-T100{margin-top:20px!important}
@@ -908,10 +1116,13 @@ section#gallery .container {width: 100%;}
 section#facilities_page{margin-top:-10px;position:relative;margin-bottom:0px}
 section#facili_testimonials p{font-size:25px}
 section#facili_testimonials{background-size: 20%;}
+section#mywedding_page .mywedding_start button.btn.btn-lg {padding: 10px 25px;}
 }
  @media (max-width:900px) {
  #banner .ty_banner .carousel-caption{width:70%;top:15%;left:15%}
 #honeymoon_promotion .promotion .bgGrey2{padding:20px 30px;opacity:.8;left:5%;width:90%}
+section#mywedding_page .mywedding_start button.btn.btn-lg {padding: 10px 15px;}
+section#mywedding_page .mywedding_start span {font-size: 35px;}
 }
  @media (max-width: 800px) {
 #reviews .review_form p{margin-right:0px;margin-left: -30px;}
@@ -954,6 +1165,7 @@ section#inspired .gInsImage4 {margin-left: -105px;width: 30%;}
 #reviews .testimonials p{padding-left: 15px;}
 #reviews .testimonials .review_rate{font-size: 25px;margin-left: -15px;margin-right: -15px;}
 #c_mapAddress p span.connect{margin-left: 4px;}
+section#mywedding_page .mywedding_start span {font-size: 30px;}
 }
 @media (max-width: 767px) {
 	#reviews .contact{margin-top: 30px;}
@@ -973,7 +1185,7 @@ section#inspired img {max-width: 100%;}
 @media (max-width: 600px) {
 header #myCarousel .carousel-caption h2,header #myCarousel p.caption{display:none}
 header .responsive_search{display:none!important}
-header .responsive_search_small{display:block;margin-top:2%}
+header .responsive_search_small{display:block;margin-top:20%}
 header .responsive_search_small i{position:absolute;right:35px;top:5px}
 #banner .ty_banner .carousel-caption{width:90%;top:0;left:5%}
 header #banner .ty_banner .carousel-caption h3{font-size:20px}
@@ -982,6 +1194,9 @@ header #banner .ty_banner .carousel-caption p{font-size:14px}
 #honeymoon_promotion .promotion_Package p{width:50%}
 #testimonials .testimonialsInfo{width:95%}
 #about h3,#honeymoon h3{font-size:40px}
+section#venue_page .margin-B10.venue_list{margin-top: -25px;}
+section#mywedding_page .mywedding_bg {margin-top: 2%;margin-bottom: 2%;}
+header#mywedding .responsive_search_small {margin-top: 5%;}
 }
 @media (max-width: 550px) {
 #blog_page .carousel-control{width:50%}
@@ -989,8 +1204,9 @@ header #banner .ty_banner .carousel-caption p{font-size:14px}
 div#html5-prev{left:10px!important}
 div#html5-next{right:10px!important}
 section#venue_page .venue_list .simplefilter{margin-left: 0px;}
-section#venue_page .venue_list span{font-size:30px;}
+section#venue_page .venue_list span{font-size:30px;bottom: 0px;}
 #venue_page .search_icon i{font-size: 23px !important;}
+section#venue_page .venue_list .simplefilter span{right: 60px;top: 15px;}
 }
 @media (max-width: 500px) {
 #banner .carousel-inner .pull-left.text-left{text-align:center!important}
@@ -1005,6 +1221,7 @@ header #banner .carousel-caption h3{font-size:35px}
 section#venue_page .venue_list .simplefilter span{right:70px;}
 #venue_page .searc_venue .input{width: calc(100% - 0em);}
 #venue_page .search_icon{right: 5px;}
+header .responsive_search_small{margin-top:25%}
 }
  @media (max-width: 450px) {
 /*#contact_page .inputTelNo{width:100%}*/
@@ -1027,11 +1244,12 @@ header #banner .ty_banner .padding20.border1px.border-grey-medium{padding:10px!i
 /*--------------- Custom CSS for Temporary Menus and search bar -------------*/
 
 header .navbar-default .navbar-nav>li.click-off{display:none}
-form.navbar-form.navbar-right.margin-T20{display:none}
+/*form.navbar-form.navbar-right.margin-T20{display:none}*/
 header .navbar-default .navbar-nav>li>a{padding:5px}
 header .navbar-default .navbar-nav>li{padding:10px 7px}
-header .responsive_search_small,header .responsive_search.hide{display:none!important}
-.menubar{width:75%;margin:auto}
+/*header .responsive_search_small{display:none!important}
+header .responsive_search.hide{display:none!important}
+.menubar{width:85%;margin:auto}*/
 header .navbar-default .navbar-nav>li.logo{margin-left:20px}
 @media (max-width: 1180px) {
 header .navbar-default .navbar-nav>li{padding:10px}
@@ -1820,16 +2038,469 @@ to{visibility:hidden;-webkit-transform:translate3d(0, -100%, 0);transform:transl
 .delay-3500{-webkit-animation-delay:3.5s;-moz-animation-delay:3.5s;-o-animation-delay:3.5s;animation-delay:3.5s;}
 
 
-.videoWrapper {
-	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
-	height: 0;
+
+/*
+.profile-picture figure:hover{
+    background: url(../Images/edit-photo.svg) no-repeat center;
+  background-size: contain;
+    width: 50px;
+    height: 50px;
+}*/
+.dragTemplate img,.dragTemplate p{cursor:pointer;-moz-transition:all .5s;-webkit-transition:all .5s;transition:all .5s}
+.dragTemplate img:hover,.dragTemplate p:hover{transform:scale(0.9);-moz-transform:scale(0.9);-webkit-transform:scale(0.9)}
+.dragTempPreview{-webkit-box-shadow:0 0 18px 5px rgba(214,214,214,1);-moz-box-shadow:0 0 18px 5px rgba(214,214,214,1);box-shadow:0 0 18px 5px rgba(214,214,214,1);width:80%;margin:auto}
+.fetchdatesbg{background:url(../Images/testimonial.jpg) no-repeat center;background-size:100% 100%;height:250px}
+#sortable{cursor:pointer;position:relative}
+.dragbrideGroom,.dragParty,.dragGallery,.dragStory,.dragEvents,.dragRSVP{margin:5px;padding:5px}
+section#mywedding_templateplanner{background:url(../Images/templateheaderBg.jpg) repeat-x;padding:50px;margin-bottom:40px}
+section#mywedding_templateplanner h3{margin-top:0;color:#fff;font-family:'Conv_GiovanniStd-Book';font-size:34px;text-transform:capitalize}
+section#mywedding_templateplanner .nav-tabs li i{display:block;text-align:center}
+section#mywedding_templateplanner .nav-tabs{border-bottom:0 solid #ddd;margin:10px 10%}
+section#mywedding_templateplanner .nav-tabs>li.active>a i{color:#b0875c}
+section#mywedding_templateplanner .nav-tabs>li.active>a,section#mywedding_templateplanner .nav-tabs>li.active>a:focus,section#mywedding_templateplanner .nav-tabs>li.active>a:hover{color:#b0875c;cursor:default;background-color:transparent;border:0;border-bottom-color:transparent}
+section#mywedding_templateplanner .nav-tabs>li>a:hover,section#mywedding_templateplanner .nav>li>a:focus,section#mywedding_templateplanner .nav>li>a:hover{text-decoration:none;color:#b0875c;background-color:transparent;border:0}
+section#mywedding_templateplanner .nav-tabs>li>a{border:0;text-transform:uppercase;margin:0;font-family:'proxima_nova_rgregular';font-size:15px;color:#7f8284;padding:10px 0;text-align:center}
+section#mywedding_templateplanner .template_shadow{-webkit-box-shadow:0 0 18px 0 #232b2e -moz-box-shadow: 0 0 18px 0 #232b2e;box-shadow:0 0 18px 0 #232b2e;border-radius:5px;overflow:hidden}
+section#mywedding_templateplanner .template_headerbg{/*background:url(../Images/testimonial.jpg) no-repeat center;background-size:auto;background-position:right;height:450px;padding:10px*/ position: relative; }
+section#mywedding_templateplanner .template_headerbg .headerImage{ height: 390px;overflow: hidden;}
+section#mywedding_templateplanner .template_headerborder{border:2px solid #fff;margin:10px;padding:10px;
+position: absolute;top: 0px;width: 98%;}
+section#mywedding_templateplanner .template_headerOrnament{background:url(../Images/banner-ornament.png) no-repeat center;background-size:45%;background-position:top center;}
+section#mywedding_templateplanner .template_headerborder i{opacity:.8;cursor:pointer}
+section#mywedding_templateplanner .template_headerborder i:hover{opacity:1}
+section#mywedding_templateplanner .template_headerOrnament .template_headerDate h3{font-family:'Conv_GiovanniStd-Book';font-size:24px}
+section#mywedding_templateplanner .template_headerOrnament .template_headerDate h3:hover{text-decoration:underline;color:#b0875c}
+section#mywedding_templateplanner .template_headerOrnament .template_headerDate h3 i{visibility:hidden;opacity:1}
+section#mywedding_templateplanner .template_headerOrnament .template_headerDate h3:hover i{visibility:visible;text-decoration:none!important}
+section#mywedding_templateplanner .template_headerOrnament .template_headerDate h3 span.weddingdate{display:block;clear:both;text-transform:uppercase;padding-top:10px;font-weight:700;font-size:30px;color:#332f2c}
+section#mywedding_templateplanner .template_headerOrnament .template_headerDate h3 span.weddingyear{color:#332f2c;display:block}
+section#mywedding_templateplanner .template_headerOrnament .template_headerbridenames{margin-top:60px;position:relative}
+section#mywedding_templateplanner .template_headerOrnament .template_headerbridenames h3{font-size:60px;font-family:'Great Vibes';color:#fff;line-height:normal;letter-spacing:2px}
+section#mywedding_templateplanner .ellipsis{text-overflow:ellipsis;display:inline-block;overflow:hidden;white-space:nowrap}
+section#mywedding_templateplanner .template_headerOrnament .template_headerbridenames h3:hover .groomname,section#mywedding_templateplanner .template_headerOrnament .template_headerbridenames h3:hover .bridename{text-decoration:underline}
+section#mywedding_templateplanner .template_headerOrnament .template_headerbridenames h3 i{visibility:hidden;opacity:1}
+section#mywedding_templateplanner .template_headerOrnament .template_headerbridenames h3:hover i{visibility:visible;text-decoration:none!important}
+section#mywedding_templateplanner .template_headerOrnament .template_headertext{margin-top:0px;margin-bottom: 15px; position:relative}
+section#mywedding_templateplanner .template_headerOrnament .template_headertext h4 span{font-family:'proxima_nova_rgregular';font-size:24px;color:#332f2c;}
+section#mywedding_templateplanner .template_previewOption a{font-family:'Conv_GiovanniStd-Book';font-size:16px;color:#fff;border-radius:0;border:0;text-transform:uppercase;font-style:normal;font-weight:400;letter-spacing:1px;border:1px solid transparent;background:-moz-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(176,135,92,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(176,135,92,1) 21%,rgba(176,135,92,1) 100%);transition:all .7s ease;padding:10px 40px}
+section#mywedding_templateplanner .template_previewOption a:hover{background:rgba(197,167,117,1);background:-moz-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-webkit-gradient(radial,center top,0px,center top,100%,color-stop(21%,rgba(197,167,117,1)),color-stop(100%,rgba(176,135,92,1)));background:-webkit-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-o-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:-ms-radial-gradient(center top,ellipse cover,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);background:radial-gradient(ellipse at center top,rgba(197,167,117,1) 21%,rgba(176,135,92,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5a775',endColorstr='#b0875c',GradientType=1);-webkit-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);-moz-box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);box-shadow:0 10px 28px 0 rgba(0,0,0,0.34);border-top:1px solid #dccaa2}
+section#mywedding_templateplanner .template_brideGroomborder{border:10px solid #b0875c;-webkit-box-shadow:0 0 18px 0 rgba(35,43,46,0.55);-moz-box-shadow:0 0 18px 0 rgba(35,43,46,0.55);box-shadow:0 0 18px 0 rgba(35,43,46,0.55);overflow: hidden;}
+#mywedding_templateplanner #brideGroom .upload_bridePic figure img,#mywedding_templateplanner #bridalparty .upload_relationPic figure img{max-width:100%;text-align:center;margin:auto;border-radius:50%;width:200px;padding:5px;border:3px solid #ccc;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);height:200px;}
+#mywedding_templateplanner #brideGroom .upload_bridePic figure{margin:auto;text-align:center}
+#mywedding_templateplanner figure img.uploadedBrideImage{border-radius:100%;border:6px solid #8898a0;width:200px;height:200px;margin-bottom:0;margin-top:0;border:2px solid #fff!important}
+#mywedding_templateplanner #brideGroom .btn-browse-hidden{cursor:pointer;position:absolute;top:20px;bottom:0;opacity:0;height:165px;filter:alpha(opacity=0);left: 25%;
+    z-index: 999;}
+
+#mywedding_templateplanner #brideGroom .template_bridesContent .bridesName{font-family:'Conv_GiovanniStd-Book';font-size:34px;color:#332f2c!important}
+#mywedding_templateplanner #bridalparty .upload_relationPic img{width:150px}
+#mywedding_templateplanner #bridalparty .bridal_relationContent .names{font-family:'Conv_GiovanniStd-Book';font-size:24px;color:#332f2c}
+
+.pf-emboss-left{background-image:-o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,1));background-image:-ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,1));background-image:-moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,1));background-image:-webkit-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,1));pointer-events:none;position:absolute;overflow:hidden;width:50px;height:2000px;top:-10px;left:auto;right:0;opacity:.2}
+.pf-emboss-right{background-image:-o-linear-gradient(left,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:-ms-linear-gradient(left,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:-moz-linear-gradient(left,rgba(0,0,0,.5),rgba(0,0,0,0));background-image:-webkit-linear-gradient(left,rgba(0,0,0,.5),rgba(0,0,0,0));pointer-events:none;position:absolute;overflow:hidden;width:50px;height:2000px;top:-10px;left:0;right:auto;opacity:.2}
+#mywedding_templateplanner #bridalparty .addbridalRelation{/*display:inline-block;position:absolute;right:10%;margin-top:7%;*/cursor:pointer}
+#mywedding_templateplanner #bridalparty .addbridalRelation h4 {font-family: 'Conv_GiovanniStd-Book';font-size: 24px;
+    color: #9a9997;}
+#mywedding_templateplanner #bridalparty .addbridalRelation .addbridalicon{    display: inline-block;vertical-align:middle;position:relative;padding:30px 15px 15px;border: 3px solid #ccc;width:200px;border-radius: 100%;
+    box-shadow: 0 2px 20px -3px rgba(35,43,46,0.55);    height: 200px;}
+#mywedding_templateplanner #gallery .template_shadow{padding:60px!important}
+#mywedding_templateplanner #gallery .dz-default.dz-message h3{color:#b0875c!important}
+#mywedding_templateplanner #events h3{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:40px;color:#332f2c;text-align:center;margin-top:40px}
+#mywedding_templateplanner #events p{font-family:'proxima_nova_rgregular';font-size:16px;color:#333}
+#mywedding_templateplanner #story h3{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:40px;color:#332f2c;margin-top:40px;text-align: center;}
+#mywedding_templateplanner #story h4{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:40px;color:#332f2c;margin-top:40px}
+section#mywedding_templateplanner #story p.storyhighlighttext span{color:#333}
+section#mywedding_templateplanner #story p.storyhighlighttext:hover{text-decoration:underline;color:#b0875c}
+#mywedding_templateplanner #story figure img.uploadedStoryImage{border-radius:100%;border:6px solid #8898a0;width:200px;height:200px;margin-bottom:0;margin-top:0;border:2px solid #fff!important}
+#mywedding_templateplanner #story .upload_storyPic figure img{max-width:100%;text-align:center;margin:auto;border-radius:50%;width:200px;padding:5px;border:3px solid #ccc;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);height:200px;}
+#mywedding_templateplanner #story .upload_storyPic figure{margin:auto;text-align:center}
+#mywedding_templateplanner #story .bridal_storyContent{position:absolute;top:20%;width:30%;}
+#mywedding_templateplanner #story .bridal_storyContent .heading{font-family:'Conv_GiovanniStd-Book';font-size:34px;color:#332f2c!important;margin:0}#mywedding_templateplanner #story .upload_storyPic .btn-browse-hidden{cursor:pointer;position:absolute;top:5px;bottom:0;opacity:0;height:165px;filter:alpha(opacity=0);width:200px;left:41%}
+#mywedding_templateplanner #story .date{border: 0px;text-align: inherit;}
+#mywedding_templateplanner #story .addbridalStoryicon .connectbar{top:auto;margin-top:-45px;height:45px}
+#mywedding_templateplanner #story .addbridalStoryicon{cursor:pointer}
+#mywedding_templateplanner #story .addbridalStoryicon i{border:3px solid rgba(204,204,204,0.32);border-radius:100%}
+#mywedding_templateplanner #story .connectbar{top:-65px;height:65px;width:3px;left:50%;position:absolute;background-color:#ccc}
+#mywedding_templateplanner #story .bridal_storyContent.rtl{left:auto;right:8%;text-align:left}
+#mywedding_templateplanner #story .bridal_storyContent.ltr{left:8%;right:auto;text-align:right}
+#mywedding_templateplanner #story .countStory:nth-child(odd) .ltr{left:auto;right:8%;text-align:left}
+#mywedding_templateplanner #story .pickeddate{width:200px;height:200px;margin:auto;border-radius:100%;border:5px solid #fff;z-index: 99;position: relative;}
+#mywedding_templateplanner #story .pickeddate p{font-family:'Conv_GiovanniStd-Book';font-size:25px;color:#fff!important;margin-top:50px}
+#mywedding_templateplanner #story .fetchDatepicked .connectbar{top:-50px!important;height:50px!important}
+#mywedding_templateplanner #story .countingBg{background:#232b2e;position: relative;top:-100px;position: relative;height: 370px;overflow: hidden;width: 100%;}
+#mywedding_templateplanner #story .countingBorder{border:3px solid #919596;position:absolute;top:0;width:98%;text-align:center;margin:10px}
+#mywedding_templateplanner #story .countingBorder i{opacity:.8;padding-right:10px;padding-top:10px;cursor:pointer}
+#mywedding_templateplanner #story .countingBg .counterImage img{overflow:hidden;background:#232b2e}
+#mywedding_templateplanner #story .countingBorder i:hover{opacity:1}
+#mywedding_templateplanner #story .countingBg h5{font-size:25px;font-family:'Conv_GiovanniStd-Book'}
+#mywedding_templateplanner #story .countingBg #countdown{padding:0;position:relative;padding:10px 0 20px}
+#mywedding_templateplanner #story .countingBg .item{display:inline-block;position:relative;text-align:center;margin:0 10px;padding:2%;font-size:16px;color:#fff;letter-spacing:normal}
+#mywedding_templateplanner #story .countingBg .item p{text-align:center;margin:0;font-size:54px;padding:0;font-family:'Conv_GiovanniStd-Book'}
+#mywedding_templateplanner #story .countingBg .itemdot{text-align:center;margin-top:-30%;font-size:54px;color:#b0875c;display: inline-block;content:"• ";text-align:center;position:relative;top:-50px;background-color:#b0875c;display: inline-block;width:5px;height:5px;border-radius:50%;overflow:hidden;}
+#mywedding_templateplanner #story .countingBg p{font-family:'Conv_GiovanniStd-Book';font-size:24px;margin-top:60px;}
+#mywedding_templateplanner #events .addbridalEventicon i {border: 3px solid rgba(204,204,204,0.32);border-radius: 100%;}
+section#myweddingURL .mywedding_Createlink{background: #feffff;}
+section#myweddingURL .mywedding_Createlink .mywedding_url{background:url(../Images/weddingCreate.png) no-repeat;background-position:0 -50px;background-size:cover;min-height:550px}
+section#myweddingURL .mywedding_Createlink .myweddingDate h3{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:50px;color:#332f2c;text-align:center}
+.myweddingDate .createoption{background:#242c2f;padding:20px;border:10px solid #202729}
+.addEvents h4{font-family:'Conv_GiovanniStd-Book';font-size:24px;color:#9a9997}
+.addEvents{border:7px solid #d4d6de;margin-top:44px}
+.addEvents .addEventsBorder{border:1px solid #ccc;padding:138px 0;margin:5px}
+.addEvents .addEventtitle{background:url(../Images/planner-event-bg.jpg) top center;padding-bottom:25px}
+.addEvents .addEventtitle h4{margin:0;padding:45px 0 0;font-family:'Conv_GiovanniStd-Book';font-size:30px;color:#fff;letter-spacing:1px}
+.addEvents #diamond{width:0;height:0;border:25px solid transparent;border-bottom-color:#b0875c;position:absolute;top:0;left:40%;color:#fff;font-family:'Conv_GiovanniStd-Book';font-size:30px}
+.addEvents #diamond:after{content:'';position:absolute;left:-26px;top:25px;width:0;height:0;border:25px solid transparent;border-top-color:#b0875c}
+.addEvents #diamond h4{z-index:999!important;position:relative;color:#fff;left:-6px;text-align:center;top:1px}
+.addEvents .eventiconstyle i{border:1px solid #b0875c;padding:8px;position:relative;top:15px;border-radius:100%}
+.addEvents .input-group-addon{background:transparent;border:1px solid #b0875c;border-radius:100%;padding:9px 8px 8px 10px}
+.addEvents .input-group-addon .glyphicon{color:#b0875c;font-size:15px}
+.addEvents div#datetimepicker1{margin-top:10px}
+.addEvents div#datetimepicker1 input{margin-left:25px;width:91%}
+.addEvents .inputbox{border-width:0;border-bottom-width:1px}
+.addEvents select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:url(../Images/dropdown.png) no-repeat #fff;background-position:center right;background-size:25px;border-radius:0;border-style:solid;padding:11px 11px 0;font-size:17px;border-color:#dcdcdc;color:#333;font-family:'proxima_nova_rgregular';box-shadow:none!important;border-width:0 0 1px!important}
+.addEvents .eventRow{margin:10px}
+div#groom_social span#basic-addon1{background:none;padding:3px 5px}
+div#bride_social span#basic-addon1{background:none;padding:3px 5px}
+.groom_social:hover,.groom_social:focus,.groom_social:active{text-decoration:none;}
+#myweddingURL .mywedding_Create .profile-picture{border-radius:50%;width:200px;height:200px;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);border:3px solid #eaeaea}
+#myweddingURL .mywedding_Create .profile-picture figure,#myweddingURL .mywedding_Create .profile-picture figure img{height:200px}
+#mywedding_pageTemplate{position:relative;z-index:1;background:#2c353a}
+.mywedding_Template h4{font-family:'proxima_nova_rgregular';font-size:15px;color:#fff;text-align:center;margin:10px 0 20px}
+#templateContent{position:relative;min-height:600px;z-index:9999}
+#templateContent .keditor-content-area{margin:0!important;min-height:600px;padding-left:0;padding-right:0}
+#templateToolbar #keditor-sidebar{position:relative!important;width:100%;border-radius:0;box-shadow:none;-webkit-box-shadow:none;background:transparent;background:#2c353a;color:#e1e1e1;padding-top:50px;border:0}
+#keditor-snippets-container{background:transparent;border-radius:0;border:none}
+#keditor-snippets-list .keditor-snippet{background:transparent;border:5px solid #b0875c;padding:3px}
+#templateToolbar #keditor-sidebar #keditor-setting-panel{position:relative!important;right:initial;left:0}
+/* Templte builder (New) */
+
+.mwt_thumb_right{max-width:450px;margin:auto;display:none;}
+#mywedding_pageTemplate .drItem{text-align:center;margin:10px auto; cursor: move;}
+#mywedding_pageTemplate .mywedding_TempPreview .mwt_thumb_left{display:none;}
+#mywedding_pageTemplate .mywedding_TempPreview .mwt_thumb_right{display:block;}
+#mywedding_pageTemplate .mywedding_TempPreview .drItem{width:100%;padding:0;margin:auto;}
+#mywedding_pageTemplate .mywedding_TempPreview  .tempRemove{display:none;cursor:pointer;position:absolute;right: -13px;top:40%;width: 30px;height: 30px;background: #bb8b46;border-radius: 50%;line-height: 34px;z-index: 1;}
+#mywedding_pageTemplate .mywedding_TempPreview  .tempRemove i{font-size:18px !important;color:#ffffff;}
+#mywedding_pageTemplate .mywedding_TempPreview .ui-draggable{/* overflow:hidden; */text-align:center;display:block;width:100% !important;margin:15px auto 15px auto;padding:0;height:initial !important;}
+#mywedding_pageTemplate .mywedding_TempPreview .ui-draggable:hover{cursor:move;box-shadow: 0 0 16px rgba(0,0,0,0.1);position:relative;}
+#mywedding_pageTemplate .mywedding_TempPreview .ui-draggable:hover .tempRemove{display:block!important}
+#mywedding_pageTemplate .mywedding_TempPreview li:first-child.ui-draggable[class~="dri_1"]{margin-top:-23px}
+#mywedding_pageTemplate .mywedding_TempPreview li:first-child.ui-draggable[class~="dri_6"]{margin-top:0}
+#mywedding_pageTemplate .mywedding_TempPreview{color:#5b6062;background-color:#fff;height:90vh;overflow:scroll;overflow-x:hidden}
+#mywedding_pageTemplate .mywedding_TempPreview #weddingTemplatesPreview{height:100vh;margin:auto;padding:0}
+ul#weddingTemplates{margin:0;padding:0;list-style:none}
+#templatePreviewWrap{position:relative;background:#fff;height:100vh;max-width:450px;margin:auto;box-shadow:0 0 16px rgba(0,0,0,0.2);-moz-box-shadow:0 0 16px rgba(0,0,0,0.2);-webkit-box-shadow:0 0 16px rgba(0,0,0,0.2)}
+#templatePreviewWrap .dcBanner{position:relative;margin:auto}
+#templatePreviewWrap .droppable{height:100%}
+
+/* Profile page */
+.brideGroomBox{font-family: 'proxima_nova_rgregular';font-size: 17px;text-align:center;position:relative;border:10px solid #b0875c;-webkit-box-shadow:0 0 18px 0 rgba(35,43,46,0.55);-moz-box-shadow:0 0 18px 0 rgba(35,43,46,0.55);box-shadow:0 0 18px 0 rgba(35,43,46,0.55);max-width:950px;margin:auto;margin-top: -80px;}
+ .brideGroomBox .gbRow {overflow:hidden;background: #fff;}
+.brideGroomBox .gbProfilePic{margin:auto;text-align:center;    margin-top: 50px;}
+.brideGroomBox .gbProfilePic img{width:170px;height:170px;max-width: 100%;text-align: center;box-shadow: rgba(35, 43, 46, 0.3) 0px 2px 20px -3px;margin: auto;border-radius: 50%;padding: 5px;border-width: 3px;border-style: solid;border-color: rgb(204, 204, 204);border-image: initial;}
+.brideGroomBox .gbName{font-family: 'Conv_GiovanniStd-Book';font-size: 36px;text-transform: capitalize;    color: inherit !important;}
+.brideGroomBox .gbType{font-family: 'proxima_nova_rgregular';font-size: 16px;text-transform: uppercase;}
+.brideGroomBox .gbContent{font-family: 'proxima_nova_rgregular';font-size: 17px;line-height:35px;width:90%;padding:10px 0 10px 8%;margin-bottom:20px;}
+.brideGroomBox .groomContainer .gbContent{width:90%;padding-left:15%;}
+.gbDecorationLeft, .gbDecorationRight{position:absolute;}
+.gbDecorationLeft{left:-180px;    top: 180px;}
+.gbDecorationRight{right:-180px;bottom:-80px;}
+.brGrBox{text-align:center;}
+.fancyHeading{margin:50px 0 15px 0;text-align:center;color:#332f2c;text-align:center;}
+.fancyHeading h2{font-family:'Great Vibes';font-weight:400;font-style:normal;font-size:40px;}
+.brGrBox h2{font-size:45px;margin:0 0 5px 0;}
+ul.galleryList{margin:0;padding:0;list-style:none;}
+ul.galleryList li{display:inline-block;margin:0;}
+ul.galleryList li .galleryThumb img{width:160px;height:160px;max-width: 100%;text-align: center;box-shadow: rgba(35, 43, 46, 0.3) 0px 2px 20px -3px;margin: auto;border-radius: 50%;padding: 5px;border-width: 3px;border-style: solid;border-color: rgb(204, 204, 204);border-image: initial;overflow:hidden;}
+ul.galleryList li h3{font-family:'Conv_GiovanniStd-Book'!important;font-size:22px!important;text-transform:capitalize;margin-top:20px!important;color:inherit!important}
+ul.galleryList li h5{font-family:'proxima_nova_rgregular';font-size:12px;text-transform:uppercase}
+.multi-carousel .carousel-control.left,.multi-carousel .carousel-control.right{opacity:1;top:40%;width:55px;height:65px;line-height:65px;padding:0;background-color:#312d2a!important}
+.profileGallery .item{height:320px;overflow:hidden}
+.pgcDescription{display:none;border:0px solid #bb8b46;height:100%;position:absolute;margin:auto;width:100%;height:100%;top:0}
+.bgTrans{background:rgba(0,0,0,0.8);position:absolute;top:0;left:0;width:100%;height:100%}
+.pgcDescription .pgdcContent{color:#fff;text-align:center;position:relative;top:35%;left:10%;width:80%}
+.pgdcContent h3{font-family:'Conv_GiovanniStd';font-size:30px}
+.pgdcContent p{font-family:'proxima_nova_rgregular';font-size:17px;line-height:30px}
+.posContent{font-family:'proxima_nova_rgregular';font-size:17px;max-width:80%;text-align:center;margin:auto;line-height:1.6;margin-bottom:50px}
+a.mcWithDesc:hover .pgcDescription{display:block}
+.timeline{font-family:'proxima_nova_rgregular';list-style:none;padding:0 0 20px;position:relative}
+.timeline:before{top:0;bottom:0;position:absolute;content:" ";width:2px;background-color:#cdcdcd;left:50%;margin-left:-1.5px}
+.timeline>li{margin-bottom:80px;position:relative}
+.timeline>li:after,.timeline>li:before{content:" ";display:table}
+.timeline>li:after{clear:both}
+.timeline>li>.timeline-panel{width:41%;float:left;position:relative;text-align:right}
+.timeline>li>.timeline-badge img{color:#fff;width:140px;height:140px;line-height:140px;margin-left:-70px;text-align:center;position:absolute;top:0;left:50%;background-color:#fff;z-index:100;border:4px solid #cdcdcd;border-radius:50%}
+.timeline>li.timeline-inverted>.timeline-panel{float:right;text-align:left;margin-top:15px}
+.timeline>li.timeline-inverted>.timeline-panel:before{border-left-width:0;border-right-width:15px;left:-15px;right:auto}
+.timeline>li.timeline-inverted>.timeline-panel:after{border-left-width:0;border-right-width:14px;left:-14px;right:auto}
+.timeline-title{font-family:Conv_GiovanniStd-Book;font-size:22px;font-size:30px;margin:0}
+.timeline-title p{font-size:14px;margin:0}
+.timeline-body{font-size:15px}
+.timeline-body>p,.timeline-body>ul{margin-bottom:0}
+.timeline-body>p+p{margin-top:5px}
+.timeline>li .decorationImage{position:absolute;top:30%;right:30px;max-width:150px}
+.timeline>li.timeline-inverted .decorationImage{position:absolute;right:initial;left:30px}
+
+
+
+
+/******************* //Search Page Property Section ********************/
+
+section#site_search {
+    margin-top: -100px;
+    position: relative;
+ 
 }
-.videoWrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  
+ 
+#search_page .filtr-item{padding:1rem;}
+#search_page .hovereffect{width:100%;height:100%;float:left;overflow:hidden;position:relative;text-align:center}
+#search_page .hovereffect .overlay{width:100%;height:100%;position:absolute;overflow:hidden;top:0;left:0;padding:10px}
+#search_page .hovereffect .overlay span{font-size:25px;font-family:'proxima_nova_rgregular';color:#fff}
+#search_page .hotel_details .borderright1px{border-right:1px solid #b0875c!important;margin-left:5px}
+#search_page .hovereffect:hover .overlay{background:rgba(0,0,0,0.46)}
+#search_page .hovereffect img{width:100%}
+#search_page .hovereffect .hotel_details p.facts{font-size:16px;font-weight:300px;font-family:'proxima_nova_rgregular';color:#fff;font-style:normal}
+#search_page .hovereffect h2{text-transform:capitalize;color:#fff;text-align:center;position:absolute;font-size:22px;font-family:'Conv_GiovanniStd-Book';font-weight:300;font-style:normal;overflow:hidden;padding:.5em 0;background-color:transparent;bottom:0;width:95%;line-height:normal}
+#search_page .hovereffect:hover h2{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:0}
+#search_page .hovereffect a{color:#FFF;-webkit-transition:opacity 0.35s,-webkit-transform .35s;transition:opacity 0.35s,transform .35s;-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}
+#search_page .hovereffect p,#search_page .hovereffect .destination_detail{color:#FFF;opacity:0;filter:alpha(opacity=0);-webkit-transition:opacity 0.75s,-webkit-transform .75s;transition:opacity 0.75s,transform .75s;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0);-webkit-transition-timing-function:ease-in-out}
+#search_page .hovereffect h3{text-transform:capitalize;color:#fff;text-align:center;opacity:0;font-size:22px;font-family:'Conv_GiovanniStd-Book';font-weight:300;font-style:normal;width:95%;line-height:normal;padding:0 10px}
+#search_page .hovereffect .destination_detail{bottom:0;position:absolute;width:100%;font-size:16px}
+#search_page .hovereffect:hover a,#search_page .hovereffect:hover p,#search_page .hovereffect:hover .destination_detail,#search_page .hovereffect:hover h3{opacity:1;filter:alpha(opacity=100);transform:translateX(0px);-webkit-transform:translateX(0px);text-decoration:none}
+#search_page .hovereffect .overlay .pull-right{display:none}
+#search_page .hovereffect:hover .overlay .pull-right{display:block;-webkit-transition-timing-function:ease-in-out}
+#search_page .hovereffect .overlay .pull-right img{width:46px;padding:0 5px}
+
+#prop-desc .well, #prop-address .well, #prop-gall .well, #prop-test .well {background: #fff; transition: box-shadow 1s;     border-radius: 0;  border: none; box-shadow: none;}
+#prop-desc .well:hover, #prop-address .well:hover, #prop-gall .well:hover, #prop-test .well:hover { -webkit-box-shadow: 0 8px 45px 0 rgba(0,0,0,0.22); -moz-box-shadow: 0 8px 45px 0 rgba(0,0,0,0.22); box-shadow: 0 8px 45px 0 rgba(0,0,0,0.22);}
+#prop-desc .well .media  a img{max-height: 200px;}
+#prop-desc .media-body p, #prop-test .media-body p{font-family: 'proxima_nova_rgregular'; font-size: 17px;  color: #333;}
+#prop-desc .media > a.pull-left {margin-right: 20px;}
+#prop-desc h4.media-heading,  #prop-test h4.media-heading{font-size: 28px;margin-bottom: 18px; font-family: 'Conv_GiovanniStd-Book'; color: #b0875c;}
+
+#prop-address .well { min-height:260px;}
+#prop-address h4.media-heading {font-size: 20px;margin-bottom: 18px;    min-height: 50px;      font-family: 'Conv_GiovanniStd-Book';}
+#prop-address  .adrs { height: 100px;     vertical-align: middle;display: table-cell; }
+
+#prop-address  .media {outline: 1px solid #f0f0f0 !important; padding: 10px;}
+#prop-test .well{ max-height:230px; overflow:hidden; min-height:230px;}
+#prop-test h4{    min-height: 60px;}
+#prop-test .t_quotation { background-image: url(../Images/quotation.png) !important; background-position: right bottom !important; background-repeat: no-repeat !important;	background-size: 80px 60px;
 }
+
+.searchbar-input {
+    background: none;
+    border: none;
+    border-bottom: solid 1px #888886;
+    border-radius: 0;
+	color: #FFF;
+}
+
+.searchbar-input:focus {
+    box-shadow: none;
+    border-bottom-color: #bb8b46;
+}
+
+.searchbar {
+    padding: 10px;
+    border: 10px solid #202729;
+    background: #242c2f;
+}
+
+ 
+
+.searchbar  button.btn.btn-info.btn-lg {
+        height: 35px;
+    margin-top: 11px;
+	padding: 10px 16px;
+}
+
+.searchbar select.form-control {
+    width: auto;
+    border: none;
+    box-shadow: none;
+    height: 35px  !important;
+    border: solid 1px #b0875c !important;
+    padding: 3px 32px 0px 8px  !important;
+    margin: 11px 15px 0 15px  !important;
+    min-width: 70px  !important;
+    max-width: 150px  !important;
+    font-family: 'proxima_nova_rgregular'  !important;  
+	 color: #a9a9a9;
+	background: url(../Images/dropdown.png) no-repeat transparent;
+    background-position: center right;
+    background-size: 25px;
+}
+
+
+
+
+@media (max-width: 767px) {
+ul.timeline:before{left:40px}
+ul.timeline>li>.timeline-panel{width:calc(100% - 90px);width:-moz-calc(100% - 90px);width:-webkit-calc(100% - 90px);float:right}
+ul.timeline>li>.timeline-badge{left:15px;margin-left:0;top:16px}
+ul.timeline>li>.timeline-panel:before{border-left-width:0;border-right-width:15px;left:-15px;right:auto}
+ul.timeline>li>.timeline-panel:after{border-left-width:0;border-right-width:14px;left:-14px;right:auto}
+section#site_search {  margin-top: 0px;  position: relative;}
+}
+.wdDBox{color:#fff;width:140px;height:140px;line-height:140px;margin:auto;text-align:center;background-color:#bb8b46;border:4px solid #fff;border-radius:50%;margin-top:-30px;position:relative;z-index:1}
+.wdDBox h5{font-family:Conv_GiovanniStd-Book;font-size:18px;padding:0;line-height:24px;padding-top:30px;text-align:center;margin:auto}
+.wdDBox i{display:block;margin-top:5px;color:#876432}
+.pwdBanner{position:relative;top:-75px}
+.pwdBanner figure,.pwdBanner .transLayer{height:350px;max-height:350px;overflow:hidden}
+.galleryImgBorder .transLayer{background:rgba(0,0,0,0.5);position:absolute;width:95%;height:94%;top:10px;left:0}
+.transLayer{background:rgba(0,0,0,0.5);position:absolute;width:100%;height:100%;top:0px;left:0}
+.pwdBanner .pwdbContent{position:absolute;top:100px;width:100%;text-align:center;color:#fff}
+.pwdBanner .pwdbContent h4{font-family:'proxima_nova_rgregular';font-size:20px;margin-bottom:20px}
+.countDownDate{padding:0;position:relative;padding:0}
+.countDownDate .item{display:inline-block;position:relative;text-align:center;margin:0 10px;padding:10px;font-size:16px;color:#fff;letter-spacing:normal}
+.countDownDate .item p{text-align:center;margin:0;font-size:54px;padding:0;font-family:'Conv_GiovanniStd-Book'}
+.countDownDate .itemdot{text-align:center;position:relative;top:-50px;background-color:#b0875c;display:inline-block;width:5px;height:5px;border-radius:50%;overflow:hidden}
+.countDownDate p{font-family:'Conv_GiovanniStd-Book';font-size:24px}
+.profileEventsSlides{width:100%;margin:auto}
+.profileEventsSlides .lSPager{display:none}
+.profileEventsSlides .lSAction>a{opacity:1}
+.profileEventsSlides .lightSlider li{border:1px solid #ccc}
+.pesDesciption{text-align:center;padding:5px}
+.pesDesciption h3{font-family:'Merriweather';font-size:22px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%}
+.pesDesciption p{font-family:'proxima_nova_rgregular';font-size:18px;color:#332f2c;margin:0 0 15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%}
+.pesDesciption .btn{width:100%;text-transform:initial}
+.attendingFormContainer{margin:50px 0 0;padding-bottom:50px;position:relative;overflow:hidden}
+.attendingFormContainer .afcContent{position:relative;z-index:3}
+.attendingFormContainer .afcContent .fancyHeading{color:#fff;padding:50px}
+.attendingFormContainer .afcBgImage{position:absolute;top:0;left:0;z-index:1}
+.attendingFormContainer .transLayer{z-index:2;background:rgba(0,0,0,0.8)}
+.attendingFormContainer form{width:100%;max-width:550px;margin:auto;border:6px solid #9e753b;padding:20px}
+.attendingFormContainer form .form-vertical{background:#fff;border:1px solid #ccc8c5;padding:50px;text-align:center}
+.attendingFormContainer form .form-vertical h2{font-family:'Merriweather';font-size:22px;line-height:36px}
+.attendingFormContainer form .form-vertical .btn{padding-left:50px;padding-right:50px}
+.profilePreview{padding:0!important;margin:0!important}
+.profilePreview:hover,.profilePreview .template_headerDate h3:hover{text-decoration:none!important}
+.profilePreview .headerImage{height:550px!important;overflow:hidden!important}
+.profilePreview .headerImage img{height:550px}
+.profilePreview .template_headerOrnament{height:400px}
+.profilePreview .template_headerbridenames{margin-top:120px!important}
+.profilePreview .template_headerborder{border:0!important}
+.profilePreview .template_headerDate h3 span.weddingdate{padding-top:55px!important}
+.profilePreview .upload_relationPic figure img{max-width:100%;text-align:center;margin:auto;border-radius:50%;width:200px;padding:5px;border:3px solid #ccc;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);height:200px}
+.countStory:nth-child(1) .connectbar{display:none}
+.profilePreview .countStory:nth-child(odd) .ltr{left:auto;right:8%;text-align:left}
+.profilePreview .upload_storyPic figure{margin:auto;text-align:center}
+.profilePreview .upload_storyPic figure img{max-width:100%;text-align:center;margin:auto;border-radius:50%;width:200px;padding:5px;border:3px solid #ccc;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);height:200px}
+.profilePreview .bridal_storyContent.ltr{left:8%;right:auto;text-align:right}
+.profilePreview .bridal_storyContent{position:absolute;top:20%;width:30%}
+.profilePreview .connectbar{top:-80px;height:80px;width:3px;left:50%;position:absolute;background-color:#ccc}
+.profilePreview .bridal_storyContent .heading{font-family:'Conv_GiovanniStd-Book';font-size:34px;color:#332f2c!important;margin:0}
+.profilePreview .date{border:0;text-align:inherit}
+.profilePreview .relationBridal .owl-theme .owl-controls .owl-buttons .owl-prev{left:-80px;top:20%}
+.profilePreview .relationBridal .owl-theme .owl-controls .owl-buttons div{position:absolute;padding:5px 9px}
+.profilePreview .relationBridal .owl-theme .owl-buttons i{margin-top:2px}
+.profilePreview .relationBridal .owl-theme .owl-controls .owl-buttons .owl-next{right:-80px;top:20%}
+.profilePreview .relationBridal #owl-demo .item{display:block;margin:5px;color:#FFF;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;text-align:center;max-width:95%;overflow:hidden;height:auto;padding:5px}
+.profilePreview .relationBridal #owl-demo .item h3{font-family:'Conv_GiovanniStd-Book';font-size:24px;color:#332f2c;margin-top:20px!important}
+.profilePreview .relationBridal #owl-demo .item img{-webkit-transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;width:200px;height:200px;border-radius:100%;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);border:3px solid #ccc;padding:5px}
+.profilePreview .profileEventsSlides .owl-theme .owl-controls .owl-buttons .owl-prev{left:-80px;top:45%}
+.profilePreview .profileEventsSlides .owl-theme .owl-controls .owl-buttons div{position:absolute;padding:5px 9px}
+.profilePreview .profileEventsSlides .owl-theme .owl-buttons i{margin-top:2px}
+.profilePreview .profileEventsSlides .owl-theme .owl-controls .owl-buttons .owl-next{right:-80px;top:45%}
+.profilePreview .profileEventsSlides #owl-demo .item .addEvents #diamond{top:11px}
+.profilePreview .profileEventsSlides #owl-demo .item{display:block;margin:5px;color:#332f2c;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;text-align:center;max-width:95%;overflow:hidden;height:auto;padding:5px}
+.profilePreview .profileEventsSlides #owl-demo .item h3{font-family:'Conv_GiovanniStd-Book';font-size:24px;color:#332f2c;margin-top:20px!important}
+.profilePreview .profileEventsSlides #owl-demo .item img{-webkit-transition:.5s ease-in-out;-moz-transition:.5s ease-in-out;-o-transition:.5s ease-in-out;width:200px;height:200px;border-radius:100%;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);border:3px solid #ccc;padding:5px}
+img.st_decorationImage{top:-180px;position:relative}
+img.st_decorationImage2{right:0;left:auto;position:absolute;top:0}
+.upload_storyPic .profile-info:hover i{opacity:1}
+.upload_storyPic .profile-info i{top:-125px!important;left:0;padding:10px;background:#fff;border-radius:100%;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);opacity:.5;z-index:0;position:relative}
+.upload_bridePic .profile-info i{top:-125px!important;left:45%;padding:10px;background:#fff;border-radius:100%;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);opacity:.5;z-index:99;position:relative}
+.upload_bridePic .profile-info:hover i{opacity:1}
+.upload_relationPic .profile-info i{top:-125px!important;padding:10px;background:#fff;border-radius:100%;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);opacity:.5;z-index:99;position:relative}
+.upload_relationPic .profile-info:hover i{opacity:1}
+.upload_relationPic .btn-browse-hidden{z-index:999}
+.mywedding_Create .profile-info i{top:-200px!important;left:5px;padding:10px;background:#fff;border-radius:100%;box-shadow:0 2px 20px -3px rgba(35,43,46,0.55);opacity:.5;z-index:99}
+.mywedding_Create .profile-info:hover i{opacity:1}
+.mywedding_Create .profile-picture .btn-browse-hidden{width:200px;height:200px;margin:auto;left:25%;z-index:999}
+#BrideGroom_ProfilePreview .modal-lg{width:100%!important;margin:0}
+#BrideGroom_ProfilePreview .modal-header{position:static;background:#2c353a}
+#BrideGroom_ProfilePreview .modal-header .close{margin-top:-2px;opacity:1;color:#fff}
+#BrideGroom_ProfilePreview .modal-body{height:76vh;overflow:scroll;overflow-x:hidden}
+.profilePreview .template_headerbg .headerImage{height:390px;overflow:hidden;opacity:.5}
+.profilePreview .template_headerbg{position:relative;background:#000}
+#bridalparty .bridalBlock .tempRemove{position:absolute;top:50px;right:20px;background:#b0875c;height:30px;border-radius:100%;width:30px;line-height:34px;cursor:pointer;display:none;z-index:1}
+#bridalparty .bridalBlock:hover .tempRemove{display:block!important}
+#story .countStory .tempRemove{position:absolute;top:50px;right:20px;background:#b0875c;height:30px;border-radius:100%;width:30px;line-height:34px;cursor:pointer;display:none;z-index:1}
+#story .countStory:hover .tempRemove{display:block!important}
+#events .bridalGREvent .tempRemove{position:absolute;top:70px;right:40px;background:#b0875c;height:30px;border-radius:100%;width:30px;line-height:34px;cursor:pointer;display:none;z-index:1}
+#events .bridalGREvent:hover .tempRemove{display:block!important}
+.temp-error-msg{color:#b0875c;position:absolute;text-align:left;left:15px;font-family:'proxima_nova_rgregular';font-size:16px;line-height:30px}
+#mywedding_tempTab{text-align:center}
+ul#mywedding_tempTab li{float:none;display:inline-block;width:150px}
+.profileEventsSlides .owl-carousel .owl-item p#venue{height:70px}
+span.file_error{position:absolute;width:100%;left:0;text-align:center;color:#b0875c;padding-top:5px;height:20px}
+.uploadedGBimg{border-radius:100%;border:6px solid #8898a0!important;width:230px!important;height:230px;margin-bottom:43px!important;margin-top:80px!important}
+#myweddingURL .mywedding_Create .profile-picture figure img{margin-left:0; margin-top:0}
+#profileGalleryContainer .mcWithDesc img{height: 300px;object-fit: cover;}
+#profileGalleryContainer .mcWithDesc{cursor: default;}
+#profileGalleryContainer .galleryImgBorder{margin:4px;background-color:#fff;-moz-box-shadow:0 1px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 1px 4px rgba(0,0,0,0.2);box-shadow:0 1px 4px rgba(0,0,0,0.2);border: 1px solid #ccc;padding: 4px;}
+
+
+
+#overlay{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.6);z-index:9998;cursor:pointer}
+.spin{font-size:35px;display:inline-block;-moz-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;-webkit-animation:spin 2s infinite linear;animation:spin 2s infinite linear}
+@-moz-keyframes spin {
+0%{-moz-transform:rotate(0deg)}
+100%{-moz-transform:rotate(359deg)}
+}
+@-webkit-keyframes spin {
+0%{-webkit-transform:rotate(0deg)}
+100%{-webkit-transform:rotate(359deg)}
+}
+@-o-keyframes spin {
+0%{-o-transform:rotate(0deg)}
+100%{-o-transform:rotate(359deg)}
+}
+@-ms-keyframes spin {
+0%{-ms-transform:rotate(0deg)}
+100%{-ms-transform:rotate(359deg)}
+}
+@keyframes spin {
+0%{transform:rotate(0deg)}
+100%{transform:rotate(359deg)}
+}
+.spinner{top:45%;left:48%;position:absolute;text-align:center}
+.spinner p{margin:auto;text-align:center;font-size:16px;font-family:'proxima_nova_rgregular';color:#FFF}
+body {counter-reset: eventcount;}
+.addEvents #diamond h4:before{counter-increment: eventcount; content:  counter(eventcount)"";}
+.owl-carousel .owl-stage{margin:auto;}
+.owl-carousel .owl-stage .item img{margin:auto}
+.no-js .owl-carousel, .owl-carousel.owl-loaded{overflow: hidden;}
+.owl-prev.disabled,.owl-next.disabled {
+    opacity: 0.5;
+}
+.owl-prev{position: absolute;
+    top: 35%;
+    left: 0px;}
+.owl-next{position: absolute;
+    top: 35%;
+    right: 0px;}
+	
+ul#weddingTemplatesPreview:before {
+	content: 'Drag Your Template Here';
+    text-align: center;
+    font-size: 30px;
+    color: #b0875c!important;
+    width: 290px;
+    position: absolute;
+    display: block;
+    margin: 40px 0px 0px 77px;
+    font-family: 'Conv_GiovanniStd-Book';
+	top:50%;
+}
+.timelinestory .countStory:nth-child(1) .connectbar {
+    display: block;
+}
+.profileBGURL {
+    text-transform: lowercase;
+}
+.profilePreview .timelinestory .connectbar{    top: initial;}
+
+
